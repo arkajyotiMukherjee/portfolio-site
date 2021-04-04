@@ -2,8 +2,23 @@
 
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
-  <button
-    class="sc-bdfBwQ fZDIff"
+  .c0 {
+  height: 3rem;
+  min-width: 10rem;
+  width: 100%;
+  border: none;
+  color: white;
+  border-radius: 0.25rem;
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+
+.c0:disabled {
+  background: lightgray;
+}
+
+<button
+    class="c0"
   >
     Hello World!
   </button>
