@@ -1,8 +1,16 @@
 import { render } from "@testing-library/react";
 import React from "react";
+import { ThemeProvider } from "styled-components";
+import theme from "../../../styles/theme";
 import { Button } from "../Button";
 
 it("matches snapshot", () => {
-  const { asFragment } = render(<Button>Hello World!</Button>);
-  expect(asFragment()).toMatchSnapshot();
+  jest.isolateModules(() => {
+    const { asFragment } = render(
+      <ThemeProvider theme={theme}>
+        <Button>Hello World!</Button>
+      </ThemeProvider>
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

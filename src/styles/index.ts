@@ -14,16 +14,20 @@ type DefaultThemeObject = Omit<typeof themeObject, "screens"> & {
 
 const theme = (): DefaultTheme => {
   const { screens, ...themeValues }: DefaultThemeObject = themeObject;
-  const breakpointSizes = Object.keys(screens).reduce((accum, key: string) => {
-    const value = media({ maxWidth: screens[key] });
-    return {
-      ...accum,
-      [key]: value
-    };
-  }, {});
+  const breakpointSizes = Object.keys(screens).reduce(
+    (accumulator, key: string) => {
+      const value = media({ maxWidth: screens[key] });
+      return {
+        ...accumulator,
+        [key]: value,
+      };
+    },
+    {}
+  );
+
   return {
     ...themeValues,
-    screens: breakpointSizes
+    screens: breakpointSizes,
   };
 };
 

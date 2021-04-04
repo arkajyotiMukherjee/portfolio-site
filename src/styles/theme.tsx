@@ -24,13 +24,17 @@ export default {
     small: { lg: "0.875rem", md: "0.75rem" },
   },
   colors: {
+    primary: "#fff",
+    secondary: "#000",
+    textPrimary: "#000",
+    textSecondary: "#fff",
+    textHint: "#00000066",
+
     backgroundLight: "#F9FAFC",
     backgroundDark: "#F4F5F7",
     spaceGrey: "#F1F2F6",
     lightGray: "#EBEBEB",
     darkGray: "#6F6F6F",
-    textPrimary: "#042A2B",
-    textSecondary: "#5B44BA",
 
     grayText: (opacity: number): string =>
       opacityCheck(opacity)

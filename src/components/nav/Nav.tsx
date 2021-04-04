@@ -1,129 +1,73 @@
 import React from "react";
-import styled from "styled-components";
-import { useTheme } from "../../styles";
-import { OutlinedButton } from "../button/index";
-import { GithubIcon } from "../image-fetch/GithubIcon";
-import { Center } from "../layout";
-import { Link } from "../link/index";
-import { SmallText } from "../texts";
-import Burger from "./Burger";
+import styled, { css } from "styled-components";
 
-const NavBar = styled.nav`
-  width: ${props => (props.theme.screens.xl ? "95%" : "100%")};
-  max-width: 132rem;
+const NavContainer = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  padding: ${props => (props.theme.screens.lg ? "2rem" : "3.5rem 5rem")};
+  max-width: 112.5rem;
   margin: 0 auto;
-  padding-top: 1rem;
-  display: flex;
-  justify-content: space-around;
-  position: relative;
-  z-index: ${props => props.theme.zIndex.nav};
-`;
-
-const LogoDiv = styled.div`
-  display: flex;
-  margin: 0 1rem;
-`;
-
-const GitHubStars = styled.div`
-  width: fit-content;
-  height: 2rem;
-  font-size: ${props => props.theme.fontSize.small.lg};
-  padding: 0 0.5rem;
-  margin-left: ${props => (props.theme.screens.md ? "0.5rem" : "1.5rem")};
-  margin-top: ${props => (props.theme.screens.md ? 0 : "0.4rem")};
-  border: 1px solid #000000;
-  border-radius: 0.5rem;
-  display: flex;
-  color: black;
-  flex-direction: row;
-  justify-content: center;
-`;
-
-const GettingStarted = styled.div`
-  margin-top: 0.5rem;
-  margin-left: 2rem;
-  margin-right: -4rem;
 `;
 
 const Ul = styled.ul`
-  list-style: none;
   display: flex;
-  flex-flow: row nowrap;
-  li {
-    padding: ${props =>
-      props.theme.screens.mmd
-        ? "1rem 0.3rem"
-        : props.theme.screens.xl
-        ? "0.7rem 0.5rem"
-        : "1rem 1rem"};
-    font-size: ${props =>
-      props.theme.screens.mmd ? "0.9rem" : props.theme.fontSize.button};
+  flex-direction: ${props => (props.theme.screens.md ? "column" : "row")};
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+`;
+
+const Li = styled.li`
+  padding: ${props => (props.theme.screens.md ? "0.5rem 0" : "0.5rem 2.5rem")};
+  cursor: pointer;
+  text-align: ${props => (props.theme.screens.md ? "right" : "left")};
+  ${props =>
+    props.theme.screens.md &&
+    css`
+      width: fit-content;
+      align-self: flex-end;
+    `};
+
+  ::after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 2px;
+    background: ${props => props.theme.colors.secondary};
+    transition: width 200ms ease-in-out;
+    ${props =>
+      props.theme.screens.md &&
+      css`
+        float: right;
+      `}
+  }
+  :hover ::after {
+    width: 100%;
   }
 `;
 
-const NavLinks: React.FC = () => (
-  <LogoDiv>
-    <Link to="/">
-      <Center>
-        <img src="/svg/rain-doge.svg" width="128" alt="logo" />
-      </Center>
-    </Link>
-
-    <a rel="noopener noreferrer" target="_blank" href="https://github.com/">
-      <Center>
-        <GitHubStars>
-          <GithubIcon />
-          <SmallText style={{ margin: "0.3rem" }}>Star</SmallText>
-        </GitHubStars>
-      </Center>
-    </a>
-  </LogoDiv>
-);
-
 const Nav: React.FC = () => {
-  const { md } = useTheme().screens;
-
-  return md ? (
-    <NavBar>
-      <NavLinks />
-      <Burger />
-    </NavBar>
-  ) : (
-    <NavBar>
-      <NavLinks />
-
+  return (
+    <NavContainer>
+      <div>
+        <img src="/svg/rain-doge.svg" width="64" alt="logo" />
+      </div>
       <Ul>
-        <li>
-          <Link to="/">Page 1</Link>
-        </li>
-
-        <li>
-          <Link to="/" className="listItems">
-            Page 2
-          </Link>
-        </li>
-
-        <li>
-          <a rel="noopener noreferrer" target="_blank" href="https://dev.to">
-            Page 3
-          </a>
-        </li>
-
-        <li>
-          <Link to="/">Page 4</Link>
-        </li>
-
-        <GettingStarted>
-          <a
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://github.com/arkajyotiMukherjee"
-          >
-            <OutlinedButton backgroundColor="black">Get Started</OutlinedButton>
-          </a>
-        </GettingStarted>
+        <Li>
+          <a href="#about">about</a>
+        </Li>
+        <Li>
+          <a href="#projects">projects</a>
+        </Li>
+        <Li>
+          <a href="#contact">contact</a>
+        </Li>
+        <Li>
+          <a href="#blogs">blogs</a>
+        </Li>
       </Ul>
-    </NavBar>
+    </NavContainer>
   );
 };
 

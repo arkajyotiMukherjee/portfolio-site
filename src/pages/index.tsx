@@ -1,5 +1,4 @@
 import React from "react";
-import { Banner } from "../components/image-fetch/Banner";
 import { Layout } from "../components/layout";
 import {
   CloudNativeWay,
@@ -14,7 +13,6 @@ const App = () => {
   return (
     <Layout>
       <SEO />
-      <Banner />
       <Head />
       <CloudNativeWay />
       <QuickStart />

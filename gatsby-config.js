@@ -1,11 +1,19 @@
-const siteTitle = "Gatsby";
+const siteTitle = "Arkajyoti Mukherjee";
 const siteDescription =
-  "Some description";
-const siteAuthor = "me";
+  "Portfolio site for Arkajyoti Mukherjee | Fullstack developer | React | Golang | Flutter.";
+const siteAuthor = "arkajyotiMukherjee";
 const siteUrl = "https://github.com";
 const siteImage = `${siteUrl}/icons/siteImage.png`;
 const siteKeywords = [
-  "key", "word"
+  "arko",
+  "arkajyotiMukherjee",
+  "arkajyoti",
+  "mukherjee",
+  "fullstack",
+  "portfolio",
+  "react",
+  "golang",
+  "flutter",
 ];
 
 module.exports = {
