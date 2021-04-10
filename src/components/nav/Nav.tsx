@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { Body1 } from "../texts";
 
 const NavContainer = styled.nav`
   display: flex;
@@ -51,20 +52,28 @@ const Nav: React.FC = () => {
   return (
     <NavContainer>
       <div>
-        <img src="/svg/rain-doge.svg" width="64" alt="logo" />
+        <img src="/assets/rain-doge.svg" width="64" alt="logo" />
       </div>
       <Ul>
         <Li>
-          <a href="#about">about</a>
+          <a href="#about">
+            <Body1>about</Body1>
+          </a>
         </Li>
         <Li>
-          <a href="#projects">projects</a>
+          <a href="#projects">
+            <Body1>projects</Body1>
+          </a>
         </Li>
         <Li>
-          <a href="#contact">contact</a>
+          <a href="#contact">
+            <Body1>contact</Body1>
+          </a>
         </Li>
         <Li>
-          <a href="#blogs">blogs</a>
+          <a href="#blogs">
+            <Body1>blogs</Body1>
+          </a>
         </Li>
       </Ul>
     </NavContainer>

@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { BoundedContainer, ResponsiveRow } from "../../layout";
 import { Body1, Body2 } from "../../texts";
 
 const IconCircle = styled.div`
@@ -20,7 +19,7 @@ const FadedDiv = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: ${props => (props.theme.screens.md ? "80vw" : "40vw")};
+  width: 80vw;
   padding-top: ${props => (props.theme.screens.md ? "2rem" : "1rem")};
   margin-left: -1.4rem;
 `;
@@ -45,34 +44,29 @@ const Step: React.FC<IStep> = ({ title, description }) => {
 
 const GetStartedSteps: React.FC = () => {
   return (
-    <BoundedContainer breakpoint="md" width="50%" margin="0">
-      <FadedDiv>
-        <Wrapper>
-          <Step
-            title="Github"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget elit vel turpis malesuada vestibulum."
-          />
-          <Step
-            title="Medium"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget elit vel turpis malesuada vestibulum."
-          />
-          <Step
-            title="LinkedIn"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget elit vel turpis malesuada vestibulum."
-          />
-        </Wrapper>
-      </FadedDiv>
-    </BoundedContainer>
+    <FadedDiv>
+      <Wrapper>
+        <Step
+          title="Github"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget elit vel turpis malesuada vestibulum."
+        />
+        <Step
+          title="Medium"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget elit vel turpis malesuada vestibulum."
+        />
+        <Step
+          title="LinkedIn"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget elit vel turpis malesuada vestibulum."
+        />
+      </Wrapper>
+    </FadedDiv>
   );
 };
 
 const GetStarted: React.FC = () => {
   return (
     <div>
-      <ResponsiveRow breakpoint="md" alignItems="start">
-        <BoundedContainer breakpoint="md" width="50%" margin="0" />
-        <GetStartedSteps />
-      </ResponsiveRow>
+      <GetStartedSteps />
     </div>
   );
 };

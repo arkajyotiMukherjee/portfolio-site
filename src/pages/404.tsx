@@ -10,7 +10,7 @@ const BackgroundDiv = styled.div`
   width: 100vw;
   height: 100vh;
   padding: 5rem 2rem;
-  background: url("/svg/404Background.svg") no-repeat;
+  background: url("/assets/404Background.svg") no-repeat;
   background-size: cover;
 `;
 

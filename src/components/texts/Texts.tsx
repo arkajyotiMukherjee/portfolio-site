@@ -26,8 +26,8 @@ const SectionHeading = styled.h1<IText>`
   font-weight: normal;
   font-size: ${props =>
     props.theme.screens.md
-      ? props.theme.fontSize.heading.md
-      : props.theme.fontSize.heading.lg};
+      ? props.theme.fontSize.sectionHeading.md
+      : props.theme.fontSize.sectionHeading.lg};
 `;
 
 const Heading = styled.h1<IText>`
