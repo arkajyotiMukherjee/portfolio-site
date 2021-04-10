@@ -1,24 +1,15 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import { theme } from "../../styles";
+import { GlobalStyle } from "../../styles/global-styles";
 import { CSSDebugger } from "../css-debugger";
-import { Footer } from "../footer";
-import { Nav } from "../nav";
-
-const Container = styled.div`
-  position: relative;
-  z-index: ${props => props.theme.zIndex.content};
-`;
 
 const Layout: React.FC = ({ children }) => {
   return (
     <ThemeProvider theme={theme()}>
+      <GlobalStyle />
       <CSSDebugger />
-      <Container>
-        <Nav />
-        <main>{children}</main>
-        <Footer />
-      </Container>
+      <main>{children}</main>
     </ThemeProvider>
   );
 };

@@ -1,23 +1,16 @@
 import React from "react";
 import { Layout } from "../components/layout";
-import {
-  CloudNativeWay,
-  FeedBack,
-  GetStarted,
-  Head,
-  QuickStart,
-} from "../components/sections/home";
+import { Nav } from "../components/nav";
+import { GetStarted, Head } from "../components/sections/home";
 import { SEO } from "../components/seo";
 
 const App = () => {
   return (
     <Layout>
       <SEO />
+      <Nav />
       <Head />
-      <CloudNativeWay />
-      <QuickStart />
       <GetStarted />
-      <FeedBack />
     </Layout>
   );
 };

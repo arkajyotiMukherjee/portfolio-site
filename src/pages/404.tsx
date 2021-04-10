@@ -3,7 +3,7 @@ import styled, { ThemeProvider } from "styled-components";
 import { Button } from "../components/button";
 import { Image404 } from "../components/image-fetch/Image404";
 import { BoundedContainer, Center, ResponsiveRow } from "../components/layout";
-import { Paragraph } from "../components/texts";
+import { Body1 } from "../components/texts";
 import { theme, useTheme } from "../styles";
 
 const BackgroundDiv = styled.div`
@@ -27,7 +27,7 @@ const Content: React.FC = () => {
       </h1>
       <br />
 
-      <Paragraph>The page does not exist, or please try again later</Paragraph>
+      <Body1>The page does not exist, or please try again later</Body1>
       <br />
 
       <Button backgroundColor={textSecondary}>Go back home</Button>

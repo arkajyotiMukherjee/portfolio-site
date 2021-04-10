@@ -7,9 +7,9 @@ exports[`matches snapshot 1`] = `
   min-width: 10rem;
   width: 100%;
   border: none;
+  background: #000;
   color: white;
   border-radius: 0.25rem;
-  font-size: 1.125rem;
   cursor: pointer;
 }
 

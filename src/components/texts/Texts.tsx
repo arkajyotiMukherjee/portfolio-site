@@ -1,13 +1,39 @@
-import React from "react";
-import styled, { useTheme } from "styled-components";
+import styled, { DefaultTheme } from "styled-components";
+
+function textVariant(variant: Variant, theme: DefaultTheme) {
+  switch (variant) {
+    case "primary":
+      return theme.colors.textPrimary;
+    case "secondary":
+      return theme.colors.textSecondary;
+    case "hint":
+      return theme.colors.textHint;
+    default:
+      return theme.colors.textPrimary;
+  }
+}
+
+type Variant = "primary" | "secondary" | "hint" | undefined;
 
 interface IText {
   textAlign?: "center" | "left" | "right" | "justify" | "initial" | "inherit";
+  variant?: Variant;
 }
 
-const Heading = styled.h1<IText>`
-  line-height: 130%;
+const SectionHeading = styled.h1<IText>`
+  color: ${props => props.theme.colors.textHint};
   text-align: ${props => props.textAlign ?? "left"};
+  font-weight: normal;
+  font-size: ${props =>
+    props.theme.screens.md
+      ? props.theme.fontSize.heading.md
+      : props.theme.fontSize.heading.lg};
+`;
+
+const Heading = styled.h1<IText>`
+  color: ${props => props.theme.colors.textPrimary};
+  text-align: ${props => props.textAlign ?? "left"};
+  font-weight: normal;
   font-size: ${props =>
     props.theme.screens.md
       ? props.theme.fontSize.heading.md
@@ -15,8 +41,7 @@ const Heading = styled.h1<IText>`
 `;
 
 const SubHeading = styled.p<IText>`
-  line-height: 170%;
-  font-weight: 600;
+  color: ${props => textVariant(props.variant, props.theme)};
   text-align: ${props => props.textAlign ?? "left"};
   font-size: ${props =>
     props.theme.screens.md
@@ -24,106 +49,34 @@ const SubHeading = styled.p<IText>`
       : props.theme.fontSize.subHeading.lg};
 `;
 
-const Paragraph = styled.p<IText>`
-  line-height: 170%;
+const Body1 = styled.p<IText>`
+  color: ${props => props.theme.colors.textPrimary};
+  line-height: 160%;
   text-align: ${props => props.textAlign ?? "left"};
-  color: ${props => props.theme.colors.darkGray};
   font-size: ${props =>
     props.theme.screens.md
-      ? props.theme.fontSize.paragraph.md
-      : props.theme.fontSize.paragraph.lg};
+      ? props.theme.fontSize.body1.md
+      : props.theme.fontSize.body1.lg};
 `;
 
-interface IPurpleText extends IText {
-  underline: boolean;
-  fontWeight: number;
-  fontSize: "heading" | "subHeading" | "paragraph" | "subText" | "button";
-}
-
-const PurpleText = styled.p<IPurpleText>`
-  line-height: 130%;
-  font-weight: ${props => props.fontWeight};
+const Body2 = styled.p<IText>`
+  color: ${props => props.theme.colors.textPrimary};
+  line-height: 160%;
   text-align: ${props => props.textAlign ?? "left"};
-  color: ${props => props.theme.colors.textSecondary};
-  text-decoration: ${props => (props.underline ? "underline" : "none")};
-  cursor: ${props => (props.underline ? "pointer" : "auto")};
   font-size: ${props =>
     props.theme.screens.md
-      ? props.theme.fontSize[props.fontSize].md
-      : props.theme.fontSize[props.fontSize].lg};
+      ? props.theme.fontSize.body2.md
+      : props.theme.fontSize.body2.lg};
 `;
 
-interface ISubText extends IText {
-  color?: string;
-  fontWeight?: string;
-}
-
-const SubText = styled.p<ISubText>`
-  line-height: 150%;
+const Body3 = styled.p<IText>`
+  color: ${props => props.theme.colors.textPrimary};
+  line-height: 160%;
   text-align: ${props => props.textAlign ?? "left"};
-  color: ${props => props.color ?? props.theme.colors.textPrimary};
-  font-weight: ${props => props.fontWeight ?? "normal"};
   font-size: ${props =>
     props.theme.screens.md
-      ? props.theme.fontSize.subText.md
-      : props.theme.fontSize.subText.lg};
+      ? props.theme.fontSize.body3.md
+      : props.theme.fontSize.body3.lg};
 `;
 
-interface ICode extends IText {
-  bgColor: (opacity: number) => string;
-}
-
-const Code = styled.span<ICode>`
-  line-height: 170%;
-  text-align: ${props => props.textAlign ?? "left"};
-  color: ${props => props.bgColor(1)};
-  word-wrap: break-word;
-  font-size: ${props =>
-    props.theme.screens.md
-      ? props.theme.fontSize.paragraph.md
-      : props.theme.fontSize.paragraph.lg};
-`;
-interface IKubeCmd {
-  text: string;
-}
-const KubeCmd: React.FC<IKubeCmd> = ({ text }) => {
-  const { yellow, purple, red, grayText } = useTheme().colors;
-
-  return (
-    <p>
-      <Code bgColor={yellow}>Go&nbsp;</Code>
-      <Code bgColor={purple}>to&nbsp;</Code>
-      <Code bgColor={red}>:&nbsp;</Code>
-      <Code bgColor={grayText}>{text}</Code>
-    </p>
-  );
-};
-
-const GreenStats = styled.p`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: ${props => (props.theme.screens.md ? "3.18rem" : "4rem")};
-  font-weight: bold;
-  color: ${props => props.theme.colors.darkGreen(1)};
-`;
-
-const SmallText = styled.p<IText>`
-  text-align: ${props => props.textAlign ?? "left"};
-  color: ${props => props.color ?? props.theme.colors.textPrimary};
-  font-size: ${props =>
-    props.theme.screens.md
-      ? props.theme.fontSize.small.md
-      : props.theme.fontSize.small.lg};
-`;
-
-export {
-  Heading,
-  SubHeading,
-  Paragraph,
-  SubText,
-  KubeCmd,
-  PurpleText,
-  GreenStats,
-  SmallText,
-};
+export { SectionHeading, Heading, SubHeading, Body1, Body2, Body3 };
