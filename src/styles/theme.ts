@@ -9,11 +9,12 @@ export default {
     xxl: 1350,
   },
   fontSize: {
-    sectionHeading: { lg: "12.25rem", md: "3" },
-    heading: { lg: "6rem", md: "2.25rem" },
-    subHeading: { lg: "2.25rem", md: "1.125rem" },
-    body1: { lg: "1.5rem", md: "0.875rem" },
-    body2: { lg: "1.125rem", md: "0.75rem" },
+    sectionHeading: { xxxl: "12.25rem", xxl: "9.25rem", md: "3rem" },
+    heading: { xxxl: "6rem", xxl: "4rem", md: "2.25rem" },
+    subHeading: { xxxl: "2.25rem", xxl: "1.5", md: "1.125rem" },
+    body1: { xxxl: "1.5rem", xxl: "1.125rem", md: "0.875rem" },
+    body2: { xxxl: "1.125rem", xxl: "1rem", md: "0.75rem" },
+    body3: { xxxl: "1rem", xxl: "0.875rem", md: "0.688rem" },
   },
   colors: {
     primary: "#f2f2f2",

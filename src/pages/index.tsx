@@ -1,19 +1,37 @@
 import React from "react";
-import styled from "styled-components";
-import { Layout } from "../components/layout";
+import styled, { css } from "styled-components";
+import { FullWidthGRContainer, Layout } from "../components/layout";
 import { Nav } from "../components/nav";
 import { GetStarted, Head } from "../components/sections/home";
 import { SEO } from "../components/seo";
 
-const Banner = styled.div`
-  height: ${props =>
-    props.theme.screens.md ? "calc(100vw * 1.618)" : "calc(100vw / 1.618)"};
-  background: ${props =>
+const Banner = styled(FullWidthGRContainer).attrs({
+  flipped: true,
+})`
+  ${props =>
     props.theme.screens.md
-      ? `url("/assets/banner-md.png")`
-      : `url("/assets/banner.png")`};
+      ? css`
+          grid-template-areas:
+            "N N N N"
+            "H H H H"
+            "H H H H"
+            "H H H H";
+          background: url("/assets/banner-md.png");
+        `
+      : css`
+          grid-template-areas:
+            "N N N N"
+            "H . . ."
+            "H . . ."
+            "H . . .";
+          background: url("/assets/banner.png");
+        `};
+
   background-size: 100% auto;
   background-repeat: no-repeat;
+
+  max-width: 120rem;
+  margin: auto;
   margin-bottom: 3rem;
 `;
 

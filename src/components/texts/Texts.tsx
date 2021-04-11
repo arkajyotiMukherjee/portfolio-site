@@ -24,59 +24,71 @@ const SectionHeading = styled.h1<IText>`
   color: ${props => props.theme.colors.textHint};
   text-align: ${props => props.textAlign ?? "left"};
   font-weight: normal;
-  font-size: ${props =>
-    props.theme.screens.md
-      ? props.theme.fontSize.sectionHeading.md
-      : props.theme.fontSize.sectionHeading.lg};
+  font-size: ${({ theme }) =>
+    theme.screens.md
+      ? theme.fontSize.sectionHeading.md
+      : theme.screens.xxl
+      ? theme.fontSize.sectionHeading.xxl
+      : theme.fontSize.sectionHeading.xxxl};
 `;
 
 const Heading = styled.h1<IText>`
   color: ${props => props.theme.colors.textPrimary};
   text-align: ${props => props.textAlign ?? "left"};
   font-weight: normal;
-  font-size: ${props =>
-    props.theme.screens.md
-      ? props.theme.fontSize.heading.md
-      : props.theme.fontSize.heading.lg};
+  font-size: ${({ theme }) =>
+    theme.screens.md
+      ? theme.fontSize.heading.md
+      : theme.screens.xxl
+      ? theme.fontSize.heading.xxl
+      : theme.fontSize.heading.xxxl};
 `;
 
 const SubHeading = styled.p<IText>`
   color: ${props => textVariant(props.variant, props.theme)};
   text-align: ${props => props.textAlign ?? "left"};
-  font-size: ${props =>
-    props.theme.screens.md
-      ? props.theme.fontSize.subHeading.md
-      : props.theme.fontSize.subHeading.lg};
+  font-size: ${({ theme }) =>
+    theme.screens.md
+      ? theme.fontSize.subHeading.md
+      : theme.screens.xxl
+      ? theme.fontSize.subHeading.xxl
+      : theme.fontSize.subHeading.xxxl};
 `;
 
 const Body1 = styled.p<IText>`
   color: ${props => props.theme.colors.textPrimary};
   line-height: 160%;
   text-align: ${props => props.textAlign ?? "left"};
-  font-size: ${props =>
-    props.theme.screens.md
-      ? props.theme.fontSize.body1.md
-      : props.theme.fontSize.body1.lg};
+  font-size: ${({ theme }) =>
+    theme.screens.md
+      ? theme.fontSize.body1.md
+      : theme.screens.xxl
+      ? theme.fontSize.body1.xxl
+      : theme.fontSize.body1.xxxl};
 `;
 
 const Body2 = styled.p<IText>`
   color: ${props => props.theme.colors.textPrimary};
   line-height: 160%;
   text-align: ${props => props.textAlign ?? "left"};
-  font-size: ${props =>
-    props.theme.screens.md
-      ? props.theme.fontSize.body2.md
-      : props.theme.fontSize.body2.lg};
+  font-size: ${({ theme }) =>
+    theme.screens.md
+      ? theme.fontSize.body2.md
+      : theme.screens.xxl
+      ? theme.fontSize.body2.xxl
+      : theme.fontSize.body2.xxxl};
 `;
 
 const Body3 = styled.p<IText>`
   color: ${props => props.theme.colors.textPrimary};
   line-height: 160%;
   text-align: ${props => props.textAlign ?? "left"};
-  font-size: ${props =>
-    props.theme.screens.md
-      ? props.theme.fontSize.body3.md
-      : props.theme.fontSize.body3.lg};
+  font-size: ${({ theme }) =>
+    theme.screens.md
+      ? theme.fontSize.body3.md
+      : theme.screens.xxl
+      ? theme.fontSize.body3.xxl
+      : theme.fontSize.body3.xxxl};
 `;
 
 export { SectionHeading, Heading, SubHeading, Body1, Body2, Body3 };

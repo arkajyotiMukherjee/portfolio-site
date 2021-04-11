@@ -3,10 +3,12 @@ import styled, { css } from "styled-components";
 import { Body1 } from "../texts";
 
 const NavContainer = styled.nav`
+  grid-area: N;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding: ${props => (props.theme.screens.lg ? "2rem" : "3.5rem 5rem")};
-  max-width: 112.5rem;
+  max-width: 120rem;
   margin: 0 auto;
 `;
 
@@ -20,7 +22,12 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li`
-  padding: ${props => (props.theme.screens.md ? "0.5rem 0" : "0.5rem 2.5rem")};
+  padding: ${props =>
+    props.theme.screens.md
+      ? "0.5rem 0"
+      : props.theme.screens.xxl
+      ? "0.5rem 1.5rem"
+      : "0.5rem 2.5rem"};
   cursor: pointer;
   text-align: ${props => (props.theme.screens.md ? "right" : "left")};
   ${props =>
