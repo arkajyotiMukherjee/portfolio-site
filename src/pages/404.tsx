@@ -1,66 +1,54 @@
+import { navigate } from "gatsby";
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import { Button } from "../components/button";
 import { Image404 } from "../components/image-fetch/Image404";
-import { BoundedContainer, Center, ResponsiveRow } from "../components/layout";
-import { Body1 } from "../components/texts";
-import { theme, useTheme } from "../styles";
+import {
+  BoundedContainer,
+  Center,
+  Layout,
+  ResponsiveRow,
+} from "../components/layout";
+import { Body1, Heading } from "../components/texts";
 
-const BackgroundDiv = styled.div`
+const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  padding: 5rem 2rem;
-  background: url("/assets/404Background.svg") no-repeat;
-  background-size: cover;
 `;
 
-const Content: React.FC = () => {
-  const { textSecondary } = useTheme().colors;
-  const { lg, xxxl } = useTheme().screens;
-
+const PageNotFound: React.FC = () => {
   return (
-    <div style={{ marginLeft: lg ? 0 : "2rem" }}>
-      <h1 style={{ fontSize: lg ? "2.5rem" : xxxl ? "3.5rem" : "4rem" }}>
-        Whoops!
-        <br />
-        This page is unavailable
-      </h1>
-      <br />
-
-      <Body1>The page does not exist, or please try again later</Body1>
-      <br />
-
-      <Button backgroundColor={textSecondary}>Go back home</Button>
-    </div>
-  );
-};
-
-// Component
-const NotFoundPage: React.FC = () => {
-  return (
-    <ThemeProvider theme={theme()}>
-      <BackgroundDiv>
+    <Layout>
+      <Container>
         <Center>
           <ResponsiveRow breakpoint="lg">
             <BoundedContainer
               breakpoint="lg"
               width="50%"
-              margin="0"
-              style={{ maxWidth: "100%" }}
+              margin="0 0 0 3rem"
+              style={{ padding: "1rem" }}
             >
-              <Center fullHeight={true}>
-                <Content />
-              </Center>
+              <Heading>
+                Whoops!
+                <br />
+                This page is unavailable
+              </Heading>
+              <br />
+
+              <Body1>The page does not exist, or please try again later</Body1>
+              <br />
+
+              <Button onClick={() => navigate("/")}>Go back home</Button>
             </BoundedContainer>
 
-            <BoundedContainer breakpoint="lg" width="50%" margin="0 0 0 2rem">
+            <BoundedContainer breakpoint="lg" width="50%">
               <Image404 />
             </BoundedContainer>
           </ResponsiveRow>
         </Center>
-      </BackgroundDiv>
-    </ThemeProvider>
+      </Container>
+    </Layout>
   );
 };
 
-export default NotFoundPage;
+export default PageNotFound;

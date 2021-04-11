@@ -35,7 +35,7 @@ const Banner = styled(FullWidthGRContainer).attrs({
   margin-bottom: 3rem;
 `;
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <Layout>
       <SEO />
