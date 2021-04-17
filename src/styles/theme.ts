@@ -40,6 +40,5 @@ export default {
   },
   zIndex: {
     content: "10",
-    nav: "50",
   },
 };

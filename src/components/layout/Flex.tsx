@@ -7,6 +7,9 @@ interface IResponsiveRow {
 }
 
 const ResponsiveRow = styled.div<IResponsiveRow>`
+  position: relative;
+  z-index: ${props => props.theme.zIndex.content};
+
   width: 100%;
   display: flex;
   ${props =>

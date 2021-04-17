@@ -87,7 +87,7 @@ const Body1 = styled.p<IText>`
 `;
 
 const Body2 = styled.p<IText>`
-  color: ${props => props.theme.colors.textPrimary};
+  color: ${props => textVariant(props.variant, props.theme)};
   line-height: 160%;
   text-align: ${props => props.textAlign ?? "left"};
   font-size: ${({ theme }) =>
