@@ -22,12 +22,7 @@ const PageNotFound: React.FC = () => {
       <Container>
         <Center>
           <ResponsiveRow breakpoint="lg">
-            <BoundedContainer
-              breakpoint="lg"
-              width="50%"
-              margin="0 0 0 3rem"
-              style={{ padding: "1rem" }}
-            >
+            <BoundedContainer breakpoint="lg" width="50%">
               <Heading>
                 Whoops!
                 <br />

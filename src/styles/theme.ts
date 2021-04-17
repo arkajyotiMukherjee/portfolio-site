@@ -7,11 +7,18 @@ export default {
     lg: 1024,
     xl: 1280,
     xxl: 1350,
+    xxxl: 1780,
   },
   fontSize: {
-    sectionHeading: { xxxl: "12.25rem", xxl: "9.25rem", md: "3rem" },
+    fadedHeading: "25rem",
+    sectionHeading: {
+      xxxl: "12.25rem",
+      xxl: "9.25rem",
+      lg: "6rem",
+      sm: "3rem",
+    },
     heading: { xxxl: "6rem", xxl: "4rem", md: "2.25rem" },
-    subHeading: { xxxl: "2.25rem", xxl: "1.5", md: "1.125rem" },
+    subHeading: { xxxl: "2.25rem", xxl: "1.5rem", md: "1.125rem" },
     body1: { xxxl: "1.5rem", xxl: "1.125rem", md: "0.875rem" },
     body2: { xxxl: "1.125rem", xxl: "1rem", md: "0.75rem" },
     body3: { xxxl: "1rem", xxl: "0.875rem", md: "0.688rem" },
@@ -26,6 +33,7 @@ export default {
   opacity: {
     0: 0,
     25: 0.25,
+    30: 0.3,
     50: 0.5,
     75: 0.75,
     100: 1,

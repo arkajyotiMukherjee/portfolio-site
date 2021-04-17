@@ -3,14 +3,13 @@ import styled from "styled-components";
 interface IBoundedContainer {
   breakpoint: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   width: string;
-  margin?: string;
 }
 
 const BoundedContainer = styled.div<IBoundedContainer>`
+  /* width is 100% - 16% (horizontal margin) = 84% */
   width: ${props =>
-    props.theme.screens[props.breakpoint] ? "100%" : props.width};
-  margin: ${props =>
-    props.theme.screens[props.breakpoint] ? "1rem" : props.margin ?? "0 3rem"};
+    props.theme.screens[props.breakpoint] ? "84%" : props.width};
+  margin: 2% 8%;
 `;
 
 export { BoundedContainer };

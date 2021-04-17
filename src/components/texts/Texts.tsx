@@ -20,13 +20,32 @@ interface IText {
   variant?: Variant;
 }
 
+interface IFadedHeading {
+  positionsTRBL: [string, string, string, string];
+}
+
+const FadedHeading = styled.h1<IFadedHeading>`
+  position: absolute;
+  top: ${props => props.positionsTRBL[0]};
+  right: ${props => props.positionsTRBL[1]};
+  bottom: ${props => props.positionsTRBL[2]};
+  left: ${props => props.positionsTRBL[3]};
+
+  color: ${props => props.theme.colors.textHint};
+  opacity: ${props => props.theme.opacity[30]};
+  font-weight: normal;
+  font-size: ${props => props.theme.fontSize.fadedHeading};
+`;
+
 const SectionHeading = styled.h1<IText>`
   color: ${props => props.theme.colors.textHint};
   text-align: ${props => props.textAlign ?? "left"};
   font-weight: normal;
   font-size: ${({ theme }) =>
-    theme.screens.md
-      ? theme.fontSize.sectionHeading.md
+    theme.screens.sm
+      ? theme.fontSize.sectionHeading.sm
+      : theme.screens.lg
+      ? theme.fontSize.sectionHeading.lg
       : theme.screens.xxl
       ? theme.fontSize.sectionHeading.xxl
       : theme.fontSize.sectionHeading.xxxl};
@@ -91,4 +110,12 @@ const Body3 = styled.p<IText>`
       : theme.fontSize.body3.xxxl};
 `;
 
-export { SectionHeading, Heading, SubHeading, Body1, Body2, Body3 };
+export {
+  FadedHeading,
+  SectionHeading,
+  Heading,
+  SubHeading,
+  Body1,
+  Body2,
+  Body3,
+};

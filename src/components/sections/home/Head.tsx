@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { constants } from "../../../constants";
 import { Heading } from "../../texts";
 
 const GoldenRatioLongSection = styled.div`
@@ -15,8 +16,8 @@ const Head: React.FC = () => {
   return (
     <GoldenRatioLongSection>
       <Heading>
-        hi, I'm
-        <br /> &nbsp; &nbsp; arko.
+        {constants.head.intro}
+        <br /> &nbsp; &nbsp; {constants.head.name}.
       </Heading>
     </GoldenRatioLongSection>
   );

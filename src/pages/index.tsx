@@ -2,7 +2,8 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { FullWidthGRContainer, Layout } from "../components/layout";
 import { Nav } from "../components/nav";
-import { GetStarted, Head } from "../components/sections/home";
+import { Head } from "../components/sections/home";
+import { About } from "../components/sections/home/About";
 import { SEO } from "../components/seo";
 
 const Banner = styled(FullWidthGRContainer).attrs({
@@ -43,7 +44,7 @@ const App: React.FC = () => {
         <Nav />
         <Head />
       </Banner>
-      <GetStarted />
+      <About />
     </Layout>
   );
 };

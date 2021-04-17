@@ -1,10 +1,16 @@
 import styled from "styled-components";
 
-const FullWidthGRContainer = styled.div.attrs({
-  flipped: false,
-  width: "100vw",
-  maxWidth: "120rem",
-})`
+interface IFullWidthGRContainer {
+  flipped?: boolean;
+  width?: string;
+  maxWidth?: string;
+}
+
+const FullWidthGRContainer = styled.div.attrs<IFullWidthGRContainer>(props => ({
+  flipped: props.flipped ?? false,
+  width: props.width || "100vw",
+  maxWidth: props.maxWidth || "120rem",
+}))<IFullWidthGRContainer>`
   /* The height is proportionate to the width in the golden ratio */
   height: ${props =>
     props.theme.screens.md

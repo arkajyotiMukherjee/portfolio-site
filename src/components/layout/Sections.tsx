@@ -1,32 +1,11 @@
 import styled from "styled-components";
 
 const Section = styled.section`
-  padding: ${props => (props.theme.screens.lg ? "3rem 2rem" : "3rem 5rem")};
+  position: relative;
+  max-width: 120rem;
+  margin: 0 auto;
 
-  & > * {
-    max-width: 120rem;
-    margin: 0 auto;
-  }
+  overflow: hidden;
 `;
 
-const SectionLight = styled.section`
-  background-color: ${props => props.theme.colors.backgroundLight};
-  padding: ${props => (props.theme.screens.lg ? "3rem 2rem" : "3rem 5rem")};
-
-  & > * {
-    max-width: 120rem;
-    margin: 0 auto;
-  }
-`;
-
-const SectionDark = styled.section`
-  background-color: ${props => props.theme.colors.backgroundDark};
-  padding: ${props => (props.theme.screens.lg ? "3rem 2rem" : " 3rem 5rem")};
-
-  & > * {
-    max-width: 120rem;
-    margin: 0 auto;
-  }
-`;
-
-export { Section, SectionLight, SectionDark };
+export { Section };

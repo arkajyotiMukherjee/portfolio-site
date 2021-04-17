@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { constants } from "../../constants";
 import { Body1 } from "../texts";
 
 const NavContainer = styled.nav`
@@ -7,7 +8,7 @@ const NavContainer = styled.nav`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: ${props => (props.theme.screens.lg ? "2rem" : "3.5rem 5rem")};
+  padding: 2% 4%;
   max-width: 120rem;
   margin: 0 auto;
 `;
@@ -59,27 +60,31 @@ const Nav: React.FC = () => {
   return (
     <NavContainer>
       <div>
-        <img src="/assets/rain-doge.svg" width="64" alt="logo" />
+        <img
+          src="/assets/rain-doge.svg"
+          width="64"
+          alt={constants.nav.logoAlt}
+        />
       </div>
       <Ul>
         <Li>
-          <a href="#about">
-            <Body1>about</Body1>
+          <a href={`#${constants.nav.about}`}>
+            <Body1>{constants.nav.about}</Body1>
           </a>
         </Li>
         <Li>
-          <a href="#projects">
-            <Body1>projects</Body1>
+          <a href={`#${constants.nav.projects}`}>
+            <Body1>{constants.nav.projects}</Body1>
           </a>
         </Li>
         <Li>
-          <a href="#contact">
-            <Body1>contact</Body1>
+          <a href={`#${constants.nav.contact}`}>
+            <Body1>{constants.nav.contact}</Body1>
           </a>
         </Li>
         <Li>
-          <a href="#blogs">
-            <Body1>blogs</Body1>
+          <a href={`#${constants.nav.blogs}`}>
+            <Body1>{constants.nav.blogs}</Body1>
           </a>
         </Li>
       </Ul>
