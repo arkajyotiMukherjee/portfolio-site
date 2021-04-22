@@ -5,6 +5,7 @@ import { SubHeading } from "../texts";
 
 interface ITabs {
   defaultActiveIndex: number;
+  autoSwitch?: boolean;
 }
 
 interface ITabPane {
@@ -28,13 +29,17 @@ const Tab = styled(SubHeading)`
   cursor: pointer;
 `;
 
-const Tabs: React.FC<ITabs> = ({ defaultActiveIndex, children }) => {
+const Tabs: React.FC<ITabs> = ({
+  defaultActiveIndex,
+  autoSwitch,
+  children,
+}) => {
   const [activeIndex, setActiveIndex] = useState<number>(defaultActiveIndex);
   const totalNoOfTabs = (children as React.ReactElement[])?.length;
 
   useEffect(() => {
     const timer = setInterval(
-      () => setActiveIndex((activeIndex % totalNoOfTabs) + 1),
+      () => autoSwitch && setActiveIndex((activeIndex % totalNoOfTabs) + 1),
       5000
     );
 
