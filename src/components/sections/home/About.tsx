@@ -1,8 +1,10 @@
+import { ParentSize } from "@visx/responsive";
 import React, { useState } from "react";
 import styled, { useTheme } from "styled-components";
 import { Anchor } from "../../../anchor";
 import { constants } from "../../../constants";
 import { Chip } from "../../chip";
+import { HierarchyGraph } from "../../graphs/hierarchyGraph";
 import { Profile } from "../../image-fetch/Profile";
 import { BoundedContainer, ResponsiveRow, Section } from "../../layout";
 import { VerticalSteps } from "../../steps";
@@ -21,7 +23,7 @@ const FillerSpace = styled.div`
 `;
 
 const ProfileWrapper = styled(BoundedContainer).attrs({
-  breakpoint: "md",
+  breakpoint: "lg",
   width: "45%",
   margin: "3% 0 0 8%",
 })`
@@ -65,13 +67,20 @@ const TabContent1: React.FC = () => {
   );
 };
 
+const TabContent2: React.FC = () => {
+  return (
+    <ParentSize>
+      {({ width }) => <HierarchyGraph width={width} height={width} />}
+    </ParentSize>
+  );
+};
+
 type IReadMore = {
   [index: string]: boolean;
 };
 
 const TabContent3: React.FC = () => {
   const [readMore, setReadMore] = useState<IReadMore>({});
-  console.log("🚀 ~ file: About.tsx ~ line 74 ~ readMore", readMore);
 
   return (
     <>
@@ -147,26 +156,24 @@ const About: React.FC = () => {
         <SectionHeading>{constants.about.heading}</SectionHeading>
       ) : (
         <>
-          <FadedHeading positionsTRBL={["0", "0", "0", "-3rem"]}>
-            {constants.about.heading}
-          </FadedHeading>
+          <FadedHeading>{constants.about.heading}</FadedHeading>
           <FillerSpace />
         </>
       )}
-      <ResponsiveRow breakpoint="md">
+      <ResponsiveRow breakpoint="lg">
         <ProfileWrapper>
           <Profile />
           <SubHeading>{constants.about.name}</SubHeading>
           <Body1>{constants.about.designation}</Body1>
         </ProfileWrapper>
 
-        <BoundedContainer breakpoint="md" width="55%" margin="0 8% 0 0">
+        <BoundedContainer breakpoint="lg" width="55%" margin="0 8% 0 0">
           <Tabs defaultActiveIndex={1} autoSwitch={false}>
             <TabPane label={constants.about.tabs.tab1.heading} index={1}>
               <TabContent1 />
             </TabPane>
             <TabPane label={constants.about.tabs.tab2.heading} index={2}>
-              Tab 2
+              <TabContent2 />
             </TabPane>
             <TabPane label={constants.about.tabs.tab3.heading} index={3}>
               <TabContent3 />

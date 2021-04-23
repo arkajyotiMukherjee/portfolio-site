@@ -9,7 +9,7 @@ interface IFullWidthGRContainer {
 const FullWidthGRContainer = styled.div.attrs<IFullWidthGRContainer>(props => ({
   flipped: props.flipped ?? false,
   width: props.width || "100vw",
-  maxWidth: props.maxWidth || "120rem",
+  maxWidth: props.maxWidth || props.theme.maxWidth,
 }))<IFullWidthGRContainer>`
   /* The height is proportionate to the width in the golden ratio */
   height: ${props =>

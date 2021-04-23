@@ -9,13 +9,13 @@ const NavContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   padding: 2% 4%;
-  max-width: 120rem;
+  max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
 `;
 
 const Ul = styled.ul`
   display: flex;
-  flex-direction: ${props => (props.theme.screens.md ? "column" : "row")};
+  flex-direction: ${props => (props.theme.screens.sm ? "column" : "row")};
   justify-content: space-between;
   list-style: none;
   margin: 0;
@@ -23,16 +23,11 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li`
-  padding: ${props =>
-    props.theme.screens.md
-      ? "0.5rem 0"
-      : props.theme.screens.xxl
-      ? "0.5rem 1.5rem"
-      : "0.5rem 2.5rem"};
+  padding: ${props => (props.theme.screens.sm ? "0.5rem 0" : "0.5rem 1.5rem")};
   cursor: pointer;
-  text-align: ${props => (props.theme.screens.md ? "right" : "left")};
+  text-align: ${props => (props.theme.screens.sm ? "right" : "left")};
   ${props =>
-    props.theme.screens.md &&
+    props.theme.screens.sm &&
     css`
       width: fit-content;
       align-self: flex-end;
@@ -46,7 +41,7 @@ const Li = styled.li`
     background: ${props => props.theme.colors.secondary};
     transition: width 200ms ease-in-out;
     ${props =>
-      props.theme.screens.md &&
+      props.theme.screens.sm &&
       css`
         float: right;
       `}

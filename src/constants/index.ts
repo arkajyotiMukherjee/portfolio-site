@@ -1,3 +1,19 @@
+interface Job {
+  id: string;
+  designation: string;
+  company: string;
+  location: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+}
+
+interface TreeNode {
+  name: string;
+  isExpanded?: boolean;
+  children?: TreeNode[];
+}
+
 const constants = {
   texts: {
     maxCharacterLimit: 350,
@@ -35,6 +51,31 @@ const constants = {
       },
       tab2: {
         heading: "skills",
+        skills: {
+          name: "skills",
+          children: [
+            {
+              name: "frontend",
+              children: [
+                { name: "HTML/CSS" },
+                { name: "JS/TS" },
+                { name: "react" },
+                { name: "CSS-in-JS" },
+                { name: "gatsby" },
+                { name: "flutter" },
+              ],
+            },
+            {
+              name: "backend",
+              children: [
+                { name: "mongo" },
+                { name: "go" },
+                { name: "k8s" },
+                { name: "CI/CD" },
+              ],
+            },
+          ],
+        } as TreeNode,
       },
       tab3: {
         heading: "experience",
@@ -98,7 +139,7 @@ const constants = {
               * Used service workers to cache the data in browser for faster load times.
             `,
           },
-        ],
+        ] as Job[],
       },
     },
   },

@@ -10,10 +10,10 @@ const StepProgress = styled.ul`
   ::before {
     content: "";
     position: absolute;
-    top: 0.25rem;
-    left: 0.81rem;
+    top: 4px;
+    left: 13px;
     /* subtracting the top*2 so that the line starts and ends right behind the circles */
-    height: calc(100% - 0.5rem);
+    height: calc(100% - 8px);
     border: 3px solid ${props => props.theme.colors.textHint};
     border-radius: 30px;
   }
@@ -23,17 +23,17 @@ const StepItem = styled.li`
   position: relative;
 
   &:not(:last-child) {
-    padding-bottom: 2rem;
+    padding-bottom: 32px;
   }
 
   /* Step indicator/circle */
   &::after {
     content: "";
     position: absolute;
-    top: 0.25rem;
-    left: -2.313rem;
-    width: 1rem;
-    height: 1rem;
+    top: 4px;
+    left: -37px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background-color: ${props => props.theme.colors.secondary};
   }

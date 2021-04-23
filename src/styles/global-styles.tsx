@@ -3,6 +3,12 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
   html {
     font-family: "Fira Code", "Ubuntu", sans-serif;
+    font-size: ${({ theme }) =>
+      theme.screens.md
+        ? theme.fontSize.body3.md
+        : theme.screens.xxl
+        ? theme.fontSize.body3.xxl
+        : theme.fontSize.body3.xxxl};
   }
 
   body {

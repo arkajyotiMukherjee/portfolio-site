@@ -31,7 +31,7 @@ const Banner = styled(FullWidthGRContainer).attrs({
   background-size: 100% auto;
   background-repeat: no-repeat;
 
-  max-width: 120rem;
+  max-width: ${props => props.theme.maxWidth};
   margin: auto;
   margin-bottom: 3rem;
 `;

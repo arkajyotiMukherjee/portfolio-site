@@ -7,13 +7,10 @@ const Button = styled.button`
   width: ${props => (props.theme.screens.sm ? "100%" : "18rem")};
   border: none;
   background: ${props => props.theme.colors.secondary};
-  color: white;
+  color: ${props => props.theme.colors.textSecondary};
   border-radius: 0.25rem;
-  font-size: ${props => props.theme.fontSize.button};
+  font-size: ${props => props.theme.fontSize.body2};
   cursor: pointer;
-  :disabled {
-    background: lightgray;
-  }
 `;
 
 export { Button };

@@ -20,16 +20,8 @@ interface IText {
   variant?: Variant;
 }
 
-interface IFadedHeading {
-  positionsTRBL: [string, string, string, string];
-}
-
-const FadedHeading = styled.h1<IFadedHeading>`
+const FadedHeading = styled.h1`
   position: absolute;
-  top: ${props => props.positionsTRBL[0]};
-  right: ${props => props.positionsTRBL[1]};
-  bottom: ${props => props.positionsTRBL[2]};
-  left: ${props => props.positionsTRBL[3]};
 
   color: ${props => props.theme.colors.textHint};
   opacity: ${props => props.theme.opacity[30]};

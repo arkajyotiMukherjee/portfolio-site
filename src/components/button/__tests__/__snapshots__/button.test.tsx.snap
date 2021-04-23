@@ -8,13 +8,12 @@ exports[`matches snapshot 1`] = `
   width: 100%;
   border: none;
   background: #000;
-  color: white;
+  color: #fff;
   border-radius: 0.25rem;
+  font-size: xxxl:18px;
+  xxl: 16px;
+  md: 12px;
   cursor: pointer;
-}
-
-.c0:disabled {
-  background: lightgray;
 }
 
 <button

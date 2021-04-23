@@ -9,19 +9,20 @@ export default {
     xxl: 1350,
     xxxl: 1780,
   },
+  maxWidth: "1920px",
   fontSize: {
-    fadedHeading: "25rem",
+    fadedHeading: "400px",
     sectionHeading: {
-      xxxl: "12.25rem",
-      xxl: "9.25rem",
-      lg: "6rem",
-      sm: "3rem",
+      xxxl: "196px",
+      xxl: "148px",
+      lg: "96px",
+      sm: "48px",
     },
-    heading: { xxxl: "6rem", xxl: "4rem", md: "2.25rem" },
-    subHeading: { xxxl: "2.25rem", xxl: "1.5rem", md: "1.125rem" },
-    body1: { xxxl: "1.5rem", xxl: "1.125rem", md: "0.875rem" },
-    body2: { xxxl: "1.125rem", xxl: "1rem", md: "0.75rem" },
-    body3: { xxxl: "1rem", xxl: "0.875rem", md: "0.688rem" },
+    heading: { xxxl: "96px", xxl: "64px", md: "36px" },
+    subHeading: { xxxl: "36px", xxl: "24px", md: "18px" },
+    body1: { xxxl: "24px", xxl: "18px", md: "14px" },
+    body2: { xxxl: "18px", xxl: "16px", md: "12px" },
+    body3: { xxxl: "16px", xxl: "14px", md: "11px" },
   },
   colors: {
     primary: "#f2f2f2",
@@ -29,6 +30,16 @@ export default {
     textPrimary: "#000",
     textSecondary: "#fff",
     textHint: "#00000066",
+  },
+  graph: {
+    hierarchyGraph: {
+      fontSize: { md: 14, sm: 11 },
+      rootRadius: { md: 32, sm: 20 },
+      rectNode: {
+        width: { md: 64, sm: 36 },
+        height: { md: 32, sm: 20 },
+      },
+    },
   },
   opacity: {
     0: 0,
