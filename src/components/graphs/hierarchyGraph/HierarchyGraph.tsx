@@ -22,7 +22,7 @@ const HierarchyGraph: React.FC<IHierarchyGraph> = ({
 }) => {
   const {
     screens,
-    colors: { primary, secondary },
+    colors: { primary, secondary, textHint },
     graph: {
       hierarchyGraph: { fontSize, rootRadius, rectNode },
     },
@@ -56,8 +56,8 @@ const HierarchyGraph: React.FC<IHierarchyGraph> = ({
                   <LinkRadialStep
                     key={i}
                     data={link}
-                    stroke={secondary}
-                    strokeWidth={1.5}
+                    stroke={textHint}
+                    strokeWidth={3}
                     fill="none"
                   />
                 ))}
@@ -69,13 +69,16 @@ const HierarchyGraph: React.FC<IHierarchyGraph> = ({
                     ? rectNode.width.sm
                     : rectNode.width.md;
                   if (nameLength > 6)
-                    width = width + (nameLength * nameLength) / 4;
+                    width = width + (nameLength * nameLength) / 3;
 
                   const height = screens.sm
                     ? rectNode.height.sm
                     : rectNode.height.md;
 
                   const radius = screens.sm ? rootRadius.sm : rootRadius.md;
+                  const nodeRadius = screens.sm
+                    ? rectNode.radius.sm
+                    : rectNode.radius.md;
                   const font = screens.sm ? fontSize.sm : fontSize.md;
 
                   const [radialX, radialY] = pointRadial(node.x, node.y);
@@ -100,7 +103,7 @@ const HierarchyGraph: React.FC<IHierarchyGraph> = ({
                           y={-height / 2}
                           x={-width / 2}
                           fill={secondary}
-                          rx={4}
+                          rx={nodeRadius}
                           onClick={() => {
                             node.data.isExpanded = !node.data.isExpanded;
                             forceUpdate();

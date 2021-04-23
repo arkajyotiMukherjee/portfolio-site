@@ -57,8 +57,8 @@ const constants = {
             {
               name: "frontend",
               children: [
-                { name: "HTML/CSS" },
                 { name: "JS/TS" },
+                { name: "HTML/CSS" },
                 { name: "react" },
                 { name: "CSS-in-JS" },
                 { name: "gatsby" },
@@ -70,8 +70,8 @@ const constants = {
               children: [
                 { name: "mongo" },
                 { name: "go" },
-                { name: "k8s" },
                 { name: "CI/CD" },
+                { name: "k8s" },
               ],
             },
           ],

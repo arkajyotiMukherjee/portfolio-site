@@ -33,11 +33,12 @@ export default {
   },
   graph: {
     hierarchyGraph: {
-      fontSize: { md: 14, sm: 11 },
+      fontSize: { md: 14, sm: 10 },
       rootRadius: { md: 32, sm: 20 },
       rectNode: {
         width: { md: 64, sm: 36 },
         height: { md: 32, sm: 20 },
+        radius: { md: 4, sm: 2 },
       },
     },
   },
