@@ -21,6 +21,8 @@ const constants = {
     readMore: "read more",
     readLess: "read less",
   },
+
+  // Nav component
   nav: {
     logoAlt: "logo",
     about: "about",
@@ -28,10 +30,14 @@ const constants = {
     contact: "contact",
     blogs: "blogs",
   },
+
+  // Hero section
   head: {
     intro: "hi, I'm",
     name: "arko",
   },
+
+  // About section
   about: {
     heading: "About",
     name: "Arkajyoti Mukherjee",
@@ -142,6 +148,11 @@ const constants = {
         ] as Job[],
       },
     },
+  },
+
+  // Projects section
+  projects: {
+    heading: "Projects",
   },
 };
 

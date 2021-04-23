@@ -1,4 +1,4 @@
-import styled, { DefaultTheme } from "styled-components";
+import styled, { css, DefaultTheme } from "styled-components";
 
 function textVariant(variant: Variant, theme: DefaultTheme) {
   switch (variant) {
@@ -20,8 +20,17 @@ interface IText {
   variant?: Variant;
 }
 
-const FadedHeading = styled.h1`
+export interface IFadedHeading {
+  shiftRight?: boolean;
+}
+
+const FadedHeading = styled.h1<IFadedHeading>`
   position: absolute;
+  ${props =>
+    props.shiftRight &&
+    css`
+      right: 0;
+    `}
 
   color: ${props => props.theme.colors.textHint};
   opacity: ${props => props.theme.opacity[30]};

@@ -1,6 +1,6 @@
 import { ParentSize } from "@visx/responsive";
 import React, { useState } from "react";
-import styled, { useTheme } from "styled-components";
+import styled from "styled-components";
 import { Anchor } from "../../../anchor";
 import { constants } from "../../../constants";
 import { Chip } from "../../chip";
@@ -9,18 +9,7 @@ import { Profile } from "../../image-fetch/Profile";
 import { BoundedContainer, ResponsiveRow, Section } from "../../layout";
 import { VerticalSteps } from "../../steps";
 import { TabPane, Tabs } from "../../tabs";
-import {
-  Body1,
-  Body2,
-  Body3,
-  FadedHeading,
-  SectionHeading,
-  SubHeading,
-} from "../../texts";
-
-const FillerSpace = styled.div`
-  height: 20rem;
-`;
+import { Body1, Body2, Body3, SectionHeadText, SubHeading } from "../../texts";
 
 const ProfileWrapper = styled(BoundedContainer).attrs({
   breakpoint: "lg",
@@ -148,18 +137,10 @@ const TabContent3: React.FC = () => {
 };
 
 const About: React.FC = () => {
-  const { screens } = useTheme();
-
   return (
     <Section id={constants.nav.about}>
-      {screens.xxxl ? (
-        <SectionHeading>{constants.about.heading}</SectionHeading>
-      ) : (
-        <>
-          <FadedHeading>{constants.about.heading}</FadedHeading>
-          <FillerSpace />
-        </>
-      )}
+      <SectionHeadText>{constants.about.heading}</SectionHeadText>
+
       <ResponsiveRow breakpoint="lg">
         <ProfileWrapper>
           <Profile />
