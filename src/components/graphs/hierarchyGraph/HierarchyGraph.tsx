@@ -57,7 +57,7 @@ const HierarchyGraph: React.FC<IHierarchyGraph> = ({
                     key={i}
                     data={link}
                     stroke={textHint}
-                    strokeWidth={3}
+                    strokeWidth="0.188rem"
                     fill="none"
                   />
                 ))}

@@ -29,7 +29,7 @@ const FadedHeading = styled.h1<IFadedHeading>`
   ${props =>
     props.shiftRight &&
     css`
-      right: 0;
+      right: -1.5rem;
     `}
 
   color: ${props => props.theme.colors.textHint};

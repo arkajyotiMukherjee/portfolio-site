@@ -39,19 +39,12 @@ const TabContent1: React.FC = () => {
         {constants.about.tabs.tab1.aboutMe}
         <br />
         <br />
-        {constants.about.tabs.tab1.hobbies.heading}
+        {constants.about.tabs.tab1.hobbiesHeading}
       </Body1>
       <br />
-      <Chip
-        src={constants.about.tabs.tab1.hobbies.guitar.src}
-        alt={constants.about.tabs.tab1.hobbies.guitar.name}
-        label={constants.about.tabs.tab1.hobbies.guitar.name}
-      />
-      <Chip
-        src={constants.about.tabs.tab1.hobbies.guitar.src}
-        alt={constants.about.tabs.tab1.hobbies.guitar.name}
-        label={constants.about.tabs.tab1.hobbies.guitar.name}
-      />
+      {constants.about.tabs.tab1.hobbies.map(hobby => {
+        return <Chip src={hobby.src} alt={hobby.name} label={hobby.name} />;
+      })}
     </>
   );
 };
@@ -64,12 +57,12 @@ const TabContent2: React.FC = () => {
   );
 };
 
-type IReadMore = {
+type ReadMore = {
   [index: string]: boolean;
 };
 
 const TabContent3: React.FC = () => {
-  const [readMore, setReadMore] = useState<IReadMore>({});
+  const [readMore, setReadMore] = useState<ReadMore>({});
 
   return (
     <>

@@ -11,7 +11,7 @@ export default {
   },
   maxWidth: "1920px",
   fontSize: {
-    fadedHeading: "360px",
+    fadedHeading: "350px",
     sectionHeading: {
       xxxl: "196px",
       xxl: "148px",

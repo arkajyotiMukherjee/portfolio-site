@@ -3,7 +3,7 @@ import styled, { useTheme } from "styled-components";
 import { FadedHeading, IFadedHeading, SectionHeading } from "./Texts";
 
 const FillerSpace = styled.div`
-  height: 18rem;
+  height: 20rem;
 `;
 
 const RelativeContainer = styled.div`

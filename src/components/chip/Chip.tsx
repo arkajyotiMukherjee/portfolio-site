@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { Body2 } from "../texts";
 
 interface IChip {
-  src: string;
-  alt: string;
+  src?: string;
+  alt?: string;
   label: string;
 }
 
@@ -22,7 +22,6 @@ const ChipContainer = styled.div`
 const Wrapper = styled.div`
   display: flex;
   grid-gap: 0.5rem;
-  align-items: center;
 `;
 
 const Icon = styled.img`
@@ -33,7 +32,7 @@ const Chip: React.FC<IChip> = ({ src, alt, label }) => {
   return (
     <ChipContainer>
       <Wrapper>
-        <Icon src={src} alt={alt} />
+        {src && <Icon src={src} alt={alt ?? "image"} />}
         <Body2 variant="secondary">{label}</Body2>
       </Wrapper>
     </ChipContainer>
