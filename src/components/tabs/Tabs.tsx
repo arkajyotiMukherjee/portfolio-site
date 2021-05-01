@@ -6,6 +6,7 @@ import { SubHeading } from "../texts";
 interface ITabs {
   defaultActiveIndex: number;
   autoSwitch?: boolean;
+  children: React.ReactElement[];
 }
 
 interface ITabPane {
@@ -34,8 +35,17 @@ const Tabs: React.FC<ITabs> = ({
   autoSwitch,
   children,
 }) => {
+  if (!children) {
+    throw Error(`Tabs require TabPane as children`);
+  }
+  children.map(child => {
+    if (child.type !== TabPane) {
+      throw Error(`Tabs require TabPane as children`);
+    }
+  });
+
   const [activeIndex, setActiveIndex] = useState<number>(defaultActiveIndex);
-  const totalNoOfTabs = (children as React.ReactElement[])?.length;
+  const totalNoOfTabs = children.length;
 
   useEffect(() => {
     const timer = setInterval(
@@ -49,7 +59,7 @@ const Tabs: React.FC<ITabs> = ({
   return (
     <div>
       <TabSwitcher>
-        {(children as React.ReactElement[])?.map(child => {
+        {children.map(child => {
           return child.props.index === activeIndex ? (
             <Tab>{child.props.label}</Tab>
           ) : (
@@ -68,7 +78,7 @@ const Tabs: React.FC<ITabs> = ({
         leftShift={30}
       />
 
-      {(children as React.ReactElement[])?.map(child => {
+      {children.map(child => {
         return child.props.index === activeIndex ? child : <></>;
       })}
     </div>

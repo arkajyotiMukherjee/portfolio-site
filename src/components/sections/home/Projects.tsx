@@ -1,7 +1,8 @@
 import Img from "gatsby-image";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { constants, Project } from "../../../constants";
+import { Carousel } from "../../carousel";
 import { Chip } from "../../chip";
 import { getProjectCovers } from "../../image-fetch/getProjectCovers";
 import { getProjectImages } from "../../image-fetch/getProjectImages";
@@ -66,17 +67,61 @@ const ImageContainer = styled.div`
   }
 `;
 
+interface IExpandedImageContainer {
+  aspectRatio: number;
+}
+
+const ExpandedImageContainer = styled(ImageContainer)<IExpandedImageContainer>`
+  width: calc(${props => props.aspectRatio} * 280px);
+
+  .gatsby-image-wrapper {
+    height: 280px;
+    filter: grayscale(0%);
+  }
+`;
+
+const ProjectCarousel = styled.div`
+  position: relative;
+  grid-column: 1/3;
+  width: 100vw;
+`;
+
+type Expanded = {
+  [index: string]: boolean;
+};
+
 const Projects: React.FC = () => {
   const coverImages = getProjectCovers();
   const projectImages = getProjectImages();
+
+  const [expanded, setExpanded] = useState<Expanded>({});
 
   return (
     <Section>
       <SectionHeadText shiftRight>{constants.projects.heading}</SectionHeadText>
       <ProjectsContainer>
         {constants.projects.projects.map((project: Project, index) => {
-          return (
-            <ProjectTile key={index}>
+          const images = projectImages[project.projectID];
+          return expanded[project.projectID] ? (
+            <ProjectCarousel>
+              <Carousel>
+                {images.map(image => {
+                  return (
+                    <ExpandedImageContainer aspectRatio={image.aspectRatio}>
+                      <Img alt={project.name} fluid={image} />
+                    </ExpandedImageContainer>
+                  );
+                })}
+              </Carousel>
+            </ProjectCarousel>
+          ) : (
+            <ProjectTile
+              key={index}
+              onClick={() => {
+                const id = project.projectID;
+                setExpanded({ ...expanded, [id]: !expanded[id] });
+              }}
+            >
               <ImageContainer>
                 <Img
                   alt={project.name}

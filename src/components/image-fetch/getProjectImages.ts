@@ -7,7 +7,7 @@ type ProjectImages = {
 const getProjectImages = () => {
   const data = useStaticQuery(graphql`
     query {
-      images: allFile(filter: { relativeDirectory: { regex: "/projects/" } }) {
+      images: allFile(filter: { relativePath: { regex: "/projects/" } }) {
         edges {
           node {
             relativeDirectory

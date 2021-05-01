@@ -928,7 +928,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.13.17", "@babel/runtime@^7.5.5":
+"@babel/runtime@^7.13.17":
   version "7.14.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.0.tgz#46794bc20b612c5f75e62dd071e24dfd95f1cbe6"
   integrity sha512-JELkvo/DlpNdJ7dlyw/eY7E0suy5i5GQH+Vlxaq1nsNJ+H7f4Vtv3jMeCEgRhZZQFXTjldYfQgv2qmM6M1v5wA==
@@ -985,6 +985,77 @@
   dependencies:
     exec-sh "^0.3.2"
     minimist "^1.2.0"
+
+"@egjs/agent@^2.2.1":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@egjs/agent/-/agent-2.3.0.tgz#5a18150ce46a2ba1d237a847db44b0a234bd96f0"
+  integrity sha512-ENhwkOW6rnYW8IuXJwvECIAzj7nMxq+ctB8uCJ+mKnoKK8tGiv3YXtN6nuaOov2YmXdRdwafSz9rhgRNXswX/A==
+
+"@egjs/axes@^2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@egjs/axes/-/axes-2.8.0.tgz#b038378ad0a085b3b4a5218dd8e7db396898212c"
+  integrity sha512-WPMIM/ExZBS8guD3oeNr6YGDn2xSnj0YUZHWvY/NWvTQIs7A2O7WxJivYgzcg7r2q0RYtzrdpHn+982iaKCLSw==
+  dependencies:
+    "@egjs/agent" "^2.2.1"
+    "@egjs/component" "^2.2.2"
+    "@egjs/hammerjs" "^2.0.15"
+
+"@egjs/children-differ@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@egjs/children-differ/-/children-differ-1.0.1.tgz#5465fa80671d5ca3564ebe912f48b05b3e8a14fd"
+  integrity sha512-DRvyqMf+CPCOzAopQKHtW+X8iN6Hy6SFol+/7zCUiE5y4P/OB8JP8FtU4NxtZwtafvSL4faD5KoQYPj3JHzPFQ==
+  dependencies:
+    "@egjs/list-differ" "^1.0.0"
+
+"@egjs/component@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@egjs/component/-/component-2.2.2.tgz#b8208ea4ca05f6562a51d58f1e6f9979aad8a9d9"
+  integrity sha512-2m6nu6/Mbs6VnoT4IHFGUBX6V82Zp01zDmlWpIJ3fMatHpe7BB1qUYFgMmSWGY0uOvOl4plvflwbCRUAGMfwWQ==
+
+"@egjs/flicking-plugins@^3.3.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@egjs/flicking-plugins/-/flicking-plugins-3.3.0.tgz#e7721ecf98a3c626b5a9611ce130df449031607c"
+  integrity sha512-FUpqsqRQgmBgOTCs1STnDDVOTr1FynAcKrMo+MDD9JAjTD6Gv+MJgYJdu0oZTSt15lJfJhFizlEFKXLNW1eCWA==
+  dependencies:
+    "@egjs/flicking" "^3.1.1"
+
+"@egjs/flicking@^3.1.1", "@egjs/flicking@^3.8.2":
+  version "3.8.2"
+  resolved "https://registry.yarnpkg.com/@egjs/flicking/-/flicking-3.8.2.tgz#37cc47b47d53d705ae9574f80ee0855c05bb296b"
+  integrity sha512-cnY65JYdNEPqoaj49ABPCfXXe5KTfIvB4cj7+sttDPYozUONN163oIdV4wx+cYKGfk/lbP13cBna8BC4apmyUA==
+  dependencies:
+    "@egjs/axes" "^2.8.0"
+    "@egjs/component" "^2.2.2"
+    "@egjs/imready" "^1.1.2"
+    "@egjs/list-differ" "^1.0.0"
+
+"@egjs/hammerjs@^2.0.15":
+  version "2.0.17"
+  resolved "https://registry.yarnpkg.com/@egjs/hammerjs/-/hammerjs-2.0.17.tgz#5dc02af75a6a06e4c2db0202cae38c9263895124"
+  integrity sha512-XQsZgjm2EcVUiZQf11UBJQfmZeEmOW8DpI1gsFeln6w0ae0ii4dMQEQ0kjl6DspdWX1aGY1/loyXnP0JS06e/A==
+  dependencies:
+    "@types/hammerjs" "^2.0.36"
+
+"@egjs/imready@^1.1.2":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@egjs/imready/-/imready-1.1.3.tgz#6c7890e4357df11f22208fef95972bedc00f980d"
+  integrity sha512-9jbF0RZZdgzZqpfOb3IlpgStlkid2Wb6hMw06ln5kmGwUbkgbYCW/hWDeoRX2bVWCf9SAoAZK7dcMnK0U8+FHw==
+  dependencies:
+    "@egjs/component" "^2.2.2"
+
+"@egjs/list-differ@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@egjs/list-differ/-/list-differ-1.0.0.tgz#2277aff52e3e4bd9318d5c30ffc3ba3b6216f05e"
+  integrity sha512-HsbMKc0ZAQH+EUeCmI/2PvTYSybmkaWwakU8QGDYYgMVIg9BQ5sM0A0Nnombjxo2+JzXHxmH+jw//yGX+y6GYw==
+
+"@egjs/react-flicking@^3.7.1":
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/@egjs/react-flicking/-/react-flicking-3.7.1.tgz#7e4e62b4d4c4a839028e4d0f4d07a25eafff4cfd"
+  integrity sha512-f+M2a8jhFt4XWHEk6oMcU35WGp2cdGCO2FtW7JsXQtZFz/cQktX+SM0KofRyatXRASHy3PwdOO3i03rLlBr48A==
+  dependencies:
+    "@egjs/children-differ" "^1.0.1"
+    "@egjs/flicking" "^3.8.2"
+    "@egjs/list-differ" "^1.0.0"
 
 "@emotion/is-prop-valid@^0.8.8":
   version "0.8.8"
@@ -2123,6 +2194,11 @@
   integrity sha512-mWA/4zFQhfvOA8zWkXobwJvBD7vzcxgrOQ0J5CH1votGqdq9m7+FwtGaqyCZqC3NyyBkc9z4m+iry4LlqcMWJg==
   dependencies:
     "@types/node" "*"
+
+"@types/hammerjs@^2.0.36":
+  version "2.0.39"
+  resolved "https://registry.yarnpkg.com/@types/hammerjs/-/hammerjs-2.0.39.tgz#4be64bbacf3813c79c0dab895c6b0fdc7d5e513f"
+  integrity sha512-lYR2Y/tV2ujpk/WyUc7S0VLI0a9hrtVIN9EwnrNo5oSEJI2cK2/XrgwOQmXLL3eTulOESvh9qP6si9+DWM9cOA==
 
 "@types/hoist-non-react-statics@*":
   version "3.3.1"
@@ -5478,20 +5554,10 @@ deep-extend@^0.6.0:
   resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.6.0.tgz#c4fa7c95404a17a9c3e8ca7e1537312b736330ac"
   integrity sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==
 
-deep-freeze@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/deep-freeze/-/deep-freeze-0.0.1.tgz#3a0b0005de18672819dfd38cd31f91179c893e84"
-  integrity sha1-OgsABd4YZygZ39OM0x+RF5yJPoQ=
-
 deep-is@~0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"
   integrity sha1-s2nW+128E+7PUk+RsHD+7cNXzzQ=
-
-deepmerge@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-2.2.1.tgz#5d3ff22a01c00f645405a2fbc17d0778a1801170"
-  integrity sha512-R9hc1Xa/NOBi9WRVUWg19rl1UB7Tt4kuPd+thNJgFZoxXsTz7ncaPaeIm+40oSGuP33DfMb4sZt1QIGiJzC4EA==
 
 deepmerge@^4.0.0, deepmerge@^4.2.2:
   version "4.2.2"
@@ -6062,13 +6128,6 @@ eol@^0.9.1:
   version "0.9.1"
   resolved "https://registry.yarnpkg.com/eol/-/eol-0.9.1.tgz#f701912f504074be35c6117a5c4ade49cd547acd"
   integrity sha512-Ds/TEoZjwggRoz/Q2O7SE3i4Jm66mqTDfmdHdq/7DKVk3bro9Q8h6WdXKdPqFLMoqxrDK5SVRzHVPOS6uuGtrg==
-
-equals@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/equals/-/equals-1.0.5.tgz#212062dde5e1a510d955f13598efcc6a621b6ace"
-  integrity sha1-ISBi3eXhpRDZVfE1mO/MamIbas4=
-  dependencies:
-    jkroso-type "1"
 
 err-code@^1.0.0:
   version "1.1.2"
@@ -10061,11 +10120,6 @@ jju@^1.1.0:
   resolved "https://registry.yarnpkg.com/jju/-/jju-1.4.0.tgz#a3abe2718af241a2b2904f84a625970f389ae32a"
   integrity sha1-o6vicYryQaKykE+EpiWXDzia4yo=
 
-jkroso-type@1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/jkroso-type/-/jkroso-type-1.1.1.tgz#bc4ced6d6c45fe0745282bafc86a9f8c4fc9ce61"
-  integrity sha1-vEztbWxF/gdFKCuvyGqfjE/JzmE=
-
 joi@^17.2.1:
   version "17.3.0"
   resolved "https://registry.yarnpkg.com/joi/-/joi-17.3.0.tgz#f1be4a6ce29bc1716665819ac361dfa139fff5d2"
@@ -13184,17 +13238,6 @@ pupa@^2.0.1, pupa@^2.1.1:
   integrity sha512-l1jNAspIBSFqbT+y+5FosojNpVpF94nlI+wDUpqP9enwOTfHx9f0gh5nB96vl+6yTpsJsypeNrwfzPrKuHB41A==
   dependencies:
     escape-goat "^2.0.0"
-
-pure-react-carousel@^1.27.6:
-  version "1.27.6"
-  resolved "https://registry.yarnpkg.com/pure-react-carousel/-/pure-react-carousel-1.27.6.tgz#d1d726ba653c0a700a6ac5741618b4196c4c6fbb"
-  integrity sha512-k5ueXSL2Of4OyyfoJJwAJ0X3VY0n7pYfuamq+hMTYNV7eEF1iNrPVsjvmpTtMjaKsLyM6SkmSpP2XWQcvaFIGw==
-  dependencies:
-    "@babel/runtime" "^7.5.5"
-    deep-freeze "0.0.1"
-    deepmerge "^2.2.1"
-    equals "^1.0.5"
-    prop-types "^15.6.2"
 
 q@^1.1.2:
   version "1.5.1"

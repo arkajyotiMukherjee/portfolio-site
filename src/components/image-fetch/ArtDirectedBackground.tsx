@@ -4,6 +4,11 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { FullWidthGRContainer } from "../layout";
 
+const Wrapper = styled.div`
+  max-width: ${props => props.theme.maxWidth};
+  margin: auto;
+`;
+
 const InnerWrapper = styled(FullWidthGRContainer).attrs({
   breakpoint: "sm",
   flipped: true,
@@ -33,7 +38,7 @@ const ArtDirectedBackground: React.FC = ({ children }) => {
   const { mobileImage, desktopImage } = useStaticQuery(
     graphql`
       query {
-        mobileImage: file(relativePath: { eq: "banner-sm.png" }) {
+        mobileImage: file(relativePath: { eq: "background-sm.png" }) {
           childImageSharp {
             fluid(maxWidth: 640, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
@@ -41,7 +46,7 @@ const ArtDirectedBackground: React.FC = ({ children }) => {
             }
           }
         }
-        desktopImage: file(relativePath: { eq: "banner.png" }) {
+        desktopImage: file(relativePath: { eq: "background.png" }) {
           childImageSharp {
             fluid(maxWidth: 1920, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
@@ -63,21 +68,15 @@ const ArtDirectedBackground: React.FC = ({ children }) => {
   ];
 
   return (
-    <BackgroundImage
-      fluid={sources}
-      alt="banner image of golden ratio and david"
-    >
-      <InnerWrapper>{children}</InnerWrapper>
-    </BackgroundImage>
+    <Wrapper>
+      <BackgroundImage
+        fluid={sources}
+        alt="banner image of golden ratio and david"
+      >
+        <InnerWrapper>{children}</InnerWrapper>
+      </BackgroundImage>
+    </Wrapper>
   );
 };
 
-const Banner = styled(ArtDirectedBackground)`
-  max-width: ${props => props.theme.maxWidth};
-
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  background-color: transparent;
-`;
-
-export { Banner };
+export { ArtDirectedBackground };
