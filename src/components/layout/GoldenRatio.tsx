@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 interface IFullWidthGRContainer {
+  breakpoint: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   flipped?: boolean;
   width?: string;
   maxWidth?: string;
@@ -13,7 +14,7 @@ const FullWidthGRContainer = styled.div.attrs<IFullWidthGRContainer>(props => ({
 }))<IFullWidthGRContainer>`
   /* The height is proportionate to the width in the golden ratio */
   height: ${props =>
-    props.theme.screens.md
+    props.theme.screens[props.breakpoint]
       ? `calc(min(${props.width}, ${props.maxWidth}) * 1.618 + 2px)`
       : `calc(min(${props.width}, ${props.maxWidth}) / 1.618 + 2px)`};
 

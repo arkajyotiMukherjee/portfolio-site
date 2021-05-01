@@ -1,4 +1,6 @@
-export default {
+import { DefaultTheme } from "styled-components";
+
+const theme: DefaultTheme = {
   screens: {
     // max-widths in pixels
     xs: 450,
@@ -51,6 +53,8 @@ export default {
     100: 1,
   },
   zIndex: {
-    content: "10",
+    content: 10,
   },
 };
+
+export default theme;

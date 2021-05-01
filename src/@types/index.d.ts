@@ -12,7 +12,60 @@ declare namespace React {
 
 declare module "styled-components" {
   export interface DefaultTheme {
-    [key: string]: any | DefaultTheme;
+    screens: {
+      // max-widths in pixels
+      xs: number;
+      sm: number;
+      md: number;
+      lg: number;
+      xl: number;
+      xxl: number;
+      xxxl: number;
+    };
+    maxWidth: string;
+    fontSize: {
+      fadedHeading: string;
+      sectionHeading: {
+        xxxl: string;
+        xxl: string;
+        lg: string;
+        sm: string;
+      };
+      heading: { xxxl: string; xxl: string; md: string };
+      subHeading: { xxxl: string; xxl: string; md: string };
+      body1: { xxxl: string; xxl: string; md: string };
+      body2: { xxxl: string; xxl: string; md: string };
+      body3: { xxxl: string; xxl: string; md: string };
+    };
+    colors: {
+      primary: string;
+      secondary: string;
+      textPrimary: string;
+      textSecondary: string;
+      textHint: string;
+    };
+    graph: {
+      hierarchyGraph: {
+        fontSize: { md: number; sm: number };
+        rootRadius: { md: number; sm: number };
+        rectNode: {
+          width: { md: number; sm: number };
+          height: { md: number; sm: number };
+          radius: { md: number; sm: number };
+        };
+      };
+    };
+    opacity: {
+      0: number;
+      25: number;
+      30: number;
+      50: number;
+      75: number;
+      100: number;
+    };
+    zIndex: {
+      content: number;
+    };
   }
 }
 
