@@ -1,19 +1,10 @@
 import "modern-css-reset/dist/reset.min.css";
-import { useContext } from "react";
-import { DefaultTheme, ThemeContext } from "styled-components";
+import { DefaultTheme } from "styled-components";
 import media from "use-media";
-import themeObject from "./theme";
-
-export { theme, useTheme };
-
-type DefaultThemeObject = Omit<typeof themeObject, "screens"> & {
-  screens: {
-    [key: string]: number;
-  };
-};
+import { theme as themeObject } from "./theme";
 
 const theme = (): DefaultTheme => {
-  const { screens, ...themeValues }: DefaultThemeObject = themeObject;
+  const { screens, ...themeValues }: DefaultTheme = themeObject;
   const breakpointSizes = Object.keys(screens).reduce(
     (accumulator, key: string) => {
       const value = media({ maxWidth: screens[key] });
@@ -31,4 +22,4 @@ const theme = (): DefaultTheme => {
   };
 };
 
-const useTheme = () => useContext(ThemeContext);
+export { theme };

@@ -1,6 +1,6 @@
 import Img from "gatsby-image";
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { constants, Project } from "../../../constants";
 import { Carousel } from "../../carousel";
 import { Chip } from "../../chip";
@@ -12,12 +12,14 @@ import { Body2, SectionHeadText, SubHeading } from "../../texts";
 const ProjectsContainer = styled.div`
   display: grid;
   grid-template-columns: ${props =>
-    props.theme.screens.md ? "auto" : "1fr 1fr"};
+    props.theme.screens.sm ? "auto" : "1fr 1fr"};
   grid-template-rows: auto;
   justify-items: center;
   column-gap: 8%;
-  row-gap: ${props => (props.theme.screens.md ? "3rem" : "5rem")};
-  margin: 0 15%;
+  row-gap: ${props => (props.theme.screens.sm ? "3rem" : "5rem")};
+
+  width: ${props => (props.theme.screens.lg ? "90%" : "70%")};
+  margin: auto;
 `;
 
 const ProjectTile = styled.div`
@@ -54,7 +56,7 @@ const ImageContainer = styled.div`
   }
 
   .gatsby-image-wrapper {
-    height: ${props => (props.theme.screens.md ? "8rem" : "auto")};
+    height: ${props => (props.theme.screens.sm ? "8rem" : "auto")};
     filter: grayscale(100%);
   }
 
@@ -69,13 +71,29 @@ const ImageContainer = styled.div`
 
 interface IExpandedImageContainer {
   aspectRatio: number;
+  isActive?: boolean;
 }
 
 const ExpandedImageContainer = styled(ImageContainer)<IExpandedImageContainer>`
-  width: calc(${props => props.aspectRatio} * 280px);
+  width: fit-content;
+  ${props =>
+    !props.theme.screens.sm &&
+    css<IExpandedImageContainer>`
+      transform: scale(${props => (props.isActive ? 1.1 : 0.8)});
+      transition: transform 300ms ease-in-out;
+    `}
 
   .gatsby-image-wrapper {
-    height: 280px;
+    ${props =>
+      props.theme.screens.sm && props.aspectRatio >= 1
+        ? css<IExpandedImageContainer>`
+            width: 86vw;
+            height: calc(86vw / ${props.aspectRatio});
+          `
+        : css<IExpandedImageContainer>`
+            width: calc(${props.aspectRatio} * 280px);
+            height: 280px;
+          `}
     filter: grayscale(0%);
   }
 
@@ -86,21 +104,11 @@ const ExpandedImageContainer = styled(ImageContainer)<IExpandedImageContainer>`
       filter: grayscale(0%);
     }
   }
-  :active {
-    cursor: inherit;
-  }
 `;
 
 const ProjectCarousel = styled.div`
-  position: relative;
-  grid-column: 1/3;
-  width: 100vw;
-
-  cursor: grab;
-
-  :active {
-    cursor: grabbing;
-  }
+  grid-column: ${props => (props.theme.screens.sm ? "auto" : "1/3")};
+  width: ${props => (props.theme.screens.sm ? "90vw" : "100vw")};
 `;
 
 type Expanded = {
@@ -122,13 +130,22 @@ const Projects: React.FC = () => {
           return expanded[project.projectID] ? (
             <ProjectCarousel>
               <Carousel>
-                {images.map(image => {
-                  return (
-                    <ExpandedImageContainer aspectRatio={image.aspectRatio}>
-                      <Img alt={project.name} fluid={image} />
-                    </ExpandedImageContainer>
-                  );
-                })}
+                {images
+                  .sort((a, b) => {
+                    const path1 = a.src.split("/");
+                    const path2 = b.src.split("/");
+                    const res =
+                      path1[path1.length - 1] < path2[path1.length - 1];
+
+                    return res ? -1 : 1;
+                  })
+                  .map(image => {
+                    return (
+                      <ExpandedImageContainer aspectRatio={image.aspectRatio}>
+                        <Img alt={project.name} fluid={image} />
+                      </ExpandedImageContainer>
+                    );
+                  })}
               </Carousel>
             </ProjectCarousel>
           ) : (

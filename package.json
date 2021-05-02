@@ -24,8 +24,6 @@
     "update": "ncu -u"
   },
   "dependencies": {
-    "@egjs/flicking-plugins": "^3.3.0",
-    "@egjs/react-flicking": "^3.7.1",
     "@visx/gradient": "^1.7.0",
     "@visx/group": "^1.7.0",
     "@visx/hierarchy": "^1.7.0",
@@ -52,6 +50,7 @@
     "react-dom": "^16.13.0",
     "react-helmet": "^5.2.1",
     "styled-components": "^5.0.1",
+    "swiper": "^6.5.9",
     "use-media": "^1.4.0"
   },
   "devDependencies": {

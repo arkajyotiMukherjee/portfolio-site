@@ -57,4 +57,4 @@ const theme: DefaultTheme = {
   },
 };
 
-export default theme;
+export { theme };

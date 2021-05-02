@@ -14,13 +14,7 @@ declare module "styled-components" {
   export interface DefaultTheme {
     screens: {
       // max-widths in pixels
-      xs: number;
-      sm: number;
-      md: number;
-      lg: number;
-      xl: number;
-      xxl: number;
-      xxxl: number;
+      [key: string]: number;
     };
     maxWidth: string;
     fontSize: {
