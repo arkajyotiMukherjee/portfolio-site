@@ -51,6 +51,7 @@ declare module "styled-components" {
     };
     carousel: {
       imageHeight: { lg: string; md: string };
+      imageWidthFixed: string;
     };
     opacity: {
       0: number;

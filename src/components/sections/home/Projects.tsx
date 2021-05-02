@@ -22,6 +22,11 @@ const ProjectsContainer = styled.div`
   margin: auto;
 `;
 
+const ProjectCarousel = styled.div`
+  grid-column: ${props => (props.theme.screens.sm ? "auto" : "1/3")};
+  width: ${props => (props.theme.screens.sm ? "90vw" : "100vw")};
+`;
+
 const ProjectTile = styled.div`
   width: 100%;
 
@@ -33,7 +38,7 @@ const ProjectTile = styled.div`
 const ImageContainer = styled.div`
   position: relative;
   border: 1px solid ${props => props.theme.colors.secondary};
-  padding: 0.4rem;
+  padding: 1rem;
   margin-bottom: 1.5rem;
 
   ::before,
@@ -43,16 +48,16 @@ const ImageContainer = styled.div`
     border: 1px solid ${props => props.theme.colors.secondary};
   }
   ::before {
-    top: 2px;
-    bottom: 2px;
-    left: 2px;
-    right: 2px;
+    top: 0.25rem;
+    bottom: 0.25rem;
+    left: 0.25rem;
+    right: 0.25rem;
   }
   ::after {
-    top: -4px;
-    bottom: -4px;
-    left: -4px;
-    right: -4px;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    left: 0.5rem;
+    right: 0.5rem;
   }
 
   .gatsby-image-wrapper {
@@ -88,8 +93,8 @@ const ExpandedImageContainer = styled(ImageContainer)<IExpandedImageContainer>`
       theme.screens.lg
         ? aspectRatio >= 1
           ? css<IExpandedImageContainer>`
-              width: 86vw;
-              height: calc(86vw / ${aspectRatio});
+              width: ${theme.carousel.imageWidthFixed};
+              height: calc(${theme.carousel.imageWidthFixed} / ${aspectRatio});
             `
           : css<IExpandedImageContainer>`
               width: calc(${aspectRatio} * ${theme.carousel.imageHeight.md});
@@ -109,11 +114,6 @@ const ExpandedImageContainer = styled(ImageContainer)<IExpandedImageContainer>`
       filter: grayscale(0%);
     }
   }
-`;
-
-const ProjectCarousel = styled.div`
-  grid-column: ${props => (props.theme.screens.sm ? "auto" : "1/3")};
-  width: ${props => (props.theme.screens.sm ? "90vw" : "100vw")};
 `;
 
 type Expanded = {

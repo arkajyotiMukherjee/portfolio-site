@@ -46,6 +46,7 @@ const theme: DefaultTheme = {
   },
   carousel: {
     imageHeight: { lg: "550px", md: "300px" },
+    imageWidthFixed: "81vw",
   },
   opacity: {
     0: 0,
