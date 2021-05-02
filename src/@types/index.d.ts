@@ -50,8 +50,8 @@ declare module "styled-components" {
       };
     };
     carousel: {
-      imageHeight: { lg: string; md: string };
       imageWidthFixed: string;
+      imageHeight: { lg: string; md: string };
     };
     opacity: {
       0: number;

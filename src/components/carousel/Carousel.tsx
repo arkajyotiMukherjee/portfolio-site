@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import "swiper/components/pagination/pagination.min.css";
 import SwiperCore, { Autoplay, Pagination } from "swiper/core";
@@ -30,9 +30,13 @@ const Carousel: React.FC<ICarousel> = ({ children }) => {
     throw Error(`Carousel require children`);
   }
 
+  const swiperRef = useRef(null);
+
   return (
     <Wrapper>
       <Swiper
+        // @ts-ignore
+        ref={swiperRef}
         className="swiper-root"
         autoHeight={true}
         slidesPerView="auto"
@@ -54,7 +58,13 @@ const Carousel: React.FC<ICarousel> = ({ children }) => {
       >
         {children.map((child, index) => {
           return (
-            <SwiperSlide key={index}>
+            <SwiperSlide
+              key={index}
+              onClick={() => {
+                //@ts-ignore
+                swiperRef.current && swiperRef.current.swiper.slideTo(index);
+              }}
+            >
               {// @ts-ignore
               ({ isActive }) => React.cloneElement(child, { isActive })}
             </SwiperSlide>
