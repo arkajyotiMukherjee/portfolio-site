@@ -45,7 +45,7 @@ const theme: DefaultTheme = {
     },
   },
   carousel: {
-    imageHeight: { md: "550px", sm: "300px" },
+    imageHeight: { lg: "550px", md: "300px" },
   },
   opacity: {
     0: 0,

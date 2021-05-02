@@ -85,19 +85,19 @@ const ExpandedImageContainer = styled(ImageContainer)<IExpandedImageContainer>`
 
   .gatsby-image-wrapper {
     ${({ theme, aspectRatio }) =>
-      theme.screens.sm
+      theme.screens.lg
         ? aspectRatio >= 1
           ? css<IExpandedImageContainer>`
               width: 86vw;
               height: calc(86vw / ${aspectRatio});
             `
           : css<IExpandedImageContainer>`
-              width: calc(${aspectRatio} * ${theme.carousel.imageHeight.sm});
-              height: ${theme.carousel.imageHeight.sm};
+              width: calc(${aspectRatio} * ${theme.carousel.imageHeight.md});
+              height: ${theme.carousel.imageHeight.md};
             `
         : css<IExpandedImageContainer>`
-            width: calc(${aspectRatio} * ${theme.carousel.imageHeight.md});
-            height: ${theme.carousel.imageHeight.md};
+            width: calc(${aspectRatio} * ${theme.carousel.imageHeight.lg});
+            height: ${theme.carousel.imageHeight.lg};
           `}
     filter: grayscale(0%);
   }
