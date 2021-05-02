@@ -16,14 +16,20 @@ const Carousel: React.FC<ICarousel> = ({ children }) => {
   return (
     <Flicking
       classPrefix="eg-flick"
-      onSelect={(e: SelectEvent) => {}}
+      onSelect={(e: SelectEvent) => {
+        e.panel?.focus();
+      }}
       circular={true}
       gap={30}
       moveType={{ type: "snap", count: Infinity }}
-      autoResize={false}
-      adaptive={false}
+      autoResize={true}
+      adaptive={true}
       // plugins={plugins}
+      useOffset={true}
+      isEqualSize={false}
+      renderExternal={true}
       collectStatistics={false}
+      iOSEdgeSwipeThreshold={24}
       style={{ height: "300px" }}
     >
       {children.map(child => {

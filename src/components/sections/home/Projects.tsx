@@ -78,12 +78,29 @@ const ExpandedImageContainer = styled(ImageContainer)<IExpandedImageContainer>`
     height: 280px;
     filter: grayscale(0%);
   }
+
+  :hover {
+    cursor: inherit;
+
+    .gatsby-image-wrapper {
+      filter: grayscale(0%);
+    }
+  }
+  :active {
+    cursor: inherit;
+  }
 `;
 
 const ProjectCarousel = styled.div`
   position: relative;
   grid-column: 1/3;
   width: 100vw;
+
+  cursor: grab;
+
+  :active {
+    cursor: grabbing;
+  }
 `;
 
 type Expanded = {
