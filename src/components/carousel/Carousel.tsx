@@ -15,6 +15,10 @@ const Wrapper = styled.div`
 
   .swiper-pagination {
     bottom: -5px;
+
+    .swiper-pagination-bullet-active {
+      background: ${props => props.theme.colors.secondary};
+    }
   }
 `;
 
