@@ -79,20 +79,25 @@ const ExpandedImageContainer = styled(ImageContainer)<IExpandedImageContainer>`
   ${props =>
     !props.theme.screens.sm &&
     css<IExpandedImageContainer>`
-      transform: scale(${props => (props.isActive ? 1.1 : 0.8)});
+      transform: scale(${props => (props.isActive ? 1 : 0.6)});
       transition: transform 300ms ease-in-out;
     `}
 
   .gatsby-image-wrapper {
-    ${props =>
-      props.theme.screens.sm && props.aspectRatio >= 1
-        ? css<IExpandedImageContainer>`
-            width: 86vw;
-            height: calc(86vw / ${props.aspectRatio});
-          `
+    ${({ theme, aspectRatio }) =>
+      theme.screens.sm
+        ? aspectRatio >= 1
+          ? css<IExpandedImageContainer>`
+              width: 86vw;
+              height: calc(86vw / ${aspectRatio});
+            `
+          : css<IExpandedImageContainer>`
+              width: calc(${aspectRatio} * ${theme.carousel.imageHeight.sm});
+              height: ${theme.carousel.imageHeight.sm};
+            `
         : css<IExpandedImageContainer>`
-            width: calc(${props.aspectRatio} * 280px);
-            height: 280px;
+            width: calc(${aspectRatio} * ${theme.carousel.imageHeight.md});
+            height: ${theme.carousel.imageHeight.md};
           `}
     filter: grayscale(0%);
   }

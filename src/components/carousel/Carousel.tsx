@@ -1,15 +1,12 @@
 import React from "react";
-import styled, { useTheme } from "styled-components";
+import styled from "styled-components";
 import "swiper/components/pagination/pagination.min.css";
 import SwiperCore, { Autoplay, Pagination } from "swiper/core";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
+import { theme } from "../../styles/theme";
 
 const Wrapper = styled.div`
-  .swiper-wrapper {
-    height: 380px;
-  }
-
   .swiper-slide {
     display: flex;
     align-items: center;
@@ -17,7 +14,7 @@ const Wrapper = styled.div`
   }
 
   .swiper-pagination {
-    bottom: 0;
+    bottom: -5px;
   }
 `;
 
@@ -33,14 +30,13 @@ const Carousel: React.FC<ICarousel> = ({ children }) => {
     throw Error(`Carousel require children`);
   }
 
-  const { screens } = useTheme();
-
   return (
     <Wrapper>
       <Swiper
         className="swiper-root"
-        slidesPerView={"auto"}
-        spaceBetween={40}
+        autoHeight={true}
+        slidesPerView="auto"
+        spaceBetween={30}
         centeredSlides={true}
         pagination={{
           clickable: true,
@@ -51,17 +47,8 @@ const Carousel: React.FC<ICarousel> = ({ children }) => {
         }}
         grabCursor={true}
         breakpoints={{
-          [screens.sm]: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-          },
-          [screens.md]: {
-            slidesPerView: 3,
-            spaceBetween: 40,
-          },
-          [screens.lg]: {
-            slidesPerView: 3,
-            spaceBetween: 40,
+          [theme.screens.md]: {
+            spaceBetween: 0,
           },
         }}
       >

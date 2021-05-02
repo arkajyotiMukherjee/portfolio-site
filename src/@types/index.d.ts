@@ -49,6 +49,9 @@ declare module "styled-components" {
         };
       };
     };
+    carousel: {
+      imageHeight: { md: string; sm: string };
+    };
     opacity: {
       0: number;
       25: number;
