@@ -271,10 +271,18 @@ const constants = {
       },
     ],
     downloadResume: "Download my resume in pdf or doc",
-    resumeFormats: {
-      pdf: "pdf",
-      docx: "docx",
-    },
+    resumes: [
+      {
+        format: "pdf",
+        url:
+          "https://github.com/arkajyotiMukherjee/portfolio-site/raw/main/resume/Arkajyoti-Mukherjee-Resume.pdf",
+      },
+      {
+        format: "docx",
+        url:
+          "https://github.com/arkajyotiMukherjee/portfolio-site/raw/main/resume/Arkajyoti-Mukherjee-Resume.docx",
+      },
+    ],
   },
 };
 

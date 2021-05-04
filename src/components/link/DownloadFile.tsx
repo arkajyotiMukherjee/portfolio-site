@@ -1,11 +1,9 @@
+import React from "react";
 import styled from "styled-components";
 
-const DownloadFile = styled.a.attrs({
-  target: "_blank",
-  rel: "noopener",
-  download: true,
-})`
+const DownloadLink = styled.a`
   text-decoration: underline;
+  cursor: pointer;
   margin-left: 2rem;
 
   ::before {
@@ -26,5 +24,17 @@ const DownloadFile = styled.a.attrs({
     display: inline;
   }
 `;
+
+interface IDownLoadFile {
+  url: string;
+}
+
+const DownloadFile: React.FC<IDownLoadFile> = ({ url, children }) => {
+  return (
+    <DownloadLink href={url} download>
+      {children}
+    </DownloadLink>
+  );
+};
 
 export { DownloadFile };

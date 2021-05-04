@@ -57,12 +57,13 @@ const Contact: React.FC = () => {
               {/* Download options */}
               <Center>
                 <div>
-                  <DownloadFile>
-                    <Body1>{constants.contact.resumeFormats.pdf}</Body1>
-                  </DownloadFile>
-                  <DownloadFile>
-                    <Body1>{constants.contact.resumeFormats.docx}</Body1>
-                  </DownloadFile>
+                  {constants.contact.resumes.map(resume => {
+                    return (
+                      <DownloadFile url={resume.url}>
+                        <Body1>{resume.format}</Body1>
+                      </DownloadFile>
+                    );
+                  })}
                 </div>
               </Center>
             </Wrapper>
