@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { DiscreetProgressBar } from "../progressbar";
-import { SubHeading } from "../texts";
+import { SubHeading2 } from "../texts";
 
 interface ITabs {
   defaultActiveIndex: number;
@@ -26,7 +26,7 @@ const TabSwitcher = styled.div`
   }
 `;
 
-const Tab = styled(SubHeading)`
+const Tab = styled(SubHeading2)`
   cursor: pointer;
 `;
 

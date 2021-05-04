@@ -31,7 +31,7 @@ const FadedHeading = styled.h1<IFadedHeading>`
     css`
       right: -1.5rem;
     `}
-
+  user-select: none;
   color: ${props => props.theme.colors.textHint};
   opacity: ${props => props.theme.opacity[30]};
   font-weight: normal;
@@ -64,15 +64,27 @@ const Heading = styled.h1<IText>`
       : theme.fontSize.heading.xxxl};
 `;
 
-const SubHeading = styled.p<IText>`
+const SubHeading1 = styled.h2<IText>`
+  color: ${props => props.theme.colors.textPrimary};
+  text-align: ${props => props.textAlign ?? "left"};
+  font-weight: normal;
+  font-size: ${({ theme }) =>
+    theme.screens.md
+      ? theme.fontSize.subHeading1.md
+      : theme.screens.xxl
+      ? theme.fontSize.subHeading1.xxl
+      : theme.fontSize.subHeading1.xxxl};
+`;
+
+const SubHeading2 = styled.p<IText>`
   color: ${props => textVariant(props.variant, props.theme)};
   text-align: ${props => props.textAlign ?? "left"};
   font-size: ${({ theme }) =>
     theme.screens.md
-      ? theme.fontSize.subHeading.md
+      ? theme.fontSize.subHeading2.md
       : theme.screens.xxl
-      ? theme.fontSize.subHeading.xxl
-      : theme.fontSize.subHeading.xxxl};
+      ? theme.fontSize.subHeading2.xxl
+      : theme.fontSize.subHeading2.xxxl};
 `;
 
 const Body1 = styled.p<IText>`
@@ -115,7 +127,8 @@ export {
   FadedHeading,
   SectionHeading,
   Heading,
-  SubHeading,
+  SubHeading1,
+  SubHeading2,
   Body1,
   Body2,
   Body3,

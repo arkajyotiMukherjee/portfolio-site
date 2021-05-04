@@ -1,15 +1,15 @@
 import { ParentSize } from "@visx/responsive";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Anchor } from "../../../anchor";
 import { constants } from "../../../constants";
 import { Chip } from "../../chip";
 import { HierarchyGraph } from "../../graphs/hierarchyGraph";
 import { Profile } from "../../image-fetch/Profile";
 import { BoundedContainer, ResponsiveRow, Section } from "../../layout";
+import { Anchor } from "../../link";
 import { VerticalSteps } from "../../steps";
 import { TabPane, Tabs } from "../../tabs";
-import { Body1, Body2, Body3, SectionHeadText, SubHeading } from "../../texts";
+import { Body1, Body2, Body3, SectionHeadText, SubHeading2 } from "../../texts";
 
 const ProfileWrapper = styled(BoundedContainer).attrs({
   breakpoint: "lg",
@@ -137,7 +137,7 @@ const About: React.FC = () => {
       <ResponsiveRow breakpoint="lg">
         <ProfileWrapper>
           <Profile />
-          <SubHeading>{constants.about.name}</SubHeading>
+          <SubHeading2>{constants.about.name}</SubHeading2>
           <Body1>{constants.about.designation}</Body1>
         </ProfileWrapper>
 

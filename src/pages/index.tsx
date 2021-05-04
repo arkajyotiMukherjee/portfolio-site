@@ -2,7 +2,7 @@ import React from "react";
 import { ArtDirectedBackground } from "../components/image-fetch/ArtDirectedBackground";
 import { Layout } from "../components/layout";
 import { Nav } from "../components/nav";
-import { About, Head, Projects } from "../components/sections/home";
+import { About, Contact, Head, Projects } from "../components/sections/home";
 import { SEO } from "../components/seo";
 
 const App: React.FC = () => {
@@ -15,6 +15,7 @@ const App: React.FC = () => {
       </ArtDirectedBackground>
       <About />
       <Projects />
+      <Contact />
     </Layout>
   );
 };

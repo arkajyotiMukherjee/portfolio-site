@@ -177,106 +177,7 @@ const constants = {
     features: "Features",
     techSpec: "Tech Spec",
     links: "Links",
-    projects: [
-      {
-        projectID: "web-litmuschaos",
-        name: "LitmusChaos website",
-        description:
-          "Landing page for an CNCF sandbox open-source product called Litmuschaos.",
-        tags: ["gatsby", "SEO", "react"],
-        about: `
-        Landing page for an CNCF sandbox open-source product called Litmuschaos.
-        I acted as the lead frontend developer for the project 
-        and ensured one of its key aspects an SEO score of 100 in web.dev 
-        to help market the product in search engines.
-        `,
-        features: `
-        - One of the major challenges were to get a good SEO score as it is a landing page and I used a static site generator called Gatsby to achieve that.
-        - That also allowed me to keep an option open for integration with content management systems(CMS) like Contentful/Wordpress if the need arises.
-        `,
-        techSpec: [
-          "gatsby",
-          "react",
-          "javascript/typescript",
-          "html/css",
-          "styled-components",
-          "webapp",
-        ],
-        links: [
-          {
-            name: "website",
-            url: "https://litmuschaos.io/",
-          },
-          {
-            name: "github",
-            url: "https://github.com/litmuschaos/website-litmuschaos",
-          },
-        ],
-      },
-      {
-        projectID: "hub-litmuschaos",
-        name: "Litmus experiment hub",
-        description: "A hub for chaos experiments of Litmus.",
-        tags: ["react", "golang", "design"],
-        about: `
-        A hub to see and use the experiments provided by LitmusChaos. Built with dynamic content in mind, the hub features realtime stats relevant to the project.
-        The backend is implements a REST API with golang and the React based frontend performs complicated query filtering.
-        `,
-        features: `
-        - Built with resiliency in mind it uses Typescript to write a more structured code with less bugs.
-        - Used MaterialUI to provide a easily customizable UI and has been helpful in undergoing a full UI overhaul with minimal code change and in short amount of time.
-        `,
-        techSpec: [
-          "react",
-          "javascript/typescript",
-          "html/css",
-          "materialUI",
-          "golang",
-        ],
-        links: [
-          {
-            name: "website",
-            url: "https://hub.litmuschaos.io/",
-          },
-          {
-            name: "github",
-            url: "https://github.com/litmuschaos/charthub.litmuschaos.io",
-          },
-        ],
-      },
-
-      // TODO: delete them
-      {
-        projectID: "hub-litmuschaos",
-        name: "Litmus experiment hub",
-        description: "A hub for chaos experiments of Litmus.",
-        tags: ["react", "golang", "design"],
-        about: `
-        A hub to see and use the experiments provided by LitmusChaos. Built with dynamic content in mind, the hub features realtime stats relevant to the project.
-        The backend is implements a REST API with golang and the React based frontend performs complicated query filtering.
-        `,
-        features: `
-        - Built with resiliency in mind it uses Typescript to write a more structured code with less bugs.
-        - Used MaterialUI to provide a easily customizable UI and has been helpful in undergoing a full UI overhaul with minimal code change and in short amount of time.
-        `,
-        techSpec: [
-          "react",
-          "javascript/typescript",
-          "html/css",
-          "materialUI",
-          "golang",
-        ],
-        links: [
-          {
-            name: "website",
-            url: "https://hub.litmuschaos.io/",
-          },
-          {
-            name: "github",
-            url: "https://github.com/litmuschaos/charthub.litmuschaos.io",
-          },
-        ],
-      },
+    projectList: [
       {
         projectID: "web-litmuschaos",
         name: "LitmusChaos website",
@@ -344,6 +245,11 @@ const constants = {
         ],
       },
     ] as Project[],
+  },
+
+  // Contact section
+  contact: {
+    heading: "Contact",
   },
 };
 

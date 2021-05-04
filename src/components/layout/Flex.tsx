@@ -4,6 +4,7 @@ interface IResponsiveRow {
   breakpoint: "xs" | "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl";
   alignItems?: string;
   justifyContent?: string;
+  columnGap?: string;
 }
 
 const ResponsiveRow = styled.div<IResponsiveRow>`
@@ -12,6 +13,7 @@ const ResponsiveRow = styled.div<IResponsiveRow>`
 
   width: 100%;
   display: flex;
+  column-gap: ${props => props.columnGap ?? 0};
   ${props =>
     props.theme.screens[props.breakpoint]
       ? css`

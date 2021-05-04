@@ -1,15 +1,24 @@
 import Img from "gatsby-image";
 import React, { useState } from "react";
-import styled, { css } from "styled-components";
+import styled, { css, useTheme } from "styled-components";
 import { constants, Project } from "../../../constants";
 import { Carousel } from "../../carousel";
 import { Chip } from "../../chip";
 import { getProjectCovers } from "../../image-fetch/getProjectCovers";
 import { getProjectImages } from "../../image-fetch/getProjectImages";
-import { Section } from "../../layout";
-import { Body2, SectionHeadText, SubHeading } from "../../texts";
+import { BoundedContainer, ResponsiveRow, Section } from "../../layout";
+import { ExternalLink } from "../../link";
+import { WrappedList } from "../../list";
+import {
+  Body1,
+  Body2,
+  SectionHeadText,
+  SubHeading1,
+  SubHeading2,
+} from "../../texts";
 
 const ProjectsContainer = styled.div`
+  position: relative;
   display: grid;
   grid-template-columns: ${props =>
     props.theme.screens.sm ? "auto" : "1fr 1fr"};
@@ -22,9 +31,20 @@ const ProjectsContainer = styled.div`
   margin: auto;
 `;
 
-const ProjectCarousel = styled.div`
+const ProjectExpanded = styled.div`
   grid-column: ${props => (props.theme.screens.sm ? "auto" : "1/3")};
   width: ${props => (props.theme.screens.sm ? "90vw" : "100vw")};
+`;
+
+const CloseButton = styled.div`
+  img {
+    margin: auto;
+    margin-bottom: ${props => (props.theme.screens.sm ? "1rem" : "2rem")};
+
+    :hover {
+      transform: scale(1.5);
+    }
+  }
 `;
 
 const ProjectTile = styled.div`
@@ -81,11 +101,12 @@ interface IExpandedImageContainer {
 
 const ExpandedImageContainer = styled(ImageContainer)<IExpandedImageContainer>`
   width: fit-content;
+  transition: transform 300ms ease-in-out, filter 300ms ease-in-out;
+  
   ${props =>
     !props.theme.screens.sm &&
     css<IExpandedImageContainer>`
       transform: scale(${props => (props.isActive ? 1 : 0.6)});
-      transition: transform 300ms ease-in-out;
     `}
 
   .gatsby-image-wrapper {
@@ -104,7 +125,7 @@ const ExpandedImageContainer = styled(ImageContainer)<IExpandedImageContainer>`
             width: calc(${aspectRatio} * ${theme.carousel.imageHeight.lg});
             height: ${theme.carousel.imageHeight.lg};
           `}
-    filter: grayscale(0%);
+    filter: grayscale(${props => (props.isActive ? "0%" : "70%")});
   }
 
   :hover {
@@ -116,24 +137,47 @@ const ExpandedImageContainer = styled(ImageContainer)<IExpandedImageContainer>`
   }
 `;
 
+const Hr = styled.hr`
+  width: 20%;
+  border: 2px solid ${props => props.theme.colors.secondary};
+  border-radius: 1rem;
+  margin-top: 1rem;
+`;
+
 type Expanded = {
   [index: string]: boolean;
 };
 
 const Projects: React.FC = () => {
+  const { screens } = useTheme();
   const coverImages = getProjectCovers();
   const projectImages = getProjectImages();
 
   const [expanded, setExpanded] = useState<Expanded>({});
 
   return (
-    <Section>
+    <Section id={constants.nav.projects}>
       <SectionHeadText shiftRight>{constants.projects.heading}</SectionHeadText>
       <ProjectsContainer>
-        {constants.projects.projects.map((project: Project, index) => {
+        {constants.projects.projectList.map((project: Project, index) => {
           const images = projectImages[project.projectID];
           return expanded[project.projectID] ? (
-            <ProjectCarousel>
+            <ProjectExpanded>
+              <SubHeading1 textAlign="center">{project.name}</SubHeading1>
+              {/* Close Button */}
+              <CloseButton
+                onClick={() => {
+                  const id = project.projectID;
+                  setExpanded({ ...expanded, [id]: !expanded[id] });
+                }}
+              >
+                <img
+                  width={screens.md ? 24 : 32}
+                  src="assets/close.svg"
+                  alt="close button"
+                />
+              </CloseButton>
+              {/* Image Carousel */}
               <Carousel>
                 {images
                   .sort((a, b) => {
@@ -152,7 +196,49 @@ const Projects: React.FC = () => {
                     );
                   })}
               </Carousel>
-            </ProjectCarousel>
+              {/* Info section */}
+              <br />
+              <ResponsiveRow breakpoint="sm" columnGap="3rem">
+                <BoundedContainer
+                  breakpoint="sm"
+                  width="40vw"
+                  noMarginUponBreak
+                >
+                  {/* About the project */}
+                  <Body1>{constants.projects.about}</Body1>
+                  <Body2>{project.about}</Body2>
+                  <br />
+                  {/* Features of the project */}
+                  <Body1>{constants.projects.features}</Body1>
+                  {project.features
+                    .trim()
+                    .split("-")
+                    .map((feature, index) => {
+                      return index !== 0 && <Body2> - {feature}</Body2>;
+                    })}
+                </BoundedContainer>
+                <BoundedContainer
+                  breakpoint="sm"
+                  width="30vw"
+                  noMarginUponBreak
+                >
+                  {/* The tech used */}
+                  <Body1>{constants.projects.techSpec}</Body1>
+                  <WrappedList list={project.techSpec} noOfRows={4} />
+                  <br />
+                  {/* Links to the project */}
+                  <Body1>{constants.projects.links}</Body1>
+                  {project.links.map(link => {
+                    return (
+                      <ExternalLink href={link.url}>
+                        <Body2>{link.name}</Body2>
+                      </ExternalLink>
+                    );
+                  })}
+                </BoundedContainer>
+              </ResponsiveRow>
+              <Hr />
+            </ProjectExpanded>
           ) : (
             <ProjectTile
               key={index}
@@ -167,7 +253,7 @@ const Projects: React.FC = () => {
                   fluid={coverImages[project.projectID]}
                 />
               </ImageContainer>
-              <SubHeading>{project.name}</SubHeading>
+              <SubHeading2>{project.name}</SubHeading2>
               {project.tags.map(tag => {
                 return <Chip label={tag} />;
               })}

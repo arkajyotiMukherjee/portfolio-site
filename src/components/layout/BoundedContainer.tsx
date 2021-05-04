@@ -4,6 +4,7 @@ interface IBoundedContainer {
   breakpoint: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   width: string;
   margin?: string;
+  noMarginUponBreak?: boolean;
 }
 
 const BoundedContainer = styled.div<IBoundedContainer>`
@@ -12,7 +13,11 @@ const BoundedContainer = styled.div<IBoundedContainer>`
 
   /* width is 100% - 16% (horizontal margin) = 84% */
   width: ${props =>
-    props.theme.screens[props.breakpoint] ? "84%" : props.width};
+    props.theme.screens[props.breakpoint]
+      ? props.noMarginUponBreak
+        ? "100%"
+        : "84%"
+      : props.width};
   margin: ${props =>
     props.theme.screens[props.breakpoint] ? "1rem auto" : props.margin};
 `;

@@ -26,7 +26,8 @@ declare module "styled-components" {
         sm: string;
       };
       heading: { xxxl: string; xxl: string; md: string };
-      subHeading: { xxxl: string; xxl: string; md: string };
+      subHeading1: { xxxl: string; xxl: string; md: string };
+      subHeading2: { xxxl: string; xxl: string; md: string };
       body1: { xxxl: string; xxl: string; md: string };
       body2: { xxxl: string; xxl: string; md: string };
       body3: { xxxl: string; xxl: string; md: string };
