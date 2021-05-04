@@ -1,5 +1,5 @@
 import React from "react";
-import { ArtDirectedBackground } from "../components/image-fetch/ArtDirectedBackground";
+import { HeroBackground } from "../components/image-fetch";
 import { Layout } from "../components/layout";
 import { Nav } from "../components/nav";
 import { About, Contact, Head, Projects } from "../components/sections/home";
@@ -9,10 +9,10 @@ const App: React.FC = () => {
   return (
     <Layout>
       <SEO />
-      <ArtDirectedBackground>
+      <HeroBackground>
         <Nav />
         <Head />
-      </ArtDirectedBackground>
+      </HeroBackground>
       <About />
       <Projects />
       <Contact />

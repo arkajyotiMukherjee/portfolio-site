@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { constants } from "../../../constants";
 import { Chip } from "../../chip";
 import { HierarchyGraph } from "../../graphs/hierarchyGraph";
-import { Profile } from "../../image-fetch/Profile";
+import { Profile } from "../../image-fetch";
 import { BoundedContainer, ResponsiveRow, Section } from "../../layout";
 import { Anchor } from "../../link";
 import { VerticalSteps } from "../../steps";

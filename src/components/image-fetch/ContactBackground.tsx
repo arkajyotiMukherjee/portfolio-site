@@ -34,11 +34,11 @@ const InnerWrapper = styled(FullWidthGRContainer).attrs({
   margin-bottom: 3rem;
 `;
 
-const ArtDirectedBackground: React.FC = ({ children }) => {
+const ContactBackground: React.FC = ({ children }) => {
   const { mobileImage, desktopImage } = useStaticQuery(
     graphql`
       query {
-        mobileImage: file(relativePath: { eq: "background-sm.png" }) {
+        mobileImage: file(relativePath: { eq: "hero-background-sm.png" }) {
           childImageSharp {
             fluid(maxWidth: 640, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
@@ -46,7 +46,7 @@ const ArtDirectedBackground: React.FC = ({ children }) => {
             }
           }
         }
-        desktopImage: file(relativePath: { eq: "background.png" }) {
+        desktopImage: file(relativePath: { eq: "hero-background.png" }) {
           childImageSharp {
             fluid(maxWidth: 1920, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
@@ -79,4 +79,4 @@ const ArtDirectedBackground: React.FC = ({ children }) => {
   );
 };
 
-export { ArtDirectedBackground };
+export { ContactBackground };

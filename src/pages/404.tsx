@@ -2,12 +2,12 @@ import { navigate } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 import { Button } from "../components/button";
-import { Image404 } from "../components/image-fetch/Image404";
+import { Image404 } from "../components/image-fetch";
 import {
   BoundedContainer,
   Center,
   Layout,
-  ResponsiveRow,
+  ResponsiveRow
 } from "../components/layout";
 import { Body1, Heading } from "../components/texts";
 
