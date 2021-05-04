@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
-const Anchor = styled.a`
-  font-weight: bold;
+interface IAnchor {
+  boldText?: boolean;
+}
+const Anchor = styled.a.attrs({
+  rel: "noopener",
+})<IAnchor>`
+  font-weight: ${props => (props.boldText ? "bold" : "normal")};
   text-decoration: underline;
   cursor: pointer;
 `;

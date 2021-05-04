@@ -110,6 +110,7 @@ const TabContent3: React.FC = () => {
                     return index !== 0 && <Body3>* {desc}</Body3>;
                   })}
                 <Anchor
+                  boldText
                   onClick={() => {
                     setReadMore({ ...readMore, [id]: !readMore[id] });
                   }}

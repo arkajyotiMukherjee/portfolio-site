@@ -28,12 +28,20 @@ const ResponsiveRow = styled.div<IResponsiveRow>`
 
 interface IRow {
   wrap?: boolean;
+  gap?: string;
 }
 
 const Row = styled.div<IRow>`
   display: flex;
   justify-content: space-between;
   flex-wrap: ${props => (props.wrap ? "wrap" : "no-wrap")};
+`;
+
+const RowCentered = styled.div<IRow>`
+  display: flex;
+  justify-content: center;
+  flex-wrap: ${props => (props.wrap ? "wrap" : "no-wrap")};
+  gap: ${props => props.gap ?? 0};
 `;
 
 const Column = styled.div`
@@ -57,4 +65,4 @@ const Center = styled.div`
   place-items: center;
 `;
 
-export { ResponsiveRow, Row, Column, ColumnCenter, Center };
+export { ResponsiveRow, Row, RowCentered, Column, ColumnCenter, Center };

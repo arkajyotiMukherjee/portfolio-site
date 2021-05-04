@@ -250,6 +250,31 @@ const constants = {
   // Contact section
   contact: {
     heading: "Contact",
+    dropMail: "You can drop me an email at ",
+    email: "arkajyoti31@gmail.com",
+    reachMe: "or reach me via:",
+    socialLinks: [
+      {
+        name: "github",
+        src: "assets/github.svg",
+        url: "https://github.com/arkajyotiMukherjee",
+      },
+      {
+        name: "linkedIn",
+        src: "assets/linkedIn.svg",
+        url: "https://www.linkedin.com/in/arkajyotimukherjee/",
+      },
+      {
+        name: "twitter",
+        src: "assets/twitter.svg",
+        url: "https://twitter.com/guywithpajamas",
+      },
+    ],
+    downloadResume: "Download my resume in pdf or doc",
+    resumeFormats: {
+      pdf: "pdf",
+      docx: "docx",
+    },
   },
 };
 

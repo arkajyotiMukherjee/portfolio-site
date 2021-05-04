@@ -11,34 +11,32 @@ const Wrapper = styled.div`
 
 const InnerWrapper = styled(FullWidthGRContainer).attrs({
   breakpoint: "sm",
-  flipped: true,
 })`
   ${props =>
     props.theme.screens.sm
       ? css`
           grid-template-areas:
-            "N N N N"
-            "H H H H"
-            "H H H H"
-            "H H H H";
+            "C C C C"
+            ". . . ."
+            ". . . ."
+            ". . . .";
         `
       : css`
           grid-template-areas:
-            "N N N N"
-            "H . . ."
-            "H . . ."
-            "H . . .";
+            "C . . ."
+            "C . . ."
+            "C . . ."
+            "C . . .";
         `};
 
   margin: auto;
-  margin-bottom: 3rem;
 `;
 
 const ContactBackground: React.FC = ({ children }) => {
   const { mobileImage, desktopImage } = useStaticQuery(
     graphql`
       query {
-        mobileImage: file(relativePath: { eq: "hero-background-sm.png" }) {
+        mobileImage: file(relativePath: { eq: "contact-background-sm.png" }) {
           childImageSharp {
             fluid(maxWidth: 640, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
@@ -46,7 +44,7 @@ const ContactBackground: React.FC = ({ children }) => {
             }
           }
         }
-        desktopImage: file(relativePath: { eq: "hero-background.png" }) {
+        desktopImage: file(relativePath: { eq: "contact-background.png" }) {
           childImageSharp {
             fluid(maxWidth: 1920, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp

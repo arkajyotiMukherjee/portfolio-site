@@ -11,7 +11,7 @@ interface IChip {
 const ChipContainer = styled.div`
   display: inline-block;
   width: fit-content;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.2rem 0.5rem 1rem;
   margin-right: 3%;
   margin-bottom: 3%;
 
@@ -22,17 +22,21 @@ const ChipContainer = styled.div`
 const Wrapper = styled.div`
   display: flex;
   grid-gap: 0.5rem;
-`;
 
-const Icon = styled.img`
-  width: 25%;
+  img {
+    height: 2rem;
+  }
+
+  p {
+    align-self: center;
+  }
 `;
 
 const Chip: React.FC<IChip> = ({ src, alt, label }) => {
   return (
     <ChipContainer>
       <Wrapper>
-        {src && <Icon src={src} alt={alt ?? "image"} />}
+        {src && <img src={src} alt={alt ?? "image"} />}
         <Body2 variant="secondary">{label}</Body2>
       </Wrapper>
     </ChipContainer>
