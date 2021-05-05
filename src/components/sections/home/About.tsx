@@ -35,12 +35,12 @@ const ProfileWrapper = styled(BoundedContainer).attrs({
 const TabContent1: React.FC = () => {
   return (
     <>
-      <Body1>
+      <Body2>
         {constants.about.tabs.tab1.aboutMe}
         <br />
         <br />
         {constants.about.tabs.tab1.hobbiesHeading}
-      </Body1>
+      </Body2>
       <br />
       {constants.about.tabs.tab1.hobbies.map(hobby => {
         return <Chip src={hobby.src} alt={hobby.name} label={hobby.name} />;

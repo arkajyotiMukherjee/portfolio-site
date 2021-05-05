@@ -61,17 +61,27 @@ const constants = {
     tabs: {
       tab1: {
         heading: "me",
-        aboutMe:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        aboutMe: `I Arkajyoti Mukherjee, nicknamed Arko, belong to the species of Homo sapiens. 
+          I love to type in my keyboard until it resembles something that the sapiens use to automate things in their lives, called code. 
+          I won't bore the reader by saying clichés like I am a creative person or have a desire to change the world. 
+          Sometimes people even after understanding the vanity and fleeting nature of things desire to leave a mark upon this world. 
+          They do that by the stories they tell and the people they touch. This is my little mark on the world. 
+          As weird as it may sound, I like to believe I can express myself through the work that I do, even if they are lifeless characters on a computer screen. 
+          I'm fascinated by the capabilities that it can unlock and the problems it solves. 
+          Here you'll find some of the problems I tried to solve in my duration on this planet.`,
         hobbiesHeading: "hobbies:",
         hobbies: [
           {
             name: "guitar",
-            src: "./assets/guitar.svg",
+            src: "./assets/hobbies/guitar.svg",
           },
           {
             name: "reading",
-            src: "./assets/guitar.svg",
+            src: "./assets/hobbies/reading.svg",
+          },
+          {
+            name: "writing",
+            src: "./assets/hobbies/writing.svg",
           },
         ],
       },
@@ -256,17 +266,17 @@ const constants = {
     socialLinks: [
       {
         name: "github",
-        src: "assets/github.svg",
+        src: "assets/social/github.svg",
         url: "https://github.com/arkajyotiMukherjee",
       },
       {
         name: "linkedIn",
-        src: "assets/linkedIn.svg",
+        src: "assets/social/linkedIn.svg",
         url: "https://www.linkedin.com/in/arkajyotimukherjee/",
       },
       {
         name: "twitter",
-        src: "assets/twitter.svg",
+        src: "assets/social/twitter.svg",
         url: "https://twitter.com/guywithpajamas",
       },
     ],
