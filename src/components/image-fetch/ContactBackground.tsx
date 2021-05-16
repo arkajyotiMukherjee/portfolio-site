@@ -34,33 +34,26 @@ const InnerWrapper = styled(FullWidthGRContainer).attrs({
 
 const ContactBackground: React.FC = ({ children }) => {
   const { mobileImage, desktopImage } = useStaticQuery(
-    graphql`
-      query {
-        mobileImage: file(relativePath: { eq: "contact-background-sm.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 640, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-              ...GatsbyImageSharpFluidLimitPresentationSize
-            }
-          }
-        }
-        desktopImage: file(relativePath: { eq: "contact-background.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 1920, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-              ...GatsbyImageSharpFluidLimitPresentationSize
-            }
-          }
-        }
-      }
-    `
+    graphql`{
+  mobileImage: file(relativePath: {eq: "contact-background-sm.png"}) {
+    childImageSharp {
+      gatsbyImageData(width: 640, quality: 100, layout: CONSTRAINED)
+    }
+  }
+  desktopImage: file(relativePath: {eq: "contact-background.png"}) {
+    childImageSharp {
+      gatsbyImageData(width: 1920, quality: 100, layout: CONSTRAINED)
+    }
+  }
+}
+`
   );
   // Set up the array of image data and `media` keys.
   // You can have as many entries as you'd like.
   const sources = [
-    mobileImage.childImageSharp.fluid,
+    mobileImage.childImageSharp.gatsbyImageData,
     {
-      ...desktopImage.childImageSharp.fluid,
+      ...desktopImage.childImageSharp.gatsbyImageData,
       media: `(min-width: 640px)`,
     },
   ];

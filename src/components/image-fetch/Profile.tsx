@@ -1,26 +1,21 @@
 import { graphql, useStaticQuery } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 
 const Profile: React.FC = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      image: file(relativePath: { eq: "profile.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 700, quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
-            ...GatsbyImageSharpFluidLimitPresentationSize
-          }
-        }
-      }
+  const data = useStaticQuery(graphql`{
+  image: file(relativePath: {eq: "profile.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 700, quality: 100, layout: CONSTRAINED)
     }
-  `);
+  }
+}
+`);
 
   return (
-    <Img
-      fluid={data.image.childImageSharp.fluid}
-      alt="picture of Arkajyoti Mukherjee"
-    />
+    <GatsbyImage
+      image={data.image.childImageSharp.gatsbyImageData}
+      alt="picture of Arkajyoti Mukherjee" />
   );
 };
 

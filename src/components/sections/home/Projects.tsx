@@ -1,4 +1,4 @@
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import React, { useState } from "react";
 import styled, { css, useTheme } from "styled-components";
 import { constants, Project } from "../../../constants";
@@ -13,7 +13,7 @@ import {
   Body2,
   SectionHeadText,
   SubHeading1,
-  SubHeading2,
+  SubHeading2
 } from "../../texts";
 
 const ProjectsContainer = styled.div`
@@ -180,8 +180,8 @@ const Projects: React.FC = () => {
               <Carousel>
                 {images
                   .sort((a, b) => {
-                    const path1 = a.src.split("/");
-                    const path2 = b.src.split("/");
+                    const path1 = a.images.fallback.src.split("/");
+                    const path2 = b.images.fallback.src.split("/");
                     const res =
                       path1[path1.length - 1] < path2[path1.length - 1];
 
@@ -190,7 +190,7 @@ const Projects: React.FC = () => {
                   .map(image => {
                     return (
                       <ExpandedImageContainer aspectRatio={image.aspectRatio}>
-                        <Img alt={project.name} fluid={image} />
+                        <GatsbyImage image={image} alt={project.name} />
                       </ExpandedImageContainer>
                     );
                   })}
@@ -247,10 +247,7 @@ const Projects: React.FC = () => {
               }}
             >
               <ImageContainer>
-                <Img
-                  alt={project.name}
-                  fluid={coverImages[project.projectID]}
-                />
+                <GatsbyImage image={coverImages[project.projectID]} alt={project.name} />
               </ImageContainer>
               <SubHeading2>{project.name}</SubHeading2>
               {project.tags.map(tag => {

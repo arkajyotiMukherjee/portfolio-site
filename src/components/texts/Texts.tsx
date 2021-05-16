@@ -1,3 +1,5 @@
+import "@fontsource/inter";
+import "@fontsource/merriweather";
 import styled, { css, DefaultTheme } from "styled-components";
 
 function textVariant(variant: Variant, theme: DefaultTheme) {
@@ -34,6 +36,7 @@ const FadedHeading = styled.h1<IFadedHeading>`
   user-select: none;
   color: ${props => props.theme.colors.textHint};
   opacity: ${props => props.theme.opacity[30]};
+  font-family: "Merriweather", georgia, serif;
   font-weight: normal;
   font-size: ${props => props.theme.fontSize.fadedHeading};
 `;
@@ -41,6 +44,7 @@ const FadedHeading = styled.h1<IFadedHeading>`
 const SectionHeading = styled.h1<IText>`
   color: ${props => props.theme.colors.textHint};
   text-align: ${props => props.textAlign ?? "left"};
+  font-family: "Merriweather", georgia, serif;
   font-weight: normal;
   font-size: ${({ theme }) =>
     theme.screens.sm
@@ -55,6 +59,7 @@ const SectionHeading = styled.h1<IText>`
 const Heading = styled.h1<IText>`
   color: ${props => props.theme.colors.textPrimary};
   text-align: ${props => props.textAlign ?? "left"};
+  font-family: "Merriweather", georgia, serif;
   font-weight: normal;
   font-size: ${({ theme }) =>
     theme.screens.md
@@ -67,6 +72,7 @@ const Heading = styled.h1<IText>`
 const SubHeading1 = styled.h2<IText>`
   color: ${props => props.theme.colors.textPrimary};
   text-align: ${props => props.textAlign ?? "left"};
+  font-family: "Merriweather", georgia, serif;
   font-weight: normal;
   font-size: ${({ theme }) =>
     theme.screens.md
@@ -79,6 +85,7 @@ const SubHeading1 = styled.h2<IText>`
 const SubHeading2 = styled.p<IText>`
   color: ${props => textVariant(props.variant, props.theme)};
   text-align: ${props => props.textAlign ?? "left"};
+  font-family: "Merriweather", georgia, serif;
   font-size: ${({ theme }) =>
     theme.screens.md
       ? theme.fontSize.subHeading2.md
@@ -91,6 +98,7 @@ const Body1 = styled.p<IText>`
   color: ${props => props.theme.colors.textPrimary};
   line-height: 160%;
   text-align: ${props => props.textAlign ?? "left"};
+  font-family: "Inter", Arial, sans-serif;
   font-size: ${({ theme }) =>
     theme.screens.md
       ? theme.fontSize.body1.md
@@ -103,6 +111,7 @@ const Body2 = styled.p<IText>`
   color: ${props => textVariant(props.variant, props.theme)};
   line-height: 160%;
   text-align: ${props => props.textAlign ?? "left"};
+  font-family: "Inter", Arial, sans-serif;
   font-size: ${({ theme }) =>
     theme.screens.md
       ? theme.fontSize.body2.md
@@ -115,6 +124,7 @@ const Body3 = styled.p<IText>`
   color: ${props => props.theme.colors.textPrimary};
   line-height: 160%;
   text-align: ${props => props.textAlign ?? "left"};
+  font-family: "Inter", Arial, sans-serif;
   font-size: ${({ theme }) =>
     theme.screens.md
       ? theme.fontSize.body3.md
