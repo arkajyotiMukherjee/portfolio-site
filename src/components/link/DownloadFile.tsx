@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import download from "../../images/svg/download.svg";
 
 const DownloadLink = styled.a`
   text-decoration: underline;
@@ -14,7 +15,7 @@ const DownloadLink = styled.a`
     width: 1.2rem;
     height: 1.2rem;
     margin-right: 0.3rem;
-    background: transparent url("assets/download.svg") no-repeat;
+    background: transparent url(${download}) no-repeat;
     background-size: contain;
     background-position: center;
   }

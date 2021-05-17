@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import externalLink from "../../images/svg/external-link.svg";
 
 const ExternalLink = styled.a.attrs({
   target: "_blank",
@@ -15,7 +16,7 @@ const ExternalLink = styled.a.attrs({
     height: 1.2rem;
     margin-left: 0.3rem;
     margin-right: 2rem;
-    background: transparent url("assets/external-link.svg") no-repeat;
+    background: transparent url(${externalLink}) no-repeat;
     background-size: contain;
     background-position: center;
   }

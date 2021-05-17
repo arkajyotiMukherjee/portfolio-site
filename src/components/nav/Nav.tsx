@@ -1,14 +1,15 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled, { css, useTheme } from "styled-components";
 import { constants } from "../../constants";
+import logo from "../../images/svg/logo.svg";
 import { Body1 } from "../texts";
 
 const NavContainer = styled.nav`
-  grid-area: N;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 2% 4%;
+  align-items: center;
+  padding: 1% 4%;
   max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
 `;
@@ -52,15 +53,15 @@ const Li = styled.li`
 `;
 
 const Nav: React.FC = () => {
+  const { screens } = useTheme();
+
   return (
     <NavContainer>
-      <div>
-        <img
-          src="/assets/rain-doge.svg"
-          width="64"
-          alt={constants.nav.logoAlt}
-        />
-      </div>
+      <img
+        src={logo}
+        width={screens.md ? 64 : 84}
+        alt={constants.nav.logoAlt}
+      />
       <Ul>
         <Li>
           <a href={`#${constants.nav.about}`}>

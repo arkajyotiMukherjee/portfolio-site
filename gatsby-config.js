@@ -45,10 +45,12 @@ module.exports = {
       },
     },
     `gatsby-plugin-styled-components`,
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     "gatsby-plugin-react-helmet",
     `gatsby-plugin-typescript`,
+    `gatsby-plugin-optimize-svgs`,
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
@@ -72,10 +74,10 @@ module.exports = {
         short_name: siteTitle,
         description: siteDescription,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#fff`,
+        theme_color: `#fff`,
         display: `minimal-ui`,
-        icon: "src/images/rain-doge.png",
+        icon: "src/images/logo.png",
         icons: [
           {
             src: "icons/icon_512x512.png",

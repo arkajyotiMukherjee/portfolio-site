@@ -68,12 +68,6 @@ declare module "styled-components" {
   }
 }
 
-// Add support for svg imports
-declare module "*.svg" {
-  const content: any;
-  export default content;
-}
-
 // Add support for Jest configuration
 declare global {
   namespace NodeJS {

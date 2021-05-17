@@ -1,10 +1,10 @@
 import { ParentSize } from "@visx/responsive";
+import { StaticImage } from "gatsby-plugin-image";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { constants } from "../../../constants";
 import { Chip } from "../../chip";
 import { HierarchyGraph } from "../../graphs/hierarchyGraph";
-import { Profile } from "../../image-fetch";
 import { BoundedContainer, ResponsiveRow, Section } from "../../layout";
 import { Anchor } from "../../link";
 import { VerticalSteps } from "../../steps";
@@ -137,7 +137,12 @@ const About: React.FC = () => {
 
       <ResponsiveRow breakpoint="lg">
         <ProfileWrapper>
-          <Profile />
+          <StaticImage
+            src="../../../images/profile.jpg"
+            alt="picture of Arkajyoti Mukherjee"
+            quality={100}
+            placeholder="blurred"
+          />
           <SubHeading2>{constants.about.name}</SubHeading2>
           <Body1>{constants.about.designation}</Body1>
         </ProfileWrapper>

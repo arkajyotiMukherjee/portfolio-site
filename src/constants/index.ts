@@ -1,3 +1,10 @@
+import guitar from "../images/svg/hobbies/guitar.svg";
+import reading from "../images/svg/hobbies/reading.svg";
+import writing from "../images/svg/hobbies/writing.svg";
+import github from "../images/svg/social/github.svg";
+import linkedIn from "../images/svg/social/linkedIn.svg";
+import twitter from "../images/svg/social/twitter.svg";
+
 type Job = {
   id: string;
   designation: string;
@@ -73,15 +80,15 @@ const constants = {
         hobbies: [
           {
             name: "guitar",
-            src: "./assets/hobbies/guitar.svg",
+            src: guitar,
           },
           {
             name: "reading",
-            src: "./assets/hobbies/reading.svg",
+            src: reading,
           },
           {
             name: "writing",
-            src: "./assets/hobbies/writing.svg",
+            src: writing,
           },
         ],
       },
@@ -266,17 +273,17 @@ const constants = {
     socialLinks: [
       {
         name: "github",
-        src: "assets/social/github.svg",
+        src: github,
         url: "https://github.com/arkajyotiMukherjee",
       },
       {
         name: "linkedIn",
-        src: "assets/social/linkedIn.svg",
+        src: linkedIn,
         url: "https://www.linkedin.com/in/arkajyotimukherjee/",
       },
       {
         name: "twitter",
-        src: "assets/social/twitter.svg",
+        src: twitter,
         url: "https://twitter.com/guywithpajamas",
       },
     ],
@@ -284,13 +291,11 @@ const constants = {
     resumes: [
       {
         format: "pdf",
-        url:
-          "https://github.com/arkajyotiMukherjee/portfolio-site/raw/main/resume/Arkajyoti-Mukherjee-Resume.pdf",
+        url: "https://github.com/arkajyotiMukherjee/portfolio-site/raw/main/resume/Arkajyoti-Mukherjee-Resume.pdf",
       },
       {
         format: "docx",
-        url:
-          "https://github.com/arkajyotiMukherjee/portfolio-site/raw/main/resume/Arkajyoti-Mukherjee-Resume.docx",
+        url: "https://github.com/arkajyotiMukherjee/portfolio-site/raw/main/resume/Arkajyoti-Mukherjee-Resume.docx",
       },
     ],
   },

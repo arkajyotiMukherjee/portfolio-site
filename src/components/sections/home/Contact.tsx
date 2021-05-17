@@ -1,34 +1,27 @@
 import React from "react";
-import styled from "styled-components";
 import { constants } from "../../../constants";
+import contact from "../../../images/svg/contact.svg";
 import { Chip } from "../../chip";
-import { ContactBackground } from "../../image-fetch";
-import { Center, RowCentered, Section } from "../../layout";
+import {
+  BoundedContainer,
+  Center,
+  ResponsiveRow,
+  RowCentered,
+  Section,
+} from "../../layout";
 import { Anchor, DownloadFile } from "../../link";
 import { Body1, SectionHeadText } from "../../texts";
-
-const GoldenRatioLongSection = styled.div`
-  grid-area: C;
-
-  h1 {
-    margin-top: 5rem;
-    padding-left: 25%;
-  }
-`;
-
-const Wrapper = styled.div`
-  width: 100%;
-  padding: 0 1rem;
-`;
 
 const Contact: React.FC = () => {
   return (
     <Section id={constants.nav.contact}>
-      <SectionHeadText>{constants.contact.heading}</SectionHeadText>
-      <ContactBackground>
-        <GoldenRatioLongSection>
+      <SectionHeadText fillerHeight="25rem">
+        {constants.contact.heading}
+      </SectionHeadText>
+      <ResponsiveRow breakpoint="sm">
+        <BoundedContainer breakpoint="sm" width="50%">
           <Center>
-            <Wrapper>
+            <div>
               <Body1 textAlign="center">{constants.contact.dropMail}</Body1>
               <Body1 textAlign="center">
                 <Anchor boldText href={`mailto:${constants.contact.email}`}>
@@ -66,10 +59,13 @@ const Contact: React.FC = () => {
                   })}
                 </div>
               </Center>
-            </Wrapper>
+            </div>
           </Center>
-        </GoldenRatioLongSection>
-      </ContactBackground>
+        </BoundedContainer>
+        <BoundedContainer breakpoint="sm" width="50%">
+          <img src={contact} alt="contact image" />
+        </BoundedContainer>
+      </ResponsiveRow>
     </Section>
   );
 };

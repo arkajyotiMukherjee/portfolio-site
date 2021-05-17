@@ -1,7 +1,8 @@
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, getSrc } from "gatsby-plugin-image";
 import React, { useState } from "react";
 import styled, { css, useTheme } from "styled-components";
 import { constants, Project } from "../../../constants";
+import close from "../../../images/svg/close.svg";
 import { Carousel } from "../../carousel";
 import { Chip } from "../../chip";
 import { getProjectCovers, getProjectImages } from "../../image-fetch";
@@ -13,7 +14,7 @@ import {
   Body2,
   SectionHeadText,
   SubHeading1,
-  SubHeading2
+  SubHeading2,
 } from "../../texts";
 
 const ProjectsContainer = styled.div`
@@ -39,6 +40,7 @@ const CloseButton = styled.div`
   img {
     margin: auto;
     margin-bottom: ${props => (props.theme.screens.sm ? "1rem" : "2rem")};
+    cursor: pointer;
 
     :hover {
       transform: scale(1.5);
@@ -101,7 +103,7 @@ interface IExpandedImageContainer {
 const ExpandedImageContainer = styled(ImageContainer)<IExpandedImageContainer>`
   width: fit-content;
   transition: transform 300ms ease-in-out, filter 300ms ease-in-out;
-  
+
   ${props =>
     !props.theme.screens.sm &&
     css<IExpandedImageContainer>`
@@ -172,16 +174,17 @@ const Projects: React.FC = () => {
               >
                 <img
                   width={screens.md ? 24 : 32}
-                  src="assets/close.svg"
+                  src={close}
                   alt="close button"
                 />
               </CloseButton>
+
               {/* Image Carousel */}
               <Carousel>
                 {images
                   .sort((a, b) => {
-                    const path1 = a.images.fallback.src.split("/");
-                    const path2 = b.images.fallback.src.split("/");
+                    const path1 = getSrc(a)?.split("/") ?? [];
+                    const path2 = getSrc(b)?.split("/") ?? [];
                     const res =
                       path1[path1.length - 1] < path2[path1.length - 1];
 
@@ -195,6 +198,7 @@ const Projects: React.FC = () => {
                     );
                   })}
               </Carousel>
+
               {/* Info section */}
               <br />
               <ResponsiveRow breakpoint="sm" columnGap="3rem">
@@ -247,7 +251,10 @@ const Projects: React.FC = () => {
               }}
             >
               <ImageContainer>
-                <GatsbyImage image={coverImages[project.projectID]} alt={project.name} />
+                <GatsbyImage
+                  image={coverImages[project.projectID]}
+                  alt={project.name}
+                />
               </ImageContainer>
               <SubHeading2>{project.name}</SubHeading2>
               {project.tags.map(tag => {

@@ -2,15 +2,23 @@ import React from "react";
 import styled, { useTheme } from "styled-components";
 import { FadedHeading, IFadedHeading, SectionHeading } from "./Texts";
 
-const FillerSpace = styled.div`
-  height: 20rem;
+interface ISectionHeadText extends IFadedHeading {
+  fillerHeight?: string;
+}
+
+const FillerSpace = styled.div<Pick<ISectionHeadText, "fillerHeight">>`
+  height: ${props => props.fillerHeight ?? "20rem"};
 `;
 
 const RelativeContainer = styled.div`
   position: relative;
 `;
 
-const SectionHeadText: React.FC<IFadedHeading> = ({ children, ...rest }) => {
+const SectionHeadText: React.FC<ISectionHeadText> = ({
+  fillerHeight,
+  children,
+  ...rest
+}) => {
   const { screens } = useTheme();
 
   return (
@@ -20,7 +28,7 @@ const SectionHeadText: React.FC<IFadedHeading> = ({ children, ...rest }) => {
       ) : (
         <>
           <FadedHeading {...rest}>{children}</FadedHeading>
-          <FillerSpace />
+          <FillerSpace fillerHeight={fillerHeight} />
         </>
       )}
     </RelativeContainer>

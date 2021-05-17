@@ -5,19 +5,20 @@ type ProjectImages = {
 };
 
 const getProjectImages = () => {
-  const data = useStaticQuery(graphql`{
-  images: allFile(filter: {relativePath: {regex: "/projects/"}}) {
-    edges {
-      node {
-        relativeDirectory
-        childImageSharp {
-          gatsbyImageData(width: 1000, quality: 100, layout: CONSTRAINED)
+  const data = useStaticQuery(graphql`
+    {
+      images: allFile(filter: { relativePath: { regex: "/projects/" } }) {
+        edges {
+          node {
+            relativeDirectory
+            childImageSharp {
+              gatsbyImageData(quality: 100, layout: CONSTRAINED, height: 510)
+            }
+          }
         }
       }
     }
-  }
-}
-`);
+  `);
 
   const projectImages: ProjectImages = data.images.edges.reduce(
     (acc: ProjectImages, edge: any) => {

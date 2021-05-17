@@ -39,6 +39,7 @@ const FadedHeading = styled.h1<IFadedHeading>`
   font-family: "Merriweather", georgia, serif;
   font-weight: normal;
   font-size: ${props => props.theme.fontSize.fadedHeading};
+  line-height: normal;
 `;
 
 const SectionHeading = styled.h1<IText>`
@@ -98,7 +99,7 @@ const Body1 = styled.p<IText>`
   color: ${props => props.theme.colors.textPrimary};
   line-height: 160%;
   text-align: ${props => props.textAlign ?? "left"};
-  font-family: "Inter", Arial, sans-serif;
+  font-family: "Merriweather", Arial, sans-serif;
   font-size: ${({ theme }) =>
     theme.screens.md
       ? theme.fontSize.body1.md
