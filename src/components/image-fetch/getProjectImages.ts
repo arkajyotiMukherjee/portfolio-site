@@ -11,6 +11,7 @@ const getProjectImages = () => {
         edges {
           node {
             relativeDirectory
+            name
             childImageSharp {
               gatsbyImageData(quality: 100, layout: CONSTRAINED, height: 510)
             }
@@ -25,7 +26,13 @@ const getProjectImages = () => {
       const key: string = edge.node.relativeDirectory.split("/")[1];
       return {
         ...acc,
-        [key]: [...(acc[key] ?? []), edge.node.childImageSharp.gatsbyImageData],
+        [key]: [
+          ...(acc[key] ?? []),
+          {
+            name: edge.node.name,
+            image: edge.node.childImageSharp.gatsbyImageData,
+          },
+        ],
       };
     },
     {}

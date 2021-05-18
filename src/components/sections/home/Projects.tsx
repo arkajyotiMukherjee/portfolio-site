@@ -1,6 +1,6 @@
-import { GatsbyImage, getSrc } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import React, { useState } from "react";
-import styled, { css, useTheme } from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { constants, Project } from "../../../constants";
 import close from "../../../images/svg/close.svg";
 import { Carousel } from "../../carousel";
@@ -81,61 +81,23 @@ const ImageContainer = styled.div`
     right: 0.5rem;
   }
 
-  .gatsby-image-wrapper {
-    height: ${props => (props.theme.screens.sm ? "8rem" : "auto")};
-    filter: grayscale(100%);
-  }
-
   :hover {
     cursor: pointer;
-
-    .gatsby-image-wrapper {
-      filter: grayscale(30%);
-    }
   }
 `;
 
 interface IExpandedImageContainer {
-  aspectRatio: number;
   isActive?: boolean;
+  mobileImage?: boolean;
 }
 
 const ExpandedImageContainer = styled(ImageContainer)<IExpandedImageContainer>`
-  width: fit-content;
+  width: ${props =>
+    props.theme.screens.sm ? (props.mobileImage ? "55%" : "auto") : "auto"};
+
+  margin: auto;
   transition: transform 300ms ease-in-out, filter 300ms ease-in-out;
-
-  ${props =>
-    !props.theme.screens.sm &&
-    css<IExpandedImageContainer>`
-      transform: scale(${props => (props.isActive ? 1 : 0.6)});
-    `}
-
-  .gatsby-image-wrapper {
-    ${({ theme, aspectRatio }) =>
-      theme.screens.lg
-        ? aspectRatio >= 1
-          ? css<IExpandedImageContainer>`
-              width: ${theme.carousel.imageWidthFixed};
-              height: calc(${theme.carousel.imageWidthFixed} / ${aspectRatio});
-            `
-          : css<IExpandedImageContainer>`
-              width: calc(${aspectRatio} * ${theme.carousel.imageHeight.md});
-              height: ${theme.carousel.imageHeight.md};
-            `
-        : css<IExpandedImageContainer>`
-            width: calc(${aspectRatio} * ${theme.carousel.imageHeight.lg});
-            height: ${theme.carousel.imageHeight.lg};
-          `}
-    filter: grayscale(${props => (props.isActive ? "0%" : "70%")});
-  }
-
-  :hover {
-    cursor: inherit;
-
-    .gatsby-image-wrapper {
-      filter: grayscale(0%);
-    }
-  }
+  transform: scale(${props => (props.isActive ? 1 : 0.6)});
 `;
 
 const Hr = styled.hr`
@@ -183,17 +145,16 @@ const Projects: React.FC = () => {
               <Carousel>
                 {images
                   .sort((a, b) => {
-                    const path1 = getSrc(a)?.split("/") ?? [];
-                    const path2 = getSrc(b)?.split("/") ?? [];
-                    const res =
-                      path1[path1.length - 1] < path2[path1.length - 1];
-
-                    return res ? -1 : 1;
+                    const name1 = a.name;
+                    const name2 = b.name;
+                    return name1 < name2 ? -1 : 1;
                   })
                   .map(image => {
                     return (
-                      <ExpandedImageContainer aspectRatio={image.aspectRatio}>
-                        <GatsbyImage image={image} alt={project.name} />
+                      <ExpandedImageContainer
+                        mobileImage={image.name.includes("mobile")}
+                      >
+                        <GatsbyImage image={image.image} alt={image.name} />
                       </ExpandedImageContainer>
                     );
                   })}

@@ -1,29 +1,17 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
-import "swiper/components/pagination/pagination.min.css";
-import SwiperCore, { Autoplay, Pagination } from "swiper/core";
+import SwiperCore, { Autoplay } from "swiper/core";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
-import { theme } from "../../styles/theme";
 
 const Wrapper = styled.div`
   .swiper-slide {
-    display: flex;
-    align-items: center;
     width: fit-content;
-  }
-
-  .swiper-pagination {
-    bottom: -5px;
-
-    .swiper-pagination-bullet-active {
-      background: ${props => props.theme.colors.secondary};
-    }
   }
 `;
 
 // install Swiper modules
-SwiperCore.use([Autoplay, Pagination]);
+SwiperCore.use([Autoplay]);
 
 interface ICarousel {
   children: React.ReactElement[];
@@ -44,7 +32,6 @@ const Carousel: React.FC<ICarousel> = ({ children }) => {
         className="swiper-root"
         autoHeight={true}
         slidesPerView="auto"
-        spaceBetween={30}
         centeredSlides={true}
         pagination={{
           clickable: true,
@@ -54,11 +41,6 @@ const Carousel: React.FC<ICarousel> = ({ children }) => {
           disableOnInteraction: true,
         }}
         grabCursor={true}
-        breakpoints={{
-          [theme.screens.md]: {
-            spaceBetween: 0,
-          },
-        }}
       >
         {children.map((child, index) => {
           return (
@@ -69,8 +51,10 @@ const Carousel: React.FC<ICarousel> = ({ children }) => {
                 swiperRef.current && swiperRef.current.swiper.slideTo(index);
               }}
             >
-              {// @ts-ignore
-              ({ isActive }) => React.cloneElement(child, { isActive })}
+              {
+                // @ts-ignore
+                ({ isActive }) => React.cloneElement(child, { isActive })
+              }
             </SwiperSlide>
           );
         })}
