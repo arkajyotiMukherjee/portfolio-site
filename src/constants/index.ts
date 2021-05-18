@@ -70,9 +70,8 @@ const constants = {
         heading: "me",
         aboutMe: `I Arkajyoti Mukherjee, nicknamed Arko, belong to the species of Homo sapiens. 
           I love to type in my keyboard until it resembles something that the sapiens use to automate things in their lives, called code. 
-          I won't bore the reader by saying clichés like I am a creative person or have a desire to change the world. 
-          Sometimes people even after understanding the vanity and fleeting nature of things desire to leave a mark upon this world. 
-          They do that by the stories they tell and the people they touch. This is my little mark on the world. 
+          People, sometimes, even after understanding the vanity and fleeting nature of things desire to leave a mark upon this world. 
+          They do so by the stories they tell and the people they touch. This is my little mark on the world. 
           As weird as it may sound, I like to believe I can express myself through the work that I do, even if they are lifeless characters on a computer screen. 
           I'm fascinated by the capabilities that it can unlock and the problems it solves. 
           Here you'll find some of the problems I tried to solve in my duration on this planet.`,

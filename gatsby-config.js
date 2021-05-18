@@ -92,7 +92,7 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-offline`,
+    `gatsby-plugin-remove-serviceworker`,
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
