@@ -1,7 +1,7 @@
 import React from "react";
-import styled, { css, useTheme } from "styled-components";
+import styled, { css } from "styled-components";
 import { constants } from "../../constants";
-import logo from "../../images/svg/logo.svg";
+import { Logo } from "../logo";
 import { Body1 } from "../texts";
 
 const NavContainer = styled.nav`
@@ -24,7 +24,12 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li`
-  padding: ${props => (props.theme.screens.sm ? "0.5rem 0" : "0.5rem 1.5rem")};
+  padding: ${props =>
+    props.theme.screens.sm
+      ? "0.5rem 0"
+      : props.theme.screens.lg
+      ? "0.5rem 2rem"
+      : "0.5rem 3rem"};
   cursor: pointer;
   text-align: ${props => (props.theme.screens.sm ? "right" : "left")};
   ${props =>
@@ -53,15 +58,9 @@ const Li = styled.li`
 `;
 
 const Nav: React.FC = () => {
-  const { screens } = useTheme();
-
   return (
     <NavContainer>
-      <img
-        src={logo}
-        width={screens.md ? 64 : 84}
-        alt={constants.nav.logoAlt}
-      />
+      <Logo />
       <Ul>
         <Li>
           <a href={`#${constants.nav.about}`}>

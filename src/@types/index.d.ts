@@ -35,6 +35,7 @@ declare module "styled-components" {
     colors: {
       primary: string;
       secondary: string;
+      highlight: string;
       textPrimary: string;
       textSecondary: string;
       textHint: string;

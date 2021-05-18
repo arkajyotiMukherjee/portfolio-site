@@ -1,4 +1,5 @@
 import React from "react";
+import { Footer } from "../components/footer";
 import { Layout } from "../components/layout";
 import { Nav } from "../components/nav";
 import { About, Contact, Head, Projects } from "../components/sections/home";
@@ -13,6 +14,7 @@ const App: React.FC = () => {
       <About />
       <Projects />
       <Contact />
+      <Footer />
     </Layout>
   );
 };

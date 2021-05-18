@@ -32,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-thumb {
-    background: ${props => props.theme.colors.textHint};
+    background: ${props => props.theme.colors.highlight};
     border-radius: 3rem;
   }
 

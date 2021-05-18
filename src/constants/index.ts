@@ -45,13 +45,18 @@ const constants = {
     readLess: "read less",
   },
 
-  // Nav component
+  // Nav section
   nav: {
     logoAlt: "logo",
     about: "about",
     projects: "projects",
     contact: "contact",
     blogs: "blogs",
+  },
+
+  // Footer section
+  footer: {
+    copyright: "© 2021 Arkajyoti Mukherjee",
   },
 
   // Hero section

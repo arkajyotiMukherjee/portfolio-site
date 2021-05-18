@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import { constants } from "../../../constants";
 import contact from "../../../images/svg/contact.svg";
 import { Chip } from "../../chip";
@@ -12,9 +13,13 @@ import {
 import { Anchor, DownloadFile } from "../../link";
 import { Body1, SectionHeadText } from "../../texts";
 
+const ContactWrapper = styled(Section)`
+  top: 2px;
+`;
+
 const Contact: React.FC = () => {
   return (
-    <Section id={constants.nav.contact}>
+    <ContactWrapper id={constants.nav.contact}>
       <SectionHeadText fillerHeight="25rem">
         {constants.contact.heading}
       </SectionHeadText>
@@ -66,7 +71,7 @@ const Contact: React.FC = () => {
           <img src={contact} alt="contact image" />
         </BoundedContainer>
       </ResponsiveRow>
-    </Section>
+    </ContactWrapper>
   );
 };
 

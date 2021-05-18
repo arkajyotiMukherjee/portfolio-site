@@ -30,6 +30,7 @@ const theme: DefaultTheme = {
   colors: {
     primary: "#f2f2f2",
     secondary: "#000",
+    highlight: "#2F2E41",
     textPrimary: "#000",
     textSecondary: "#fff",
     textHint: "#00000066",
