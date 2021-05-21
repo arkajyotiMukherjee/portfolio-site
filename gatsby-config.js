@@ -18,12 +18,12 @@ const siteKeywords = [
 
 module.exports = {
   siteMetadata: {
-    title: siteTitle,
-    description: siteDescription,
-    author: siteAuthor,
-    siteUrl: siteUrl,
-    keywords: siteKeywords,
-    image: siteImage,
+    siteTitle,
+    siteDescription,
+    siteAuthor,
+    siteUrl,
+    siteKeywords,
+    siteImage,
   },
   plugins: [
     {

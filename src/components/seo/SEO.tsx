@@ -22,12 +22,12 @@ const SEO: React.FC<SEOProps> = props => {
     {
       site {
         siteMetadata {
-          title
-          description
-          author
+          siteTitle
+          siteDescription
+          siteAuthor
           siteUrl
-          keywords
-          image
+          siteKeywords
+          siteImage
         }
       }
     }
@@ -36,20 +36,20 @@ const SEO: React.FC<SEOProps> = props => {
   const { siteMetadata } = data.site;
 
   const {
-    title,
-    description,
+    siteTitle,
+    siteDescription,
+    siteAuthor,
     siteUrl,
-    author,
     meta = [],
-    keywords = [],
-    image,
+    siteKeywords = [],
+    siteImage,
   } = siteMetadata;
-  const siteTitle = props.title || title;
-  const siteDescription = props.description || description;
+  const title = props.title || siteTitle;
+  const description = props.description || siteDescription;
   const url = props.url || siteUrl;
-  const siteAuthor = props.author || author;
-  const siteImage = props.image || image;
-  const siteKeywords = [...keywords, props.keywords].join(",");
+  const author = props.author || siteAuthor;
+  const image = props.image || siteImage;
+  const keywords = [...siteKeywords, props.keywords].join(",");
   const metaData = [
     {
       name: "canonical",
@@ -57,31 +57,40 @@ const SEO: React.FC<SEOProps> = props => {
     },
     {
       name: "description",
-      content: siteDescription,
+      content: description,
     },
     {
       name: "image",
-      content: siteImage,
+      content: image,
     },
     {
-      name: "og:url",
+      name: "author",
+      content: author,
+    },
+    {
+      name: "url",
+      property: "og:url",
       content: url,
     },
     {
-      name: "og:type",
+      name: "type",
+      property: "og:type",
       content: "article",
     },
     {
-      name: "og:title",
-      content: siteTitle,
+      name: "title",
+      property: "og:title",
+      content: title,
     },
     {
-      name: "og:description",
-      content: siteDescription,
+      name: "description",
+      property: "og:description",
+      content: description,
     },
     {
-      name: "og:image",
-      content: siteImage,
+      name: "image",
+      property: "og:image",
+      content: image,
     },
     {
       name: "twitter:card",
@@ -89,23 +98,23 @@ const SEO: React.FC<SEOProps> = props => {
     },
     {
       name: "twitter:creator",
-      content: siteAuthor,
+      content: author,
     },
     {
       name: "twitter:title",
-      content: siteTitle,
+      content: title,
     },
     {
       name: "twitter:description",
-      content: siteDescription,
+      content: description,
     },
     {
       name: "twitter:image",
-      content: siteImage,
+      content: image,
     },
     {
       name: "keywords",
-      content: siteKeywords,
+      content: keywords,
     },
   ].concat(meta);
 
@@ -122,7 +131,7 @@ const SEO: React.FC<SEOProps> = props => {
   return (
     <Helmet
       htmlAttributes={{ lang: "en" }}
-      title={siteTitle}
+      title={title}
       // titleTemplate={`%s | ${siteTitle}`}
       meta={metaData}
       link={linkData}
