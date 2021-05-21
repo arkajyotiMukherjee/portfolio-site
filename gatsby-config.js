@@ -2,7 +2,7 @@ const siteTitle = "Arkajyoti Mukherjee";
 const siteDescription =
   "Portfolio site for Arkajyoti Mukherjee | Fullstack developer | React | Golang | Flutter.";
 const siteAuthor = "arkajyotiMukherjee";
-const siteUrl = "https://github.com";
+const siteUrl = "https://arkajyotimukherjee.gatsbyjs.io/";
 const siteImage = `${siteUrl}/icons/siteImage.png`;
 const siteKeywords = [
   "arko",
@@ -21,7 +21,7 @@ module.exports = {
     title: siteTitle,
     description: siteDescription,
     author: siteAuthor,
-    url: siteUrl,
+    siteUrl: siteUrl,
     keywords: siteKeywords,
     image: siteImage,
   },
@@ -51,6 +51,7 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     `gatsby-plugin-typescript`,
     `gatsby-plugin-optimize-svgs`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
@@ -78,18 +79,6 @@ module.exports = {
         theme_color: `#fff`,
         display: `minimal-ui`,
         icon: "src/images/logo.png",
-        icons: [
-          {
-            src: "icons/icon_512x512.png",
-            sizes: "512x512",
-            types: "image/png",
-          },
-          {
-            src: "icons/icon_192x192.png",
-            sizes: "192x192",
-            types: "image/png",
-          },
-        ],
       },
     },
     {

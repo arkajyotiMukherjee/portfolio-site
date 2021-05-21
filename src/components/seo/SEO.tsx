@@ -1,6 +1,6 @@
+import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { Helmet } from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
 
 type MetaItem = {
   name: string;
@@ -25,7 +25,7 @@ const SEO: React.FC<SEOProps> = props => {
           title
           description
           author
-          url
+          siteUrl
           keywords
           image
         }
@@ -38,86 +38,86 @@ const SEO: React.FC<SEOProps> = props => {
   const {
     title,
     description,
-    url,
+    siteUrl,
     author,
     meta = [],
     keywords = [],
-    image
+    image,
   } = siteMetadata;
   const siteTitle = props.title || title;
   const siteDescription = props.description || description;
-  const siteUrl = props.url || url;
+  const url = props.url || siteUrl;
   const siteAuthor = props.author || author;
   const siteImage = props.image || image;
   const siteKeywords = [...keywords, props.keywords].join(",");
   const metaData = [
     {
       name: "canonical",
-      content: siteUrl
+      content: url,
     },
     {
       name: "description",
-      content: siteDescription
+      content: siteDescription,
     },
     {
       name: "image",
-      content: siteImage
+      content: siteImage,
     },
     {
       name: "og:url",
-      content: siteUrl
+      content: url,
     },
     {
       name: "og:type",
-      content: "article"
+      content: "article",
     },
     {
       name: "og:title",
-      content: siteTitle
+      content: siteTitle,
     },
     {
       name: "og:description",
-      content: siteDescription
+      content: siteDescription,
     },
     {
       name: "og:image",
-      content: siteImage
+      content: siteImage,
     },
     {
       name: "twitter:card",
-      content: "summary_large_image"
+      content: "summary_large_image",
     },
     {
       name: "twitter:creator",
-      content: siteAuthor
+      content: siteAuthor,
     },
     {
       name: "twitter:title",
-      content: siteTitle
+      content: siteTitle,
     },
     {
       name: "twitter:description",
-      content: siteDescription
+      content: siteDescription,
     },
     {
       name: "twitter:image",
-      content: siteImage
+      content: siteImage,
     },
     {
       name: "keywords",
-      content: siteKeywords
-    }
+      content: siteKeywords,
+    },
   ].concat(meta);
 
   const linkData = [
     {
       rel: "shortcut icon",
-      href: "favicon.ico"
+      href: "favicon.ico",
     },
     {
       rel: "apple-touch-icon",
-      href: "icons/apple-touch-icon.png"
-    }
+      href: "icons/apple-touch-icon.png",
+    },
   ];
   return (
     <Helmet
