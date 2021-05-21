@@ -23,9 +23,9 @@ const theme: DefaultTheme = {
     heading: { xxxl: "96px", xxl: "64px", md: "36px" },
     subHeading1: { xxxl: "48px", xxl: "36px", md: "24px" },
     subHeading2: { xxxl: "36px", xxl: "24px", md: "18px" },
-    body1: { xxxl: "24px", xxl: "18px", md: "14px" },
-    body2: { xxxl: "18px", xxl: "16px", md: "12px" },
-    body3: { xxxl: "16px", xxl: "14px", md: "11px" },
+    body1: { xxxl: "24px", xxl: "18px", md: "16px" },
+    body2: { xxxl: "18px", xxl: "16px", md: "14px" },
+    body3: { xxxl: "16px", xxl: "14px", md: "12px" },
   },
   colors: {
     primary: "#f2f2f2",

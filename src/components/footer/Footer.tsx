@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
         {constants.footer.copyright}
       </Body1>
       <br />
-      <Logo centered variant="small" />
+      <Logo centered />
     </Wrapper>
   );
 };

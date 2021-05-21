@@ -8,10 +8,14 @@ const NavContainer = styled.nav`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 1% 4%;
+  align-items: ${props => (props.theme.screens.sm ? "auto" : "center")};
+  padding: 2% 4%;
   max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
+
+  img {
+    margin-top: ${props => (props.theme.screens.sm ? "1rem" : "0")};
+  }
 `;
 
 const Ul = styled.ul`
