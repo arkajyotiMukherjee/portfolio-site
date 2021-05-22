@@ -1,3 +1,4 @@
+import { navigate } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import React, { useState } from "react";
 import styled from "styled-components";
@@ -159,7 +160,7 @@ const Projects: React.FC = () => {
         {constants.projects.projectList.map((project: Project, index) => {
           const images = projectImages[project.projectID];
           return expanded[project.projectID] ? (
-            <ProjectExpanded>
+            <ProjectExpanded id={project.name}>
               <SubHeading1 textAlign="center">{project.name}</SubHeading1>
               {/* Close Button */}
               <CloseButton
@@ -224,7 +225,7 @@ const Projects: React.FC = () => {
                   <Body1>{constants.projects.links}</Body1>
                   {project.links.map(link => {
                     return (
-                      <ExternalLink href={link.url}>
+                      <ExternalLink to={link.url}>
                         <Body2>{link.name}</Body2>
                       </ExternalLink>
                     );
@@ -234,11 +235,13 @@ const Projects: React.FC = () => {
               <Hr />
             </ProjectExpanded>
           ) : (
+            // Project covers/tiles
             <ProjectTile
               key={index}
               onClick={() => {
                 const id = project.projectID;
                 setExpanded({ ...expanded, [id]: !expanded[id] });
+                navigate(`#${project.name}`);
               }}
             >
               <ImageContainer>

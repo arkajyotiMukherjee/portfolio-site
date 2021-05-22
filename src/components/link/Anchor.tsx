@@ -1,9 +1,10 @@
+import { Link } from "gatsby";
 import styled from "styled-components";
 
 interface IAnchor {
   boldText?: boolean;
 }
-const Anchor = styled.a.attrs({
+const Anchor = styled(Link).attrs({
   rel: "noopener",
 })<IAnchor>`
   font-weight: ${props => (props.boldText ? "bold" : "normal")};

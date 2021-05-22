@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 import { constants } from "../../constants";
@@ -72,28 +73,28 @@ const Nav: React.FC = () => {
       <Logo />
       <Ul>
         <Li>
-          <a href={`#${constants.nav.about}`}>
+          <Link to={`#${constants.nav.about}`}>
             <Body1>{constants.nav.about}</Body1>
-          </a>
+          </Link>
         </Li>
         <Li>
-          <a href={`#${constants.nav.projects}`}>
+          <Link to={`#${constants.nav.projects}`}>
             <Body1>{constants.nav.projects}</Body1>
-          </a>
+          </Link>
         </Li>
         <Li>
-          <a href={`#${constants.nav.contact}`}>
+          <Link to={`#${constants.nav.contact}`}>
             <Body1>{constants.nav.contact}</Body1>
-          </a>
+          </Link>
         </Li>
         <Li>
-          <a
-            href="https://medium.com/@arkajyoti31"
+          <Link
+            to="https://medium.com/@arkajyoti31"
             target="_blank"
             rel="noopener"
           >
             <Body1>{constants.nav.blogs}</Body1>
-          </a>
+          </Link>
         </Li>
       </Ul>
     </NavContainer>

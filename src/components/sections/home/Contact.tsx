@@ -29,7 +29,7 @@ const Contact: React.FC = () => {
             <div>
               <Body1 textAlign="center">{constants.contact.dropMail}</Body1>
               <Body1 textAlign="center">
-                <Anchor boldText href={`mailto:${constants.contact.email}`}>
+                <Anchor boldText to={`mailto:${constants.contact.email}`}>
                   {constants.contact.email}
                 </Anchor>
               </Body1>
@@ -40,7 +40,7 @@ const Contact: React.FC = () => {
               <RowCentered wrap gap="1rem">
                 {constants.contact.socialLinks.map(link => {
                   return (
-                    <Anchor href={link.url} target="_blank">
+                    <Anchor to={link.url} target="_blank">
                       <Chip
                         src={link.src}
                         alt={`${link.name} icon`}

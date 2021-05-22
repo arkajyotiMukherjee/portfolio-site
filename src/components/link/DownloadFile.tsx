@@ -1,8 +1,9 @@
+import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 import download from "../../images/svg/download.svg";
 
-const DownloadLink = styled.a`
+const DownloadLink = styled(Link)`
   text-decoration: underline;
   cursor: pointer;
   margin-left: 2rem;
@@ -32,7 +33,7 @@ interface IDownLoadFile {
 
 const DownloadFile: React.FC<IDownLoadFile> = ({ url, children }) => {
   return (
-    <DownloadLink href={url} download>
+    <DownloadLink to={url} download>
       {children}
     </DownloadLink>
   );
