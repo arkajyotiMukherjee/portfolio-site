@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 import { constants } from "../../../constants";
@@ -29,7 +30,7 @@ const Contact: React.FC = () => {
             <div>
               <Body1 textAlign="center">{constants.contact.dropMail}</Body1>
               <Body1 textAlign="center">
-                <Anchor boldText to={`mailto:${constants.contact.email}`}>
+                <Anchor boldText href={`mailto:${constants.contact.email}`}>
                   {constants.contact.email}
                 </Anchor>
               </Body1>
@@ -40,13 +41,13 @@ const Contact: React.FC = () => {
               <RowCentered wrap gap="1rem">
                 {constants.contact.socialLinks.map(link => {
                   return (
-                    <Anchor to={link.url} target="_blank">
+                    <Link to={link.url} target="_blank">
                       <Chip
                         src={link.src}
                         alt={`${link.name} icon`}
                         label={link.name}
                       />
-                    </Anchor>
+                    </Link>
                   );
                 })}
               </RowCentered>
