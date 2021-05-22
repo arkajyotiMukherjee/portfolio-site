@@ -1,6 +1,7 @@
 import "@fontsource/inter";
 import "@fontsource/merriweather";
 import styled, { css, DefaultTheme } from "styled-components";
+import { bpMaxLG, bpMaxMD, bpMaxSM, bpMaxXL } from "../../styles/breakpoint";
 
 function textVariant(variant: Variant, theme: DefaultTheme) {
   switch (variant) {
@@ -47,14 +48,17 @@ const SectionHeading = styled.h1<IText>`
   text-align: ${props => props.textAlign ?? "left"};
   font-family: "Merriweather", georgia, serif;
   font-weight: normal;
-  font-size: ${({ theme }) =>
-    theme.screens.sm
-      ? theme.fontSize.sectionHeading.sm
-      : theme.screens.lg
-      ? theme.fontSize.sectionHeading.lg
-      : theme.screens.xxl
-      ? theme.fontSize.sectionHeading.xxl
-      : theme.fontSize.sectionHeading.xxxl};
+
+  font-size: ${props => props.theme.fontSize.sectionHeading.xxl};
+  ${bpMaxXL} {
+    font-size: ${props => props.theme.fontSize.sectionHeading.xl};
+  }
+  ${bpMaxLG} {
+    font-size: ${props => props.theme.fontSize.sectionHeading.lg};
+  }
+  ${bpMaxSM} {
+    font-size: ${props => props.theme.fontSize.sectionHeading.sm};
+  }
 `;
 
 const Heading = styled.h1<IText>`
@@ -62,12 +66,14 @@ const Heading = styled.h1<IText>`
   text-align: ${props => props.textAlign ?? "left"};
   font-family: "Merriweather", georgia, serif;
   font-weight: normal;
-  font-size: ${({ theme }) =>
-    theme.screens.md
-      ? theme.fontSize.heading.md
-      : theme.screens.xxl
-      ? theme.fontSize.heading.xxl
-      : theme.fontSize.heading.xxxl};
+
+  font-size: ${props => props.theme.fontSize.heading.xxl};
+  ${bpMaxXL} {
+    font-size: ${props => props.theme.fontSize.heading.xl};
+  }
+  ${bpMaxMD} {
+    font-size: ${props => props.theme.fontSize.heading.md};
+  }
 `;
 
 const SubHeading1 = styled.h2<IText>`
@@ -75,24 +81,28 @@ const SubHeading1 = styled.h2<IText>`
   text-align: ${props => props.textAlign ?? "left"};
   font-family: "Merriweather", georgia, serif;
   font-weight: normal;
-  font-size: ${({ theme }) =>
-    theme.screens.md
-      ? theme.fontSize.subHeading1.md
-      : theme.screens.xxl
-      ? theme.fontSize.subHeading1.xxl
-      : theme.fontSize.subHeading1.xxxl};
+
+  font-size: ${props => props.theme.fontSize.subHeading1.xxl};
+  ${bpMaxXL} {
+    font-size: ${props => props.theme.fontSize.subHeading1.xl};
+  }
+  ${bpMaxMD} {
+    font-size: ${props => props.theme.fontSize.subHeading1.md};
+  }
 `;
 
 const SubHeading2 = styled.p<IText>`
   color: ${props => textVariant(props.variant, props.theme)};
   text-align: ${props => props.textAlign ?? "left"};
   font-family: "Merriweather", georgia, serif;
-  font-size: ${({ theme }) =>
-    theme.screens.md
-      ? theme.fontSize.subHeading2.md
-      : theme.screens.xxl
-      ? theme.fontSize.subHeading2.xxl
-      : theme.fontSize.subHeading2.xxxl};
+
+  font-size: ${props => props.theme.fontSize.subHeading2.xxl};
+  ${bpMaxXL} {
+    font-size: ${props => props.theme.fontSize.subHeading2.xl};
+  }
+  ${bpMaxMD} {
+    font-size: ${props => props.theme.fontSize.subHeading2.md};
+  }
 `;
 
 const Body1 = styled.p<IText>`
@@ -100,12 +110,14 @@ const Body1 = styled.p<IText>`
   line-height: 160%;
   text-align: ${props => props.textAlign ?? "left"};
   font-family: "Merriweather", Arial, sans-serif;
-  font-size: ${({ theme }) =>
-    theme.screens.md
-      ? theme.fontSize.body1.md
-      : theme.screens.xxl
-      ? theme.fontSize.body1.xxl
-      : theme.fontSize.body1.xxxl};
+
+  font-size: ${props => props.theme.fontSize.body1.xxl};
+  ${bpMaxXL} {
+    font-size: ${props => props.theme.fontSize.body1.xl};
+  }
+  ${bpMaxMD} {
+    font-size: ${props => props.theme.fontSize.body1.md};
+  }
 `;
 
 const Body2 = styled.p<IText>`
@@ -113,12 +125,14 @@ const Body2 = styled.p<IText>`
   line-height: 160%;
   text-align: ${props => props.textAlign ?? "left"};
   font-family: "Inter", Arial, sans-serif;
-  font-size: ${({ theme }) =>
-    theme.screens.md
-      ? theme.fontSize.body2.md
-      : theme.screens.xxl
-      ? theme.fontSize.body2.xxl
-      : theme.fontSize.body2.xxxl};
+
+  font-size: ${props => props.theme.fontSize.body1.xxl};
+  ${bpMaxXL} {
+    font-size: ${props => props.theme.fontSize.body1.xl};
+  }
+  ${bpMaxMD} {
+    font-size: ${props => props.theme.fontSize.body1.md};
+  }
 `;
 
 const Body3 = styled.p<IText>`
@@ -126,12 +140,14 @@ const Body3 = styled.p<IText>`
   line-height: 160%;
   text-align: ${props => props.textAlign ?? "left"};
   font-family: "Inter", Arial, sans-serif;
-  font-size: ${({ theme }) =>
-    theme.screens.md
-      ? theme.fontSize.body3.md
-      : theme.screens.xxl
-      ? theme.fontSize.body3.xxl
-      : theme.fontSize.body3.xxxl};
+
+  font-size: ${props => props.theme.fontSize.body3.xxl};
+  ${bpMaxXL} {
+    font-size: ${props => props.theme.fontSize.body3.xl};
+  }
+  ${bpMaxMD} {
+    font-size: ${props => props.theme.fontSize.body3.md};
+  }
 `;
 
 export {

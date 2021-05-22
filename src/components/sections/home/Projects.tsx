@@ -1,8 +1,9 @@
 import { GatsbyImage } from "gatsby-plugin-image";
 import React, { useState } from "react";
-import styled, { useTheme } from "styled-components";
+import styled from "styled-components";
 import { constants, Project } from "../../../constants";
 import close from "../../../images/svg/close.svg";
+import { bpMaxLG, bpMaxMD, bpMaxSM } from "../../../styles/breakpoint";
 import { Carousel } from "../../carousel";
 import { Chip } from "../../chip";
 import { getProjectCovers, getProjectImages } from "../../image-fetch";
@@ -20,31 +21,54 @@ import {
 const ProjectsContainer = styled.div`
   position: relative;
   display: grid;
-  grid-template-columns: ${props =>
-    props.theme.screens.sm ? "auto" : "1fr 1fr"};
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   justify-items: center;
   column-gap: 8%;
-  row-gap: ${props => (props.theme.screens.sm ? "3rem" : "5rem")};
-
-  width: ${props => (props.theme.screens.lg ? "90%" : "70%")};
+  row-gap: 5rem;
+  width: 70%;
   margin: auto;
+
+  ${bpMaxLG} {
+    width: 90%;
+  }
+
+  ${bpMaxSM} {
+    grid-template-columns: auto;
+    row-gap: 3rem;
+  }
 `;
 
 const ProjectExpanded = styled.div`
-  grid-column: ${props => (props.theme.screens.sm ? "auto" : "1/3")};
-  width: ${props => (props.theme.screens.sm ? "90vw" : "100vw")};
+  grid-column: 1/3;
+  width: 100vw;
+
+  ${bpMaxSM} {
+    grid-column: auto;
+    width: 90vw;
+  }
 `;
 
 const CloseButton = styled.div`
+  margin: auto;
+
   img {
+    width: 32px;
     margin: auto;
-    margin-bottom: ${props => (props.theme.screens.sm ? "1rem" : "2rem")};
+    margin-bottom: 2rem;
     cursor: pointer;
 
     :hover {
       transform: scale(1.5);
     }
+  }
+
+  ${bpMaxMD} {
+    width: 24px;
+  }
+
+  ${bpMaxSM} {
+    margin-bottom: 1rem;
   }
 `;
 
@@ -92,12 +116,23 @@ interface IExpandedImageContainer {
 }
 
 const ExpandedImageContainer = styled(ImageContainer)<IExpandedImageContainer>`
-  width: ${props =>
-    props.theme.screens.sm ? (props.mobileImage ? "55%" : "auto") : "auto"};
-
+  width: auto;
+  cursor: grab;
   margin: auto;
   transition: transform 300ms ease-in-out, filter 300ms ease-in-out;
   transform: scale(${props => (props.isActive ? 1 : 0.6)});
+
+  :hover {
+    cursor: grab;
+  }
+
+  :active {
+    cursor: grabbing;
+  }
+
+  ${bpMaxSM} {
+    width: ${props => props.mobileImage && "55%"};
+  }
 `;
 
 const Hr = styled.hr`
@@ -112,7 +147,6 @@ type Expanded = {
 };
 
 const Projects: React.FC = () => {
-  const { screens } = useTheme();
   const coverImages = getProjectCovers();
   const projectImages = getProjectImages();
 
@@ -134,11 +168,7 @@ const Projects: React.FC = () => {
                   setExpanded({ ...expanded, [id]: !expanded[id] });
                 }}
               >
-                <img
-                  width={screens.md ? 24 : 32}
-                  src={close}
-                  alt="close button"
-                />
+                <img src={close} alt="close button" />
               </CloseButton>
 
               {/* Image Carousel */}

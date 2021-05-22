@@ -22,7 +22,7 @@ const HierarchyGraph: React.FC<IHierarchyGraph> = ({
 }) => {
   const {
     screens,
-    colors: { primary, secondary, textHint },
+    colors: { primary, secondary, highlight },
     graph: {
       hierarchyGraph: { fontSize, rootRadius, rectNode },
     },
@@ -56,7 +56,7 @@ const HierarchyGraph: React.FC<IHierarchyGraph> = ({
                   <LinkRadialStep
                     key={i}
                     data={link}
-                    stroke={textHint}
+                    stroke={highlight}
                     strokeWidth="0.188rem"
                     fill="none"
                   />
@@ -88,12 +88,13 @@ const HierarchyGraph: React.FC<IHierarchyGraph> = ({
                       {node.depth === 0 && (
                         <circle
                           r={radius}
-                          fill={secondary}
+                          fill={node.data.isExpanded ? secondary : highlight}
                           onClick={() => {
                             node.data.isExpanded = !node.data.isExpanded;
                             console.log(node);
                             forceUpdate();
                           }}
+                          style={{ cursor: "pointer" }}
                         />
                       )}
                       {node.depth !== 0 && (
@@ -102,12 +103,13 @@ const HierarchyGraph: React.FC<IHierarchyGraph> = ({
                           width={width}
                           y={-height / 2}
                           x={-width / 2}
-                          fill={secondary}
+                          fill={node.data.isExpanded ? secondary : highlight}
                           rx={nodeRadius}
                           onClick={() => {
                             node.data.isExpanded = !node.data.isExpanded;
                             forceUpdate();
                           }}
+                          style={{ cursor: "pointer" }}
                         />
                       )}
                       <text

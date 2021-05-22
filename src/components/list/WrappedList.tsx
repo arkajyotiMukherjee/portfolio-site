@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { bpMaxMD } from "../../styles/breakpoint";
 import { Body2 } from "../texts";
 
 interface IWrappedList {
@@ -27,10 +28,15 @@ const Li = styled.li`
     content: "";
     align-self: center;
     margin-right: 1rem;
-    width: ${props => (props.theme.screens.md ? "6px" : "10px")};
-    height: ${props => (props.theme.screens.md ? "6px" : "10px")};
+    width: 10px;
+    height: 10px;
     background-color: ${props => props.theme.colors.secondary};
     border-radius: 50%;
+
+    ${bpMaxMD} {
+      width: 6px;
+      height: 6px;
+    }
   }
 `;
 

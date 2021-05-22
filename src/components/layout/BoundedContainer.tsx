@@ -1,7 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { getBreakpoint } from "../../styles/breakpoint";
 
 interface IBoundedContainer {
-  breakpoint: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+  breakpoint: "sm" | "md" | "lg" | "xl" | "xxl";
   width: string;
   margin?: string;
   noMarginUponBreak?: boolean;
@@ -10,16 +11,17 @@ interface IBoundedContainer {
 const BoundedContainer = styled.div<IBoundedContainer>`
   position: relative;
   z-index: ${props => props.theme.zIndex.content};
+  width: ${props => props.width};
+  margin: ${props => props.margin};
 
-  /* width is 100% - 16% (horizontal margin) = 84% */
-  width: ${props =>
-    props.theme.screens[props.breakpoint]
-      ? props.noMarginUponBreak
-        ? "100%"
-        : "84%"
-      : props.width};
-  margin: ${props =>
-    props.theme.screens[props.breakpoint] ? "1rem auto" : props.margin};
+  ${props =>
+    css`
+      ${getBreakpoint(props.breakpoint)} {
+        /* width is 100% - 16% (horizontal margin) = 84% */
+        width: ${props.noMarginUponBreak ? "100%" : "84%"};
+        margin: 1rem auto;
+      }
+    `};
 `;
 
 export { BoundedContainer };

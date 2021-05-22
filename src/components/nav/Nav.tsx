@@ -1,6 +1,7 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { constants } from "../../constants";
+import { bpMaxLG, bpMaxSM } from "../../styles/breakpoint";
 import { Logo } from "../logo";
 import { Body1 } from "../texts";
 
@@ -8,40 +9,35 @@ const NavContainer = styled.nav`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: ${props => (props.theme.screens.sm ? "auto" : "center")};
+  align-items: center;
   padding: 2% 4%;
   max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
 
-  img {
-    margin-top: ${props => (props.theme.screens.sm ? "1rem" : "0")};
+  ${bpMaxSM} {
+    align-items: start;
+
+    img {
+      margin-top: 1rem;
+    }
   }
 `;
 
 const Ul = styled.ul`
   display: flex;
-  flex-direction: ${props => (props.theme.screens.sm ? "column" : "row")};
   justify-content: space-between;
   list-style: none;
   margin: 0;
   padding: 0;
+
+  ${bpMaxSM} {
+    flex-direction: column;
+  }
 `;
 
 const Li = styled.li`
-  padding: ${props =>
-    props.theme.screens.sm
-      ? "0.5rem 0"
-      : props.theme.screens.lg
-      ? "0.5rem 2rem"
-      : "0.5rem 3rem"};
+  padding: 0.5rem 3rem;
   cursor: pointer;
-  text-align: ${props => (props.theme.screens.sm ? "right" : "left")};
-  ${props =>
-    props.theme.screens.sm &&
-    css`
-      width: fit-content;
-      align-self: flex-end;
-    `};
 
   ::after {
     content: "";
@@ -50,14 +46,23 @@ const Li = styled.li`
     height: 2px;
     background: ${props => props.theme.colors.secondary};
     transition: width 200ms ease-in-out;
-    ${props =>
-      props.theme.screens.sm &&
-      css`
-        float: right;
-      `}
   }
+
   :hover ::after {
     width: 100%;
+  }
+
+  ${bpMaxLG} {
+    padding: 0.5rem 2rem;
+  }
+
+  ${bpMaxSM} {
+    align-self: flex-end;
+    padding: 0.5rem 0;
+
+    ::after {
+      float: right;
+    }
   }
 `;
 

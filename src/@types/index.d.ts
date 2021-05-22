@@ -20,17 +20,17 @@ declare module "styled-components" {
     fontSize: {
       fadedHeading: string;
       sectionHeading: {
-        xxxl: string;
         xxl: string;
+        xl: string;
         lg: string;
         sm: string;
       };
-      heading: { xxxl: string; xxl: string; md: string };
-      subHeading1: { xxxl: string; xxl: string; md: string };
-      subHeading2: { xxxl: string; xxl: string; md: string };
-      body1: { xxxl: string; xxl: string; md: string };
-      body2: { xxxl: string; xxl: string; md: string };
-      body3: { xxxl: string; xxl: string; md: string };
+      heading: { xxl: string; xl: string; md: string };
+      subHeading1: { xxl: string; xl: string; md: string };
+      subHeading2: { xxl: string; xl: string; md: string };
+      body1: { xxl: string; xl: string; md: string };
+      body2: { xxl: string; xl: string; md: string };
+      body3: { xxl: string; xl: string; md: string };
     };
     colors: {
       primary: string;

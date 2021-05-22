@@ -1,7 +1,8 @@
 import styled, { css } from "styled-components";
+import { getBreakpoint } from "../../styles/breakpoint";
 
 interface IResponsiveRow {
-  breakpoint: "xs" | "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl";
+  breakpoint: "sm" | "md" | "lg" | "xl" | "xxl";
   alignItems?: string;
   justifyContent?: string;
   columnGap?: string;
@@ -14,16 +15,16 @@ const ResponsiveRow = styled.div<IResponsiveRow>`
   width: 100%;
   display: flex;
   column-gap: ${props => props.columnGap ?? 0};
+  flex-direction: row;
+  justify-content: ${props => props.justifyContent ?? "center"};
+
   ${props =>
-    props.theme.screens[props.breakpoint]
-      ? css`
-          flex-direction: column;
-          align-items: ${props.alignItems ?? "center"};
-        `
-      : css`
-          flex-direction: row;
-          justify-content: ${props.justifyContent ?? "center"};
-        `};
+    css`
+      ${getBreakpoint(props.breakpoint)} {
+        flex-direction: column;
+        align-items: ${props.alignItems ?? "center"};
+      }
+    `};
 `;
 
 interface IRow {

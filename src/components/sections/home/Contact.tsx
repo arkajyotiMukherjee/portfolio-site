@@ -23,8 +23,8 @@ const Contact: React.FC = () => {
       <SectionHeadText fillerHeight="25rem">
         {constants.contact.heading}
       </SectionHeadText>
-      <ResponsiveRow breakpoint="sm">
-        <BoundedContainer breakpoint="sm" width="50%">
+      <ResponsiveRow breakpoint="md">
+        <BoundedContainer breakpoint="md" width="50%">
           <Center>
             <div>
               <Body1 textAlign="center">{constants.contact.dropMail}</Body1>
@@ -41,7 +41,11 @@ const Contact: React.FC = () => {
                 {constants.contact.socialLinks.map(link => {
                   return (
                     <Anchor href={link.url} target="_blank">
-                      <Chip src={link.src} alt={link.name} label={link.name} />
+                      <Chip
+                        src={link.src}
+                        alt={`${link.name} icon`}
+                        label={link.name}
+                      />
                     </Anchor>
                   );
                 })}
@@ -67,7 +71,7 @@ const Contact: React.FC = () => {
             </div>
           </Center>
         </BoundedContainer>
-        <BoundedContainer breakpoint="sm" width="50%">
+        <BoundedContainer breakpoint="md" width="50%">
           <img src={contact} alt="contact image" />
         </BoundedContainer>
       </ResponsiveRow>

@@ -1,13 +1,15 @@
 import { createGlobalStyle } from "styled-components";
+import { bpMaxMD, bpMaxXL } from "./breakpoint";
 
 const GlobalStyle = createGlobalStyle`
   html {
-    font-size: ${({ theme }) =>
-      theme.screens.md
-        ? theme.fontSize.body3.md
-        : theme.screens.xxl
-        ? theme.fontSize.body3.xxl
-        : theme.fontSize.body3.xxxl};
+    font-size: ${props => props.theme.fontSize.body3.xxl};
+    ${bpMaxXL} {
+      font-size: ${props => props.theme.fontSize.body3.xl};
+    }
+    ${bpMaxMD} {
+      font-size: ${props => props.theme.fontSize.body3.md};
+    }
   }
 
   body {

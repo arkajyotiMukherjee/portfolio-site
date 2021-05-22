@@ -1,7 +1,8 @@
 import React from "react";
-import styled, { useTheme } from "styled-components";
+import styled from "styled-components";
 import { constants } from "../../constants";
 import logo from "../../images/svg/logo.svg";
+import { bpMaxMD } from "../../styles/breakpoint";
 
 interface ILogo {
   centered?: boolean;
@@ -9,20 +10,19 @@ interface ILogo {
 
 const Wrapper = styled.div<ILogo>`
   img {
+    width: 48px;
     margin: ${props => (props.centered ? "auto" : "0")};
+
+    ${bpMaxMD} {
+      width: 36px;
+    }
   }
 `;
 
 const Logo: React.FC<ILogo> = ({ centered }) => {
-  const { screens } = useTheme();
-
   return (
     <Wrapper centered={centered}>
-      <img
-        src={logo}
-        width={screens.md ? 36 : 48}
-        alt={constants.nav.logoAlt}
-      />
+      <img src={logo} alt={constants.nav.logoAlt} />
     </Wrapper>
   );
 };
