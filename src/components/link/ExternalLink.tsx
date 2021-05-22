@@ -1,7 +1,8 @@
+import { Link } from "gatsby";
 import styled from "styled-components";
 import externalLink from "../../images/svg/external-link.svg";
 
-const ExternalLink = styled.a.attrs({
+const ExternalLink = styled(Link).attrs({
   target: "_blank",
   rel: "noopener",
 })`
