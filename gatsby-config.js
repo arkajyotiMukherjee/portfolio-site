@@ -2,7 +2,7 @@ const siteTitle = "Arkajyoti Mukherjee";
 const siteDescription =
   "Portfolio site for Arkajyoti Mukherjee | Fullstack developer | React | Golang | Flutter.";
 const siteAuthor = "arkajyotiMukherjee";
-const siteUrl = "https://arkajyotimukherjee.gatsbyjs.io/";
+const siteUrl = "https://arkajyotimukherjee.com/";
 const siteImage = `${siteUrl}/icons/siteImage.png`;
 const siteKeywords = [
   "arko",
