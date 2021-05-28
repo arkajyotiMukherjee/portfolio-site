@@ -140,7 +140,6 @@ const About: React.FC = () => {
           <StaticImage
             src="../../../images/profile.jpg"
             alt="picture of Arkajyoti Mukherjee"
-            quality={100}
             placeholder="blurred"
           />
           <SubHeading2>{constants.about.name}</SubHeading2>
