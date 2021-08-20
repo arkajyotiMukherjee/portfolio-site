@@ -200,13 +200,74 @@ const constants = {
     links: "Links",
     projectList: [
       {
+        projectID: "chaos-center",
+        name: "LitmusChaos 2.0",
+        description:
+          "Chaos Engineering management portal/dashboard for LitmusChaos.",
+        tags: ["react", "golang", "SaaS"],
+        about: `
+        The ChaosCenter is a single source of truth to control all the different Chaos Activities happening around Litmus. 
+        From the ChaosCenter you get the freedom to manage every single part of Litmus and shape your workflows exactly the way you want it. 
+        I was instrumental in forming the architecture for the product and lead and worked with multiple teams over the course of 1 year complete this project. 
+        I had majorly worked in the frontend setup, decisions and code and in the backend while forming various APIs, effective DB queries and unit testing.
+        `,
+        features: `
+        - ChaosCenter contains several components from Frontend website, Backend, Database, CLI, and a UI component library. Fortunately I've been able to work in almost all of these components.
+        - One of the key highlights is the extensible UI library called litmus-ui. Where we had to build custom graphing system to provide monitoring support in ChaosCenter.
+        `,
+        techSpec: [
+          "react",
+          "golang",
+          "javascript/typescript",
+          "mongoDB",
+          "UI library",
+          "Enterprise software",
+        ],
+        links: [
+          {
+            name: "website",
+            url: "https://litmus.preview.chaosnative.com/",
+          },
+          {
+            name: "github",
+            url: "https://github.com/litmuschaos/litmus",
+          },
+        ],
+      },
+      {
+        projectID: "litmus-ui",
+        name: "Litmus UI",
+        description: "UI component library for LitmusChaos.",
+        tags: ["react", "components", "graphs"],
+        about: `
+        Litmus UI provides simple consumable components to aid in building fast and tested UI in ChaosCenter. 
+        Built with composition and structure in mind this has features to intake external themes and re-brand the components. 
+        I have been instrumental in forming the entire structure and forming the core designing principles of the components.
+        `,
+        features: `
+        - This project which I've started internally not only has provided value to to the developers but brought real business values with the re-branding feature.
+        - We have developed a custom graph system to meet the monitoring needs in ChaosCenter.
+        `,
+        techSpec: ["react", "javascript/typescript", "UI library", "rollup"],
+        links: [
+          {
+            name: "website",
+            url: "https://ui.litmuschaos.io/",
+          },
+          {
+            name: "github",
+            url: "https://github.com/litmuschaos/litmus-ui",
+          },
+        ],
+      },
+      {
         projectID: "web-litmuschaos",
         name: "LitmusChaos website",
         description:
-          "Landing page for an CNCF sandbox open-source product called Litmuschaos.",
+          "Landing page for an CNCF sandbox open-source product called LitmusChaos.",
         tags: ["gatsby", "SEO", "react"],
         about: `
-        Landing page for an CNCF sandbox open-source product called Litmuschaos.
+        Landing page for an CNCF sandbox open-source product called LitmusChaos.
         I acted as the lead frontend developer for the project 
         and ensured one of its key aspects an SEO score of 100 in web.dev 
         to help market the product in search engines.
@@ -291,15 +352,11 @@ const constants = {
         url: "https://twitter.com/guywithpajamas",
       },
     ],
-    downloadResume: "Download my resume in pdf or doc",
+    downloadResume: "Download my resume in pdf format",
     resumes: [
       {
         format: "pdf",
-        url: "https://github.com/arkajyotiMukherjee/portfolio-site/raw/main/content/resume/Arkajyoti-Mukherjee-Resume.pdf",
-      },
-      {
-        format: "docx",
-        url: "https://github.com/arkajyotiMukherjee/portfolio-site/raw/main/content/resume/Arkajyoti-Mukherjee-Resume.docx",
+        url: "https://github.com/arkajyotiMukherjee/portfolio-site/raw/main/content/resume/Arkajyoti's Resume.pdf",
       },
     ],
   },

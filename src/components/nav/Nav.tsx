@@ -88,7 +88,11 @@ const Nav: React.FC = () => {
           </Link>
         </Li>
         <Li>
-          <Link to={`/${constants.nav.blogs}`}>
+          <Link
+            to="https://medium.com/@arkajyoti31"
+            target="_blank"
+            rel="noopener"
+          >
             <Body1>{constants.nav.blogs}</Body1>
           </Link>
         </Li>

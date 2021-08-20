@@ -34,13 +34,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `blogs`,
-        path: `${__dirname}/content/blogs`,
-      },
-    },
-    {
       resolve: "gatsby-plugin-react-axe",
       options: {
         showInProduction: false,
@@ -59,12 +52,6 @@ module.exports = {
     `gatsby-plugin-typescript`,
     `gatsby-plugin-optimize-svgs`,
     `gatsby-plugin-sitemap`,
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        extensions: [`.mdx`, `.md`],
-      },
-    },
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {

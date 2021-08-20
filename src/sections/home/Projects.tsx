@@ -165,6 +165,7 @@ const Projects: React.FC = () => {
       <SectionHeadText shiftRight>{constants.projects.heading}</SectionHeadText>
       <ProjectsContainer>
         {constants.projects.projectList.map((project: Project, index) => {
+          console.log(project.projectID);
           const images = projectImages[project.projectID];
           return expanded[project.projectID] ? (
             <ProjectExpanded id={project.name}>
