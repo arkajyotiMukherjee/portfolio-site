@@ -73,12 +73,12 @@ const Nav: React.FC = () => {
       <Logo />
       <Ul>
         <Li>
-          <Link to={`#${constants.nav.about}`}>
+          <Link to={`/#${constants.nav.about}`}>
             <Body1>{constants.nav.about}</Body1>
           </Link>
         </Li>
         <Li>
-          <Link to={`#${constants.nav.projects}`}>
+          <Link to={`/#${constants.nav.projects}`}>
             <Body1>{constants.nav.projects}</Body1>
           </Link>
         </Li>
@@ -88,11 +88,7 @@ const Nav: React.FC = () => {
           </Link>
         </Li>
         <Li>
-          <Link
-            to="https://medium.com/@arkajyoti31"
-            target="_blank"
-            rel="noopener"
-          >
+          <Link to={`/${constants.nav.blogs}`}>
             <Body1>{constants.nav.blogs}</Body1>
           </Link>
         </Li>

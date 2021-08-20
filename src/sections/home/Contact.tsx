@@ -1,18 +1,18 @@
 import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
-import { constants } from "../../../constants";
-import contact from "../../../images/svg/contact.svg";
-import { Chip } from "../../chip";
+import { Chip } from "../../components/chip";
 import {
   BoundedContainer,
   Center,
   ResponsiveRow,
   RowCentered,
   Section,
-} from "../../layout";
-import { Anchor, DownloadFile } from "../../link";
-import { Body1, SectionHeadText } from "../../texts";
+} from "../../components/layout";
+import { Anchor, DownloadFile } from "../../components/link";
+import { Body1, SectionHeadText } from "../../components/texts";
+import { constants } from "../../constants";
+import contact from "../../images/svg/contact.svg";
 
 const ContactWrapper = styled(Section)`
   top: 2px;

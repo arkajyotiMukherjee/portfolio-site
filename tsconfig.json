@@ -11,7 +11,12 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "typeRoots": ["node_modules/@types/", "./src/@types/", "./src/@types/assets.d.ts", ".src/**/@types/"],
+    "typeRoots": [
+      "node_modules/@types/",
+      "./src/@types/",
+      "./src/@types/assets.d.ts",
+      ".src/**/@types/"
+    ],
     "strict": true
   }
 }

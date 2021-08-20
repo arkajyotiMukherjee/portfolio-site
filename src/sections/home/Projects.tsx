@@ -2,22 +2,29 @@ import { navigate } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { constants, Project } from "../../../constants";
-import close from "../../../images/svg/close.svg";
-import { bpMaxLG, bpMaxMD, bpMaxSM } from "../../../styles/breakpoint";
-import { Carousel } from "../../carousel";
-import { Chip } from "../../chip";
-import { getProjectCovers, getProjectImages } from "../../image-fetch";
-import { BoundedContainer, ResponsiveRow, Section } from "../../layout";
-import { ExternalLink } from "../../link";
-import { WrappedList } from "../../list";
+import { Carousel } from "../../components/carousel";
+import { Chip } from "../../components/chip";
+import {
+  getProjectCovers,
+  getProjectImages,
+} from "../../components/image-fetch";
+import {
+  BoundedContainer,
+  ResponsiveRow,
+  Section,
+} from "../../components/layout";
+import { ExternalLink } from "../../components/link";
+import { WrappedList } from "../../components/list";
 import {
   Body1,
   Body2,
   SectionHeadText,
   SubHeading1,
   SubHeading2,
-} from "../../texts";
+} from "../../components/texts";
+import { constants, Project } from "../../constants";
+import close from "../../images/svg/close.svg";
+import { bpMaxLG, bpMaxMD, bpMaxSM } from "../../styles/breakpoint";
 
 const ProjectsContainer = styled.div`
   position: relative;

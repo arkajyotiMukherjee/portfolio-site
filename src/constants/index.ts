@@ -272,7 +272,7 @@ const constants = {
   contact: {
     heading: "Contact",
     dropMail: "You can drop me an email at ",
-    email: "arkajyoti31@gmail.com",
+    email: "contact@arkajyotimukherjee.com",
     reachMe: "or reach me via:",
     socialLinks: [
       {
@@ -295,11 +295,11 @@ const constants = {
     resumes: [
       {
         format: "pdf",
-        url: "https://github.com/arkajyotiMukherjee/portfolio-site/raw/main/resume/Arkajyoti-Mukherjee-Resume.pdf",
+        url: "https://github.com/arkajyotiMukherjee/portfolio-site/raw/main/content/resume/Arkajyoti-Mukherjee-Resume.pdf",
       },
       {
         format: "docx",
-        url: "https://github.com/arkajyotiMukherjee/portfolio-site/raw/main/resume/Arkajyoti-Mukherjee-Resume.docx",
+        url: "https://github.com/arkajyotiMukherjee/portfolio-site/raw/main/content/resume/Arkajyoti-Mukherjee-Resume.docx",
       },
     ],
   },

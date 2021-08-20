@@ -1,6 +1,6 @@
-import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { Helmet } from "react-helmet";
+import { Meta, useSiteMetadata } from "../../hooks";
 
 type MetaItem = {
   name: string;
@@ -18,22 +18,7 @@ type SEOProps = {
 };
 
 const SEO: React.FC<SEOProps> = props => {
-  const data = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          siteTitle
-          siteDescription
-          siteAuthor
-          siteUrl
-          siteKeywords
-          siteImage
-        }
-      }
-    }
-  `);
-
-  const { siteMetadata } = data.site;
+  const siteMetadata = useSiteMetadata();
 
   const {
     siteTitle,
@@ -41,7 +26,7 @@ const SEO: React.FC<SEOProps> = props => {
     siteAuthor,
     siteUrl,
     meta = [],
-    siteKeywords = [],
+    siteKeywords,
     siteImage,
   } = siteMetadata;
   const title = props.title || siteTitle;
@@ -50,7 +35,7 @@ const SEO: React.FC<SEOProps> = props => {
   const author = props.author || siteAuthor;
   const image = props.image || siteImage;
   const keywords = [...siteKeywords, props.keywords].join(",");
-  const metaData = [
+  const metaData: Meta[] = [
     {
       name: "canonical",
       content: url,

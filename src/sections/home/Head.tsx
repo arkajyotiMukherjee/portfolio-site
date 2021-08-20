@@ -1,8 +1,12 @@
 import React from "react";
-import { constants } from "../../../constants";
-import hero from "../../../images/svg/hero.svg";
-import { BoundedContainer, Center, ResponsiveRow } from "../../layout";
-import { Heading } from "../../texts";
+import {
+  BoundedContainer,
+  Center,
+  ResponsiveRow,
+} from "../../components/layout";
+import { Heading } from "../../components/texts";
+import { constants } from "../../constants";
+import hero from "../../images/svg/hero.svg";
 
 const Head: React.FC = () => {
   return (

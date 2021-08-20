@@ -2,14 +2,24 @@ import { ParentSize } from "@visx/responsive";
 import { StaticImage } from "gatsby-plugin-image";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { constants } from "../../../constants";
-import { Chip } from "../../chip";
-import { HierarchyGraph } from "../../graphs/hierarchyGraph";
-import { BoundedContainer, ResponsiveRow, Section } from "../../layout";
-import { Anchor } from "../../link";
-import { VerticalSteps } from "../../steps";
-import { TabPane, Tabs } from "../../tabs";
-import { Body1, Body2, Body3, SectionHeadText, SubHeading2 } from "../../texts";
+import { Chip } from "../../components/chip";
+import { HierarchyGraph } from "../../components/graphs/hierarchyGraph";
+import {
+  BoundedContainer,
+  ResponsiveRow,
+  Section,
+} from "../../components/layout";
+import { Anchor } from "../../components/link";
+import { VerticalSteps } from "../../components/steps";
+import { TabPane, Tabs } from "../../components/tabs";
+import {
+  Body1,
+  Body2,
+  Body3,
+  SectionHeadText,
+  SubHeading2,
+} from "../../components/texts";
+import { constants } from "../../constants";
 
 const ProfileWrapper = styled(BoundedContainer).attrs({
   breakpoint: "lg",
@@ -138,7 +148,7 @@ const About: React.FC = () => {
       <ResponsiveRow breakpoint="lg">
         <ProfileWrapper>
           <StaticImage
-            src="../../../images/profile.jpg"
+            src="../../images/profile.jpg"
             alt="picture of Arkajyoti Mukherjee"
             placeholder="blurred"
           />

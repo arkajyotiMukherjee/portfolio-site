@@ -126,12 +126,12 @@ const Body2 = styled.p<IText>`
   text-align: ${props => props.textAlign ?? "left"};
   font-family: "Inter", Arial, sans-serif;
 
-  font-size: ${props => props.theme.fontSize.body1.xxl};
+  font-size: ${props => props.theme.fontSize.body2.xxl};
   ${bpMaxXL} {
-    font-size: ${props => props.theme.fontSize.body1.xl};
+    font-size: ${props => props.theme.fontSize.body2.xl};
   }
   ${bpMaxMD} {
-    font-size: ${props => props.theme.fontSize.body1.md};
+    font-size: ${props => props.theme.fontSize.body2.md};
   }
 `;
 
