@@ -132,31 +132,32 @@ const constants = {
             designation: "SDE",
             company: "ChaosNative",
             location: "Bangaluru, Karnataka, India",
-            startDate: "Feb 2021",
+            startDate: "May 2021",
             endDate: "Present",
             description: `
-              * Create a CLI for LitmusChaos named litmusctl in Go with Cobra and Viper.
-              * Worked towards releasing Litmus 2.0 with enchantment such as LitmusPortal, Gitops, and Probs for resiliency calculation of the system.
+              * Created the foundation and lead frontend developer for ChaosCenter, an on-prem portal that comes with LitmusChaos 2.0 installation (CNCF sandbox project for Chaos Engineering).
+              * Was responsible for the Information Architecture for the docs for Litmuschaos 2.0 (https://docs.litmuschaos.io/).
+              * Created and Maintained an opensource UI library named litmus-ui (https://ui.litmuschaos.io).
+              * Worked on an open source CLI for LitmusChaos called litmusctl with Golang, cobra and viper to create a cluster agent and execute Litmus CRDs in a cluster
+              * Worked on Observability of Chaos injected by Chaos Engineering frameworks like Litmus.
+              * Created several backend APIs and optimized Database querying in mongoDB.
               * Created the Unit testing setup for the backend, written in Go.
-              * Working on Observability of Chaos injected by Chaos Engineering frameworks like Litmus.
+              * Build the main website for LitmusChaos (https://litmuschaos.io/) and an Experiment Hub for LitmusChaos (https://hub.litmuschaos.io/).
             `,
           },
           {
             id: "2",
-            designation: "SDE",
+            designation: "SDE Intern",
             company: "Mayadata",
             location: "Bangaluru, Karnataka, India",
             startDate: "May 2020",
-            endDate: "Feb 2021",
+            endDate: "May 2021",
             description: `
-              * Created the foundation and lead frontend developer for Litmus Portal, an on-prem portal that comes with LitmusChaos installation (CNCF sandbox project for Chaos Engineering).
-              * Created and lead the frontend team of Kubera (an enterprise SaaS platform) that involved various products like an OEM for Lirmus Portal, Mayastor and other products related to data storage and backup in Kubernetes.
+              * Created and lead the frontend team of Kubera (an enterprise SaaS platform) that involved various products like an OEM for Litmus Portal, Mayastor and other products related to data storage and backup in Kubernetes.
               * Worked on kuberactl a CLI for interacting with the Kubera Enterprise in Go with Cobra and Viper.
-              * Build the main website for LitmusChaos (https://litmuschaos.io/) and an Experiment Hub for LitmusChaos (https://hub.litmuschaos.io/).
               * Created a component library in React (published in npm here: https://www.npmjs.com/package/kubera-ui).
               * Coached several employees on React, Typescript, GraphQL, Apollo and MaterialUI.
-              * Held interviews for recruitment two times.
-              * Helped in introducing graphql to the company.
+              * Held interviews for recruitment multiple times.
             `,
           },
           {
