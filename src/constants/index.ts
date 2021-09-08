@@ -131,7 +131,7 @@ const constants = {
             id: "1",
             designation: "SDE",
             company: "ChaosNative",
-            location: "Bangaluru, Karnataka, India",
+            location: "Bengaluru, Karnataka, India",
             startDate: "May 2021",
             endDate: "Present",
             description: `
@@ -149,7 +149,7 @@ const constants = {
             id: "2",
             designation: "SDE Intern",
             company: "Mayadata",
-            location: "Bangaluru, Karnataka, India",
+            location: "Bengaluru, Karnataka, India",
             startDate: "May 2020",
             endDate: "May 2021",
             description: `
@@ -175,9 +175,9 @@ const constants = {
           },
           {
             id: "4",
-            designation: "Frontend Web Developer",
-            company: "Lattice Protocol",
-            location: "Bhubaneswar, Odisha, India",
+            designation: "Frontend Web Developer Intern",
+            company: "Lattice Engineering",
+            location: "Bengaluru, Karnataka, India",
             startDate: "Mar 2018",
             endDate: "July 2018",
             description: `
